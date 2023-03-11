@@ -1,9 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : Entity
+public class Enemy : Entity, IHealth, IDamageable
 {
+    private int _maxHealth;
+    private int _currentHealth;
+
+    public event Action<int, int> OnHealthChanged;
+    public override event Action<Entity> OnDie;
+
     private IDamageDealer _damageDealer;
 
     private float _moveSpeed;
@@ -83,6 +89,21 @@ public class Enemy : Entity
         _damageDealer.TryDamage(_target);
     }
 
+    private bool IsAlive()
+    {
+        return _currentHealth > 0;
+    }
+
+    public override void ApplyDamage(int damage)
+    {
+        _currentHealth -= damage;
+        OnHealthChanged?.Invoke(_maxHealth, _currentHealth);
+
+        if (!IsAlive())
+        {
+            OnDie?.Invoke(this);
+        }
+    }
 
     private void Start()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangeDamageDealer : MonoBehaviour, IDamageDealer
 {
-    private Entity _enemy;
+    private Entity _entity;
 
     private float _attackTime;
     
@@ -13,10 +13,10 @@ public class RangeDamageDealer : MonoBehaviour, IDamageDealer
         if (_attackTime <= 0)
         {
             _attackTime = Constants.ATTTACK_INTERVAL;
-            target.ApplyDamage(_enemy.Damage);
+            target.ApplyDamage(_entity.Damage);
         }
 
-        _attackTime -= Time.deltaTime * _enemy.AttackSpeed;
+        _attackTime -= Time.deltaTime * _entity.AttackSpeed;
     }
     
     public void Rest()
@@ -26,6 +26,6 @@ public class RangeDamageDealer : MonoBehaviour, IDamageDealer
 
     private void Awake()
     {
-        _enemy = GetComponent<Enemy>();
+        _entity = GetComponent<Enemy>();
     }
 }

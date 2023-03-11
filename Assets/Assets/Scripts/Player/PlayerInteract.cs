@@ -1,18 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInteract : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public event Action<string> OnInteracted;
 
-    // Update is called once per frame
-    void Update()
+    public void InteractWithItem(string itemKey)
     {
-        
+        OnInteracted.Invoke(itemKey);
     }
 }

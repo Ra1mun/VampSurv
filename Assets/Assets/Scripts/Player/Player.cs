@@ -1,9 +1,28 @@
 using System;
+using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 [RequireComponent(typeof(PhysicsMovement))]
-public class Player : Entity
+[RequireComponent(typeof(PlayerInteract))]
+public class Player : Entity, IHealth, IDamageable
 {
+    //[SerializeField] private Specialization spec;
+
+    //[SerializeField] private Dictionary<ItemType, string> _items
+    //    = new Dictionary<ItemType, string>()
+    //    {
+    //        [ItemType.Weapon] = "Bow",
+    //        [ItemType.Chest] = "Curiass"
+    //    };
+    private IStatsProvider _provider;
+
+    private int _maxHealth;
+    private int _currentHealth;
+
+    public event Action<int, int> OnHealthChanged;
+    public override event Action<Entity> OnDie;
+
     private IDamageDealer _damageDealer;
     
     private float _moveSpeed;
@@ -12,30 +31,56 @@ public class Player : Entity
 
     private PlayerInteract _playerInteract;
 
-    public void Initialize(int maxHealth, float attackDistance, float attackSpeed, int damage, float moveSpeed)
+    private void GetDefualtStats()
     {
-        _maxHealth = maxHealth;
-        _attackDistance = attackDistance;
-        _attackSpeed = attackSpeed;
-        _damage = damage;
-        _moveSpeed = moveSpeed;
+        _provider = new DefualtStats();
     }
-    
+
+    private void GetItemStats(string itemKey)
+    {
+        _provider = new ItemStatsDecorator(_provider, itemKey);
+        Debug.Log(_provider.GetStats().MaxHealth);
+    }
+
     public override void OnUpdate(ITargetFinder targetFinder)
     {
         
     }
-    
+
+    private bool IsAlive()
+    {
+        return _currentHealth > 0;
+    }
+
+    public override void ApplyDamage(int damage)
+    {
+        _currentHealth -= damage;
+        OnHealthChanged?.Invoke(_maxHealth, _currentHealth);
+
+        if (!IsAlive())
+        {
+            OnDie?.Invoke(this);
+            _playerInteract.OnInteracted -= GetItemStats;
+        }
+    }
+
     private void Start()
     {
-        _currentHealth = _maxHealth;
-
-        _physicsMovement.Init(_moveSpeed);
+        GetDefualtStats();
+        Debug.Log(_provider.GetStats().MaxHealth);
+        _playerInteract.OnInteracted += GetItemStats;
+        _currentHealth = _provider.GetStats().MaxHealth;
+        _physicsMovement.Init(_provider.GetStats().MoveSpeed);
     }
+
     private void Awake()
     {
+        _playerInteract = GetComponent<PlayerInteract>();
         _physicsMovement = GetComponent<PhysicsMovement>();
         _damageDealer = GetComponent<IDamageDealer>();
     }
-
+    private void OnDisable()
+    {
+        _playerInteract.OnInteracted -= GetItemStats;
+    }
 }
