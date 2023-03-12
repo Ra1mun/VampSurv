@@ -39,7 +39,6 @@ public class Player : Entity, IHealth, IDamageable
     private void GetItemStats(string itemKey)
     {
         _provider = new ItemStatsDecorator(_provider, itemKey);
-        Debug.Log(_provider.GetStats().MaxHealth);
     }
 
     public override void OnUpdate(ITargetFinder targetFinder)
@@ -67,7 +66,6 @@ public class Player : Entity, IHealth, IDamageable
     private void Start()
     {
         GetDefualtStats();
-        Debug.Log(_provider.GetStats().MaxHealth);
         _playerInteract.OnInteracted += GetItemStats;
         _currentHealth = _provider.GetStats().MaxHealth;
         _physicsMovement.Init(_provider.GetStats().MoveSpeed);
