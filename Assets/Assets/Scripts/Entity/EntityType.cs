@@ -2,5 +2,6 @@ public enum EntityType
 {
     Player,
     Allies,
-    Enemy
+    Enemy,
+    Tower
 }

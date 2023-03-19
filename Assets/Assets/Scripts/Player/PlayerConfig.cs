@@ -14,6 +14,6 @@ public class PlayerConfig : MonoBehaviour
 
     private void Start()
     {
-        Player.Initialize(MaxHealth, AttackDistance, AttackSpeed, Damage, MoveSpeed);
+        //Player.Initialize(MaxHealth, AttackDistance, AttackSpeed, Damage, MoveSpeed);
     }
 }
