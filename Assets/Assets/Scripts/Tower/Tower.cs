@@ -1,4 +1,8 @@
 using System;
+<<<<<<< HEAD
+=======
+using UnityEngine;
+>>>>>>> BorisBranch
 
 public class Tower : Entity
 {
@@ -9,28 +13,44 @@ public class Tower : Entity
     public override event Action<Entity> OnDie;
 
     private Entity _target;
+    //TowerStats _stats;
+    //private IDamageDealer _damageDealer;
+    public static Tower instance;
 
-    private IDamageDealer _damageDealer;
-    
-    public void Initialize(int maxHealth, float attackDistance, float attackSpeed, int damage, EntityType type)
+    public override event Action<Entity> OnDie;
+
+    private void Awake()
     {
-        _maxHealth = maxHealth;
-        _attackDistance = attackDistance;
-        _attackSpeed = attackSpeed;
-        _damage = damage;
-        _type = type;
+        //_stats = new TowerStats();
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
+    //public void Initialize(int maxHealth, float attackDistance, float attackSpeed, int damage, EntityType type)
+    //{
+
+    //}
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
+        //Debug.Log(_stats.DebugGetStats());
+    }
+    public void UpdateStats(int maxHealth) // В будущем лучше сделать прослойку. Типа StatsManager
+    {
+        //_stats._maxHealth += maxHealth;
     }
 
     public override void OnUpdate(ITargetFinder targetFinder)
     {
-        
+
     }
 
+<<<<<<< HEAD
     private bool IsAlive()
     {
         return _currentHealth > 0;
@@ -48,7 +68,10 @@ public class Tower : Entity
     }
 
     private void Awake()
+=======
+    public override void ApplyDamage(int damage)
+>>>>>>> BorisBranch
     {
-        _damageDealer = GetComponent<IDamageDealer>();
+        throw new NotImplementedException();
     }
 }
