@@ -5,12 +5,12 @@ public class InteractableItem : MonoBehaviour
     private Item _item;
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {      
+    {
         collision.gameObject.Route<PlayerInteract>(_item.TakeItem);
     }
 
-    private void Awake()
+    private void Initialize(Item item)
     {
-        _item = GetComponent<Item>();
+        _item = item;
     }
 }

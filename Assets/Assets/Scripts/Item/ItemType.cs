@@ -1,8 +1,8 @@
-﻿enum ItemType
+﻿internal enum ItemType
 {
     Weapon,
     Chest,
     Helmet,
     Gloves,
-    Legs,
+    Legs
 }

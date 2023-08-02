@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public abstract class StatsDecorator : IStatsProvider
+﻿public abstract class StatsDecorator : IStatsProvider
 {
     protected readonly IStatsProvider _wrappedEntity;
 

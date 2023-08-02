@@ -1,5 +1,5 @@
 public enum Specialization
 {
     Warrior,
-    Ancher,
+    Ancher
 }

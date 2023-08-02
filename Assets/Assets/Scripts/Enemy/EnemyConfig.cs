@@ -1,14 +1,10 @@
 using System;
-using UnityEngine.Serialization;
+using UnityEngine;
 
-[Serializable]
-
-public class EnemyConfig
+[CreateAssetMenu(menuName = "Config/EnemyConfig", fileName = "EnemyConfig", order = 0)]
+public class EnemyConfig : EntityConfig
 {
-    public Enemy Prefab;
-    public float MoveSpeed;
-    public int MaxHealth;
-    public float AttackDistance;
-    public float AttackSpeed;
-    public int Damage;
+    [SerializeField] private Enemy _prefab;
+    
+    public Enemy Prefab => _prefab;
 }
