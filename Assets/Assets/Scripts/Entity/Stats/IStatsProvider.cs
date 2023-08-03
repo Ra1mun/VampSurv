@@ -1,4 +1,4 @@
 ﻿public interface IStatsProvider
 {
-    PlayerStats GetStats();
+    Stats GetStats();
 }

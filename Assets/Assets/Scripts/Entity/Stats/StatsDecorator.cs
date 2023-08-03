@@ -7,10 +7,10 @@
         _wrappedEntity = wrappedEntity;
     }
 
-    public PlayerStats GetStats()
+    public Stats GetStats()
     {
         return GetStatsInternal();
     }
 
-    protected abstract PlayerStats GetStatsInternal();
+    protected abstract Stats GetStatsInternal();
 }

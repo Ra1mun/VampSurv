@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2b464e37ab14af2a47e9e0b5ae1fb02, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: ee5f59971378468381ea537e423fc4ad, type: 3}
+  m_Name: Item_Curiass
   m_EditorClassIdentifier: 
   _attackDistance: 0
-  _moveSpeed: 10
+  _moveSpeed: -3
   _attackSpeed: 0
   _damage: 0
-  _maxHealth: 150
+  _maxHealth: 20
+  _name: Curiass

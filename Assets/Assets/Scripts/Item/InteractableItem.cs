@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class InteractableItem : MonoBehaviour
 {
-    private Item _item;
+    [SerializeField] private string _itemKey;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.Route<PlayerInteract>(_item.TakeItem);
-    }
-
-    private void Initialize(Item item)
-    {
-        _item = item;
+        if (collision.gameObject.TryGetComponent<PlayerInteract>(out PlayerInteract instance))
+        {
+            instance.InteractWithItem(_itemKey);
+            Destroy(gameObject);
+        }
     }
 }

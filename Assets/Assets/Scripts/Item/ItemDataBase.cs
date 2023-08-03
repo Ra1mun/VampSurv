@@ -6,12 +6,12 @@ public class ItemDataBase : ScriptableObject
 {
     [SerializeField] private ItemConfig _testItem;
     
-    public PlayerStats GetStats(string itemKey)
+    public Stats GetStats(string itemKey)
     {
         switch (itemKey)
         {
             case "Curiass":
-                return new PlayerStats
+                return new Stats
                 {
                     MaxHealth = _testItem.MaxHealth,
                     MoveSpeed = _testItem.MoveSpeed

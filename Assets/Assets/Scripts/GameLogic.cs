@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,11 @@ public class GameLogic : MonoBehaviour, ITargetFinder
 
     private readonly List<Entity> _entities = new List<Entity>();
 
+    public event Action GameOver;
+
     private void Awake()
     {
+        OnEntitySpawned(_player);
         _enemySpawner.OnEnemySpawned += OnEntitySpawned;
     }
 
@@ -61,6 +65,9 @@ public class GameLogic : MonoBehaviour, ITargetFinder
 
     private void DestroyEntity(Entity entity)
     {
+        if(entity == GetComponent<Player>())
+            GameOver?.Invoke();
+        
         entity.Health.OnDie -= DestroyEntity;
         _entities.Remove(entity);
         Destroy(entity.gameObject);

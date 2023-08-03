@@ -10,13 +10,17 @@ public class PlayerMovement : EntityMoveable
 
     private Rigidbody2D _rigidbody;
 
-    private float _speed => _player.Config.MoveSpeed;
+    public float _speed => _player.Stats.GetStats().MoveSpeed;
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        Initialize();
     }
 
+    private void Initialize()
+    {
+        _rigidbody = GetComponent<Rigidbody2D>();
+    }
     private void OnEnable()
     {
         _input.OnInput += Move;

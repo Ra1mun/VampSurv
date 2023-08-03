@@ -10,16 +10,12 @@ public class ItemStatsDecorator : StatsDecorator
     public ItemStatsDecorator(IStatsProvider wrappedEntity, string itemKey) : base(wrappedEntity)
     {
         _itemKey = itemKey;
-        _data = Resources.Load<ItemDataBase>("Config/ItemDataBase");
+        _data = Resources.Load<ItemDataBase>("Source/ItemDataBase");
     }
 
-    protected override PlayerStats GetStatsInternal()
+    protected override Stats GetStatsInternal()
     {
-        var stats = new PlayerStats();
-        //foreach(var item in _itemKeys)
-        //{
-        //    stats += _data.GetStats(item);
-        //}
+        var stats = new Stats();
         stats += _data.GetStats(_itemKey);
         return _wrappedEntity.GetStats() + stats;
     }

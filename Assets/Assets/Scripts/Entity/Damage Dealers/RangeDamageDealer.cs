@@ -10,15 +10,15 @@ public class RangeDamageDealer : MonoBehaviour, IDamageDealer
         _entity = GetComponent<Entity>();
     }
 
-    public void TryDamage(EntityHealth target, int damage)
+    public void TryDamage(Entity target, int damage)
     {
         if (_attackTime <= 0)
         {
             _attackTime = Constants.ATTTACK_INTERVAL;
-            target.ApplyDamage(damage);
+            target.Damagable.ApplyDamage(damage);
         }
 
-        _attackTime -= Time.deltaTime * _entity.Config.AttackSpeed;
+        _attackTime -= Time.deltaTime * _entity.Stats.GetStats().AttackSpeed;
     }
 
     public void Rest()

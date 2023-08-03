@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public event Action<string> OnInteracted;
+    [SerializeField] private Player _player;
+    public event Action<Stats> OnStatsChanged;
 
     public void InteractWithItem(string itemKey)
     {
-        OnInteracted.Invoke(itemKey);
+        _player.Stats.Provider = new ItemStatsDecorator(_player.Stats.Provider, itemKey);
+        OnStatsChanged.Invoke(_player.Stats.GetStats());
     }
 }

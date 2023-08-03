@@ -1,5 +1,5 @@
 public interface IDamageDealer
 {
     void Rest();
-    void TryDamage(EntityHealth target, int damage);
+    void TryDamage(Entity target, int damage);
 }
