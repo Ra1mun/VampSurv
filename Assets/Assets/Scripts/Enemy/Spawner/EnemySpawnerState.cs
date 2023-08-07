@@ -1,5 +1,6 @@
 public enum EnemySpawnerState
 {
     Start,
-    Update
+    Update,
+    Never
 }

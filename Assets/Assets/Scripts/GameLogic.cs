@@ -1,35 +1,48 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameLogic : MonoBehaviour, ITargetFinder
 {
+    [Header("Spawners")]
     [SerializeField] private EnemySpawner _enemySpawner;
 
+    [Header("Player")]
     [SerializeField] private Player _player;
 
-    private readonly List<Entity> _entities = new List<Entity>();
+    [Header("ItemDataBase")] 
+    [SerializeField] private ItemDataBase _data;
+    
+    [Header("All Entities")]
+    [SerializeField] private List<Entity> _entities = new List<Entity>();
+    [Header("Enemies")]
+    [SerializeField] private  List<Enemy> _enemies = new List<Enemy>();
+    [Header("Items")]
+    [SerializeField] private List<Item> _items = new List<Item>();
 
     public event Action GameOver;
 
-    private void Awake()
+    private void OnEnable()
     {
-        OnEntitySpawned(_player);
-        _enemySpawner.OnEnemySpawned += OnEntitySpawned;
+        _entities.Add(_player);
+        _enemySpawner.OnEnemySpawned += OnEnemySpawned;
     }
 
     private void Update()
     {
-        foreach (var entity in _entities)
+        _enemySpawner.OnUpdate();
+        
+        foreach (var enemy in _enemies)
         {
-            if(entity.FindTarget != null)
-                entity.FindTarget.OnUpdate(this);
+            enemy.TargetFinder.OnUpdate(this);
         }
-    }
 
-    private void OnDestroy()
-    {
-        _enemySpawner.OnEnemySpawned -= OnEntitySpawned;
+        foreach (var item in _items)
+        {
+            if(item.TargetFinder != null)
+                item.TargetFinder.OnUpdate(this);
+        }
     }
 
     Entity ITargetFinder.FindTarget(Entity entity)
@@ -54,22 +67,34 @@ public class GameLogic : MonoBehaviour, ITargetFinder
         return result;
     }
 
-    private void OnEntitySpawned(Entity entity)
+    private void OnEnemySpawned(Enemy enemy)
     {
-        if(entity.Health == null)
-            return;
+        _enemies.Add(enemy);
+        _entities.Add(enemy);
+        enemy.Health.OnDie += DestroyEntity;
         
-        entity.Health.OnDie += DestroyEntity;
-        _entities.Add(entity);
     }
 
+    public void OnItemInteracted(ItemID itemID)
+    {
+        var instance = _data.GetItem(itemID);
+        //  instance.Initialize();
+        Instantiate(instance, _player.transform);
+        _items.Add(instance);
+    }
+    
     private void DestroyEntity(Entity entity)
     {
-        if(entity == GetComponent<Player>())
-            GameOver?.Invoke();
-        
         entity.Health.OnDie -= DestroyEntity;
         _entities.Remove(entity);
+        if (entity.TryGetComponent(out Enemy enemy))
+            _enemies.Remove(enemy);
         Destroy(entity.gameObject);
+    }
+    
+    private void OnDisable()
+    {
+        _entities.Remove(_player);
+        _enemySpawner.OnEnemySpawned -= OnEnemySpawned;
     }
 }

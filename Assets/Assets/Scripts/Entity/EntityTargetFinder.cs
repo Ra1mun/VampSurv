@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class EntityFindTarget : MonoBehaviour
+public abstract class EntityTargetFinder : MonoBehaviour
 {
     public abstract void OnUpdate(ITargetFinder targetFinder);
 }

@@ -10,7 +10,7 @@ public class PlayerMovement : EntityMoveable
 
     private Rigidbody2D _rigidbody;
 
-    public float _speed => _player.Stats.GetStats().MoveSpeed;
+    private float _speed => _player.Stats.GetStats().MoveSpeed;
 
     private void Awake()
     {

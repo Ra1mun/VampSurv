@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyFindTarget : EntityFindTarget
+public class EnemyFindTarget : EntityTargetFinder
 {
     [SerializeField] private Enemy _entity;
     private int _damage => _entity.Stats.GetStats().Damage;
@@ -68,5 +68,4 @@ public class EnemyFindTarget : EntityFindTarget
 
         _damageDealer.TryDamage(_target, _damage);
     }
-        
 }

@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _delayBeforeSpawn;
 
     [SerializeField] private EnemySpawnerState _state;
+    
+    public event Action<Enemy> OnEnemySpawned;
 
     private float _elapsedTime;
 
@@ -19,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
         if (_spawnPositions.Count == 0) _spawnPositions.Add(Vector3.zero);
     }
 
-    private void Update()
+    public void OnUpdate()
     {
         switch (_state)
         {
@@ -27,14 +29,14 @@ public class EnemySpawner : MonoBehaviour
                 Single();
                 break;
             case EnemySpawnerState.Update:
-                OnUpdate();
+                SpawnUpdate();
                 break;
         }
     }
 
-    public event Action<Enemy> OnEnemySpawned;
+    
 
-    private void OnUpdate()
+    private void SpawnUpdate()
     {
         if (_elapsedTime > _delayBeforeSpawn)
         {

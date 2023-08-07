@@ -2,21 +2,20 @@ using UnityEngine;
 
 public class ItemStatsDecorator : StatsDecorator
 {
-    protected readonly ItemDataBase _data;
+    private readonly ItemDataBase _data;
+    
+    private readonly ItemID _itemID;
 
-    //protected readonly IEnumerable<string> _itemKeys;
-    protected readonly string _itemKey;
-
-    public ItemStatsDecorator(IStatsProvider wrappedEntity, string itemKey) : base(wrappedEntity)
+    public ItemStatsDecorator(IStatsProvider wrappedEntity, ItemID itemID) : base(wrappedEntity)
     {
-        _itemKey = itemKey;
+        _itemID = itemID;
         _data = Resources.Load<ItemDataBase>("Source/ItemDataBase");
     }
 
     protected override Stats GetStatsInternal()
     {
         var stats = new Stats();
-        stats += _data.GetStats(_itemKey);
+        stats += _data.GetStats(_itemID);
         return _wrappedEntity.GetStats() + stats;
     }
 }

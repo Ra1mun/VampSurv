@@ -1,13 +1,10 @@
+using System;
 using UnityEngine;
-
-[RequireComponent(typeof(InteractableItem))]
-public class Item : MonoBehaviour
+public class Item : Entity
 {
-    [SerializeField] private string _itemKey;
+    [SerializeField] private ItemMoveable _itemMoveable;
 
-    public void TakeItem(PlayerInteract instance)
-    {
-        instance.InteractWithItem(_itemKey);
-        Destroy(gameObject);
-    }
+    public ItemMoveable Moveable => _itemMoveable;
+    
+    
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 public abstract class EntityHealth: MonoBehaviour, IHealth
 {
     [SerializeField] private Entity _entity;
-
+    
     private int _currentHealth;
     
-    protected int _maxHealth;
+    [SerializeField] private int _maxHealth => _entity.Stats.Provider.GetStats().MaxHealth;
     
     public event Action<int> OnMaxHealthChanged;
     public event Action<int> OnHealthChanged;
@@ -36,14 +36,5 @@ public abstract class EntityHealth: MonoBehaviour, IHealth
             OnHealthChanged?.Invoke(_currentHealth);
         }
     }
-
-    private void Awake()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
-        MaxHealth = _entity.Stats.GetStats().MaxHealth;
-    }
+    
 }

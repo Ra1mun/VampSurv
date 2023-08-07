@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8fa2be4f31e1744a7e79b3a371504d, type: 3}
   m_Name: Enemy_TestEnemy
   m_EditorClassIdentifier: 
-  _attackDistance: 0
-  _moveSpeed: 0
-  _attackSpeed: 0
-  _damage: 0
-  _maxHealth: 0
-  _prefab: {fileID: 0}
+  _attackDistance: 10
+  _moveSpeed: 2
+  _attackSpeed: 3
+  _damage: 5
+  _maxHealth: 100
+  _prefab: {fileID: 7350069777914750262, guid: 87599ff313a358548a6a2702ad5a22b3, type: 3}

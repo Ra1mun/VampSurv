@@ -5,6 +5,8 @@ public struct Stats
     public float AttackSpeed { get; set; }
     public float AttackDistance { get; set; }
     public int Damage { get; set; }
+    
+    public int Armor { get; set; }
 
     public static Stats operator +(Stats a, Stats b)
     {
@@ -15,6 +17,7 @@ public struct Stats
             Damage = a.Damage + b.Damage,
             AttackDistance = a.AttackDistance + b.AttackDistance,
             AttackSpeed = a.AttackSpeed + b.AttackSpeed,
+            Armor = a.Armor + b.Armor
         };
     }
 
@@ -27,6 +30,7 @@ public struct Stats
             Damage = a.Damage * b.Damage,
             AttackDistance = a.AttackDistance * b.AttackDistance,
             AttackSpeed = a.AttackSpeed * b.AttackSpeed,
+            Armor = a.Armor * b.Armor
         };
     }
 }
