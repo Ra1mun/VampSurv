@@ -16,6 +16,7 @@ public class InitializeStats : IStatsProvider
             MaxHealth = _config.MaxHealth,
             AttackDistance = _config.AttackDistance,
             AttackSpeed = _config.AttackSpeed,
+            AttackCooldown = _config.AttackCooldown,
         };
     }
 }

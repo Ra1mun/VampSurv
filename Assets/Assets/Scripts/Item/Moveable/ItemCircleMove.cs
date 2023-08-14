@@ -1,7 +1,7 @@
-using System;
+    using System;
 using UnityEngine;
 
-public class ItemCircleMove : ItemMoveable
+public class ItemCircleMove : ItemMovable
 {
     [SerializeField] private Item _item;
     

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7646400181219745252}
   - component: {fileID: 4279340429177136113}
   - component: {fileID: 5810938530527065472}
-  - component: {fileID: 2462589605891881949}
+  - component: {fileID: 4487389002391412362}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -104,8 +104,7 @@ MonoBehaviour:
   EntityTargetFinder: {fileID: 0}
   _entityDamagable: {fileID: 0}
   _entityStats: {fileID: 5810938530527065472}
-  _itemMoveable: {fileID: 2462589605891881949}
-  _center: {fileID: 0}
+  _itemMovable: {fileID: 4487389002391412362}
 --- !u!114 &5810938530527065472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: {fileID: 4279340429177136113}
---- !u!114 &2462589605891881949
+--- !u!114 &4487389002391412362
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,8 +127,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3487958453375225546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e483e96e7d45fca64a33e287e4bed2, type: 3}
+  m_Script: {fileID: 11500000, guid: c5b25f7d488d408498e47eacb68af38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _item: {fileID: 4279340429177136113}
-  _radius: 15.41
+  _radius: 0.5

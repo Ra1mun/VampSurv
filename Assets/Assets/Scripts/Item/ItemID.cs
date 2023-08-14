@@ -1,5 +1,6 @@
 ﻿public enum ItemID
 {
     Curiass,
-    Sphere
+    Sphere,
+    Spear
 }
