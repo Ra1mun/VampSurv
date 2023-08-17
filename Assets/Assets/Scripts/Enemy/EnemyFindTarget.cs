@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyFindTarget : EntityTargetFinder
+public class EnemyFindTarget : MonoBehaviour
 {
     [SerializeField] private Enemy _entity;
     private int _damage => _entity.Stats.GetStats().Damage;
@@ -12,7 +12,7 @@ public class EnemyFindTarget : EntityTargetFinder
     
     private Entity _target;
     
-    public override void OnUpdate(ITargetFinder targetFinder)
+    public void OnUpdate(ITargetFinder targetFinder)
     {
         switch (_state)
         {

@@ -5,14 +5,15 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(menuName = "Config/ItemConfig", fileName = "ItemConfig", order = 0)]
 public class ItemConfig : EntityConfig
 {
-
+    [SerializeField] private int _bonusExpPerKill;
+    
     [Header("Given Stats")]
     [SerializeField] private float _addAttackDistance;
     [SerializeField] private float _addMoveSpeed;
     [SerializeField] private float _addAttackSpeed;
     [SerializeField] private int _addDamage;
     [SerializeField] private int _addMaxHealth;
-    [SerializeField] private int _bonusExpPerKill;
+    
 
     [Header("Name")]
     [SerializeField] private string _name;

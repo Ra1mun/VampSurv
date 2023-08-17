@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(ItemNearestTargetFinder))]
+[RequireComponent(typeof(ItemOverlapTargetFinder))]
 public class ProjectileLinearThrower : MonoBehaviour
 {
     [SerializeField] private ProjectileLinear projectile;
     [SerializeField] private Item _item;
-    [SerializeField] private ItemNearestTargetFinder _targetFinder;
+    [SerializeField] private ItemOverlapTargetFinder _targetFinder;
 
     private float _cooldownDuration => _item.Stats.GetStats().AttackCooldown; //must be deleted from this, stats and etc.
     private float _attackSpeed => _item.Stats.GetStats().AttackSpeed;

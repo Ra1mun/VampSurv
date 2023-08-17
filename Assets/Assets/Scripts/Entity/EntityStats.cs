@@ -2,8 +2,6 @@ using UnityEngine;
 
 public abstract class EntityStats : MonoBehaviour
 {
-    [SerializeField] private Entity _entity;
-
     public IStatsProvider Provider;
 
     public Stats GetStats()
@@ -16,9 +14,9 @@ public abstract class EntityStats : MonoBehaviour
         Initialize();
     }
 
-    private void Initialize()
+    protected virtual void Initialize()
     {
-        Provider = new InitializeStats(_entity.Config);
+        Provider = new InitializeStats(null);
     }
     
 }

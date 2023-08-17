@@ -1,7 +1,7 @@
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
-public class ItemNearestTargetFinder : MonoBehaviour
+public class ItemOverlapTargetFinder : MonoBehaviour
 {
     private Enemy _target;
 
@@ -10,11 +10,11 @@ public class ItemNearestTargetFinder : MonoBehaviour
         _target = null;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
         float distance = float.MaxValue;
-        foreach(Collider2D coll in colliders)
+        foreach(Collider2D collider in colliders)
         {
-            if(coll.gameObject.TryGetComponent(out Enemy tar))
+            if(collider.gameObject.TryGetComponent(out Enemy tar))
             {
-                var tempDistance = (coll.transform.position - gameObject.transform.position).magnitude;
+                var tempDistance = (collider.transform.position - gameObject.transform.position).magnitude;
                 if (tempDistance < distance)
                 {
                     distance = tempDistance;

@@ -1,4 +1,4 @@
-﻿public enum ItemID
+﻿public enum ItemID : uint
 {
     Curiass,
     Sphere,

@@ -14,14 +14,17 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     [Header("ItemDataBase")] 
     [SerializeField] private ItemDataBase _data;
     
+    
     [Header("All Entities")]
     [SerializeField] private List<Entity> _entities = new List<Entity>();
     [Header("Enemies")]
     [SerializeField] private  List<Enemy> _enemies = new List<Enemy>();
     [Header("Items")]
     [SerializeField] private List<Item> _items = new List<Item>();
-
+    
+    public event Action<Enemy, Item> OnEnemyKilled;
     public event Action GameOver;
+    
 
     private void OnEnable()
     {
@@ -33,17 +36,18 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     {
         _enemySpawner.OnUpdate();
         
-        foreach (var enemy in _enemies)
-        {
-            enemy.TargetFinder.OnUpdate(this);
-        }
-
-        foreach (var item in _items)
-        {
-            if(item.TargetFinder != null)
-                item.TargetFinder.OnUpdate(this);
-        }
+        // foreach (var enemy in _enemies)
+        // {
+        //     enemy.Update.OnUpdate(this);
+        // }
+        //
+        // foreach (var item in _items)
+        // {
+        //     if(item.Update != null)
+        //         item.Update.OnUpdate(this);
+        // }
     }
+    
 
     Entity ITargetFinder.FindTarget(Entity entity)
     {
@@ -78,7 +82,6 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     public void OnItemInteracted(ItemID itemID)
     {
         var instance = _data.GetItem(itemID);
-        //  instance.Initialize();
         Instantiate(instance, _player.transform);
         _items.Add(instance);
     }
@@ -88,7 +91,10 @@ public class GameLogic : MonoBehaviour, ITargetFinder
         entity.Health.OnDie -= DestroyEntity;
         _entities.Remove(entity);
         if (entity.TryGetComponent(out Enemy enemy))
+        {
             _enemies.Remove(enemy);
+        }
+
         Destroy(entity.gameObject);
     }
     

@@ -26,14 +26,21 @@ public class ItemDataBase : ScriptableObject
 
     public Item GetItem(ItemID itemID)
     {
+        Item instance = null;
         switch (itemID)
         {
             case ItemID.Curiass:
-                return _curiass.Prefab;
+                instance = _curiass.Prefab;
+                instance.Initialize(_curiass);
+                return instance;
             case ItemID.Sphere:
-                return _sphere.Prefab;
+                instance = _curiass.Prefab;
+                instance.Initialize(_sphere);
+                return instance;
             case ItemID.Spear:
-                return _spear.Prefab;
+                instance = _curiass.Prefab;
+                instance.Initialize(_spear);
+                return instance;
             default:
                 throw new NotImplementedException($"Prefab {itemID} is not founded");
         }
