@@ -4,25 +4,15 @@ using UnityEngine;
 
 public class ProjectileLinear : Projectile
 {
-    private float _radius;
-    private float _damage;
-    private float _speed;
-    private Vector2 _direction;
-
-    public void Initialize(float speed, float radius, float damage, Vector2 dir)
+    protected override void ManualDispose()
     {
-        _radius = radius;
-        _damage = damage;
-        _speed = speed;
-        _direction = dir;
+        float tempDistance = Vector2.Distance(_originPosition, gameObject.transform.position);
+        if ( tempDistance > _radius)
+            DisposeProjectile();
+        //Need optimization. Sqrt func every frame is very rich. Might be worth adding coroutine.
     }
-    private void Move()
+    protected override void OnTargetCollision(Collider2D collision, EntityDamagable damageable)
     {
-        Vector2 target = _direction;
-        transform.position = Vector2.MoveTowards(transform.position, target, _speed * Time.deltaTime);
-    }
-    private void FixedUpdate()
-    {
-        Move();
+        damageable.ApplyDamage(_damage);
     }
 }

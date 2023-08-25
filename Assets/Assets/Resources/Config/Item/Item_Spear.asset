@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5f59971378468381ea537e423fc4ad, type: 3}
   m_Name: Item_Spear
   m_EditorClassIdentifier: 
-  _attackDistance: 10
-  _moveSpeed: 1
+  _attackDistance: 5
+  _moveSpeed: 5
   _attackSpeed: 1
   _damage: 10
   _maxHealth: 0
   _expPerKill: 0
-  _attackCooldown: 20
+  _attackCooldown: 10
   _addAttackDistance: 0
   _addMoveSpeed: -3
   _addAttackSpeed: 0
