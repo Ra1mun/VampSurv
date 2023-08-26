@@ -23,26 +23,5 @@ public class ItemDataBase : ScriptableObject
                 throw new NotImplementedException($"Stats {itemID} is not founded");
         }
     }
-
-    public Item GetItem(ItemID itemID)
-    {
-        Item instance = null;
-        switch (itemID)
-        {
-            case ItemID.Curiass:
-                instance = _curiass.Prefab;
-                instance.Initialize(_curiass);
-                return instance;
-            case ItemID.Sphere:
-                instance = _curiass.Prefab;
-                instance.Initialize(_sphere);
-                return instance;
-            case ItemID.Spear:
-                instance = _curiass.Prefab;
-                instance.Initialize(_spear);
-                return instance;
-            default:
-                throw new NotImplementedException($"Prefab {itemID} is not founded");
-        }
-    }
+    
 }

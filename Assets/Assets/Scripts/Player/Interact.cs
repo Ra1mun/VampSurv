@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerInteract : MonoBehaviour
+public class Interact : MonoBehaviour
 {
     [SerializeField] private Player _player;
     public event Action<Stats> OnStatsChanged;

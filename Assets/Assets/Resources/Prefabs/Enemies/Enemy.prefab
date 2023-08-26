@@ -124,9 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262be991305a49b4bb6d5933e8754b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityConfig: {fileID: 11400000, guid: 28b2fc6ab6eba374e87187e833dbeb90, type: 2}
   _entityHealth: {fileID: 2875351935592089306}
-  EntityTargetFinder: {fileID: -5870275832418376345}
   _entityDamagable: {fileID: 3574939513633504570}
   _entityStats: {fileID: 6148648113388334750}
 --- !u!114 &3574939513633504570
@@ -167,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae09299fcafc4fe6a112f9e75d868f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entity: {fileID: 7350069777914750262}
+  _enemy: {fileID: 7350069777914750262}
 --- !u!114 &-5870275832418376345
 MonoBehaviour:
   m_ObjectHideFlags: 0

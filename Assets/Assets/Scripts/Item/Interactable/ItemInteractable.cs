@@ -7,5 +7,5 @@ public abstract class ItemInteractable : MonoBehaviour
     
     public abstract event Action<ItemID> OnItemInteracted;
 
-    protected abstract void Interact(PlayerInteract player);
+    protected abstract void Interact(Interact player);
 }

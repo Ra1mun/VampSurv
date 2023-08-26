@@ -14,9 +14,6 @@ public abstract class EntityStats : MonoBehaviour
         Initialize();
     }
 
-    protected virtual void Initialize()
-    {
-        Provider = new InitializeStats(null);
-    }
-    
+    protected abstract void Initialize();
+
 }

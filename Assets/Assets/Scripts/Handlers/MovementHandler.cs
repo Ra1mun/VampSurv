@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour
 {
-    private KeyboardInput _input => KeyboardInput.Instance;
+    [SerializeField] private KeyboardInput _input;
     [SerializeField] private PlayerMovement _player;
     
     private void OnEnable()

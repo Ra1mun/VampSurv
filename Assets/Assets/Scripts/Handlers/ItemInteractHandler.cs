@@ -8,7 +8,7 @@ public class ItemInteractHandler : MonoBehaviour
     [SerializeField] private GameLogic _gameLogic;
     [SerializeField] private List<ItemInteractable> _interactables;
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         foreach (var interactable in _interactables)
         {
@@ -34,5 +34,5 @@ public class ItemInteractHandler : MonoBehaviour
         {
             interactable.OnItemInteracted -= _gameLogic.OnItemInteracted;
         }
-    }
+    }*/
 }

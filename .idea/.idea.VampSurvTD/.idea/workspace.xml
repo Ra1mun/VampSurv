@@ -2,47 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42123936-c2b5-425a-aea9-087bd3a7be96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ExperienceHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ExperienceHandler.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/MovementHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/MovementHandler.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileAttack.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileAttack.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerExperience.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerExperience.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/AssetItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemPresentor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemPresentor.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemView.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/ExperiencePresenter.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/ExperiencePresenter.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Inventory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Inventory.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.VampSurvTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampSurvTD/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Enemies/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Enemies/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyFindTarget.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyFindTarget.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/Entity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/Entity.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityTargetFinder.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityTargetFinder.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/ITargetFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/ITargetFinder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/GameLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/GameLogic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ExperienceHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ExperienceHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ItemInteractHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ItemInteractHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/MovementHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/MovementHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Input/KeyboardInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Input/KeyboardInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemInteractable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemTriggerInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemTriggerInteractable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Item.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Item.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemConfig.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemDataBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemDataBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemID.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemID.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemInteractHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ItemInteractHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemInteractHandler.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/ItemInteractHandler.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemMoveable.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemMoveable.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemInteractable.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemInteractable.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemStats.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemStats.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Moveable/ItemCircleMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Moveable/ItemCircleMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ItemProjectileThrower.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ItemProjectileThrower.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/Projectile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinearThrower.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinearThrower.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/TargetFinder/ItemNearestTargetFinder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/TargetFinder/ItemOverlapTargetFinder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/TargetFinder/ItemNearestTargetFinder.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/TargetFinder/ItemOverlapTargetFinder.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/Projectile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/Projectile.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileAttack.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileAttack.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinear.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinear.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinearThrower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinearThrower.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/AssetItem.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/TargetFinder/ItemOverlapTargetFinder.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/TargetFinder/ItemOverlapTargetFinder.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerAttributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/Attributes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerAttributes.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/Attributes.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerExperience.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerExperience.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerInteract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Interact.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerInteract.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Interact.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/PlayerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,9 +67,6 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinear.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -121,6 +129,9 @@
       <workItem from="1691383590182" duration="21000" />
       <workItem from="1691401876347" duration="1235000" />
       <workItem from="1692113885310" duration="6966000" />
+      <workItem from="1692603624552" duration="626000" />
+      <workItem from="1692634640212" duration="494000" />
+      <workItem from="1693084811025" duration="4381000" />
     </task>
     <servers />
   </component>

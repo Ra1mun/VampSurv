@@ -18,11 +18,11 @@ public class ItemConfig : EntityConfig
     [Header("Name")]
     [SerializeField] private string _name;
 
-    [Header("Prefab")] [SerializeField] private Item _prefab;
+    [Header("Prefab")] [SerializeField] private AssetItem _prefab;
 
     public int BonusExpPerKill => _bonusExpPerKill;
 
-    public Item Prefab => _prefab;
+    public AssetItem Prefab => _prefab;
 
     public Stats GetStats()
     {

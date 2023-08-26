@@ -5,7 +5,7 @@ public class ItemTriggerInteractable : ItemInteractable
 {
     public override event Action<ItemID> OnItemInteracted;
 
-    protected override void Interact(PlayerInteract player)
+    protected override void Interact(Interact player)
     {
         OnItemInteracted?.Invoke(_itemID);
         player.InteractWithItem(_itemID);
@@ -14,6 +14,6 @@ public class ItemTriggerInteractable : ItemInteractable
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        col.gameObject.Route<PlayerInteract>(Interact);
+        col.gameObject.Route<Interact>(Interact);
     }
 }

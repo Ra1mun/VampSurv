@@ -11,18 +11,12 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     [Header("Player")]
     [SerializeField] private Player _player;
 
-    [Header("ItemDataBase")] 
-    [SerializeField] private ItemDataBase _data;
-    
-    
     [Header("All Entities")]
     [SerializeField] private List<Entity> _entities = new List<Entity>();
     [Header("Enemies")]
     [SerializeField] private  List<Enemy> _enemies = new List<Enemy>();
-    [Header("Items")]
-    [SerializeField] private List<Item> _items = new List<Item>();
-    
-    public event Action<Enemy, Item> OnEnemyKilled;
+
+    public event Action<Enemy> OnEnemyKilled;
     public event Action GameOver;
     
 
@@ -35,21 +29,13 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     private void Update()
     {
         _enemySpawner.OnUpdate();
-        
-        // foreach (var enemy in _enemies)
-        // {
-        //     enemy.Update.OnUpdate(this);
-        // }
-        //
-        // foreach (var item in _items)
-        // {
-        //     if(item.Update != null)
-        //         item.Update.OnUpdate(this);
-        // }
+        _enemies.ForEach(enemy =>
+        {
+            enemy.FindTarget.OnUpdate(this);
+        });
     }
     
-
-    Entity ITargetFinder.FindTarget(Entity entity)
+    Entity ITargetFinder.FindTarget(Entity selfEntity)
     {
         Entity result = null;
 
@@ -57,10 +43,10 @@ public class GameLogic : MonoBehaviour, ITargetFinder
 
         foreach (var e in _entities)
         {
-            if (e.Type == entity.Type || e.Type == EntityType.Player)
+            if (e.Type == selfEntity.Type || e.Type == EntityType.Player)
                 continue;
 
-            var tempDistance = (entity.transform.position - e.transform.position).magnitude;
+            var tempDistance = (selfEntity.transform.position - e.transform.position).magnitude;
             if (tempDistance < distance)
             {
                 distance = tempDistance;
@@ -70,22 +56,14 @@ public class GameLogic : MonoBehaviour, ITargetFinder
 
         return result;
     }
-
+    
     private void OnEnemySpawned(Enemy enemy)
     {
         _enemies.Add(enemy);
         _entities.Add(enemy);
         enemy.Health.OnDie += DestroyEntity;
-        
     }
 
-    public void OnItemInteracted(ItemID itemID)
-    {
-        var instance = _data.GetItem(itemID);
-        Instantiate(instance, _player.transform);
-        _items.Add(instance);
-    }
-    
     private void DestroyEntity(Entity entity)
     {
         entity.Health.OnDie -= DestroyEntity;
@@ -100,7 +78,7 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     
     private void OnDisable()
     {
-        _entities.Remove(_player);
+        _entities.Clear();
         _enemySpawner.OnEnemySpawned -= OnEnemySpawned;
     }
 }
