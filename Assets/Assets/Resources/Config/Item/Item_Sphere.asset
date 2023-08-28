@@ -17,12 +17,10 @@ MonoBehaviour:
   _attackSpeed: 0
   _damage: 0
   _maxHealth: 0
-  _expPerKill: 0
+  _attackCooldown: 0
   _addAttackDistance: 0
   _addMoveSpeed: 0
   _addAttackSpeed: 0
   _addDamage: 0
   _addMaxHealth: 10
-  _bonusExpPerKill: 0
-  _name: Sphere
-  _prefab: {fileID: 4279340429177136113, guid: 8b9b75d94488a0b458d2ea4107d9bdc0, type: 3}
+  _prefab: {fileID: 2496188287154693362, guid: 8b9b75d94488a0b458d2ea4107d9bdc0, type: 3}

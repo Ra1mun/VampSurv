@@ -5,8 +5,6 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(menuName = "Config/ItemConfig", fileName = "ItemConfig", order = 0)]
 public class ItemConfig : EntityConfig
 {
-    [SerializeField] private int _bonusExpPerKill;
-    
     [Header("Given Stats")]
     [SerializeField] private float _addAttackDistance;
     [SerializeField] private float _addMoveSpeed;
@@ -14,15 +12,11 @@ public class ItemConfig : EntityConfig
     [SerializeField] private int _addDamage;
     [SerializeField] private int _addMaxHealth;
     
-
-    [Header("Name")]
-    [SerializeField] private string _name;
-
-    [Header("Prefab")] [SerializeField] private AssetItem _prefab;
-
-    public int BonusExpPerKill => _bonusExpPerKill;
-
-    public AssetItem Prefab => _prefab;
+    
+    [Header("Prefab")] 
+    [SerializeField] private Item _prefab;
+    
+    public Item Prefab => _prefab;
 
     public Stats GetStats()
     {

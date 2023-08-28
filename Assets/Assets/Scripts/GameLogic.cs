@@ -21,18 +21,20 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     
 
     private void OnEnable()
-    {
+    { 
         _entities.Add(_player);
+        if(_player.TryGetComponent(out PlayerHealth health)) 
+            health.OnDie += DestroyEntity;
         _enemySpawner.OnEnemySpawned += OnEnemySpawned;
     }
 
     private void Update()
     {
         _enemySpawner.OnUpdate();
-        _enemies.ForEach(enemy =>
+        foreach (var enemy in _enemies)
         {
             enemy.FindTarget.OnUpdate(this);
-        });
+        }
     }
     
     Entity ITargetFinder.FindTarget(Entity selfEntity)
@@ -61,18 +63,24 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     {
         _enemies.Add(enemy);
         _entities.Add(enemy);
-        enemy.Health.OnDie += DestroyEntity;
+        if (enemy.TryGetComponent(out EnemyHealth health))
+            health.OnDie += DestroyEntity;
     }
 
     private void DestroyEntity(Entity entity)
     {
-        entity.Health.OnDie -= DestroyEntity;
-        _entities.Remove(entity);
-        if (entity.TryGetComponent(out Enemy enemy))
-        {
-            _enemies.Remove(enemy);
-        }
+        if (entity.TryGetComponent(out EntityHealth health))
+            health.OnDie -= DestroyEntity;
 
+        if (entity.TryGetComponent(out Player player)) 
+            GameOver?.Invoke();
+        
+
+        if (entity.TryGetComponent(out Enemy enemy))
+            _enemies.Remove(enemy);
+        
+        
+        _entities.Remove(entity);
         Destroy(entity.gameObject);
     }
     

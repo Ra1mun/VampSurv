@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 
-public class MovementHandler : MonoBehaviour
+public class InputHandler : MonoBehaviour
 {
     [SerializeField] private KeyboardInput _input;
-    [SerializeField] private PlayerMovement _player;
+    [SerializeField] private PlayerMovement _movement;
+    [SerializeField] private PlayerAnimation _animation;
     
     private void OnEnable()
     {
@@ -18,7 +19,8 @@ public class MovementHandler : MonoBehaviour
     
     private void OnInput(Vector2 direction)
     {
-        _player.Move(direction);
+        _movement.Move(direction);
+        //_animation.InputDirection(direction);
     }
     
     private void OnDisable()

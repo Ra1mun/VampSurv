@@ -7,8 +7,8 @@ public class Player : Entity
     [SerializeField] private PlayerConfig _playerConfig;
     public PlayerConfig Config => _playerConfig;
     
-    [SerializeField] private Interact interact;
-    public Interact Interact => interact;
+    [SerializeField] private Interaction interaction;
+    public Interaction Interaction => interaction;
 
     private void Awake()
     {

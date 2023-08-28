@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class EnemyFindTarget : MonoBehaviour
 {
-    [SerializeField] private Enemy _entity;
-    private int _damage => _entity.Stats.GetStats().Damage;
-    private float _attackDistance => _entity.Stats.GetStats().AttackDistance;
+    [SerializeField] private Enemy _enemy;
+    [SerializeField] private EnemyStats _enemyStats;
+    private int _damage => _enemyStats.GetStats().Damage;
+    private float _attackDistance => _enemyStats.GetStats().AttackDistance;
 
     private IDamageDealer _damageDealer;
     
@@ -30,7 +31,7 @@ public class EnemyFindTarget : MonoBehaviour
 
     private void LookForTarget(ITargetFinder targetFinder)
     {
-        _target = targetFinder.FindTarget(_entity);
+        _target = targetFinder.FindTarget(_enemy);
         if (_target == null)
             return;
 

@@ -24,4 +24,18 @@ public class ItemDataBase : ScriptableObject
         }
     }
     
+    public Item GetItem(ItemID itemID)
+    {
+        switch (itemID)
+        {
+            case ItemID.Curiass:
+                return _curiass.Prefab;
+            case ItemID.Sphere:
+                return _sphere.Prefab;
+            case ItemID.Spear:
+                return _spear.Prefab;
+            default:
+                throw new NotImplementedException($"Prefab {itemID} is not founded");
+        }
+    }
 }

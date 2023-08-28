@@ -4,11 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : EntityMoveable
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private PlayerStats _playerStats;
 
     private Rigidbody2D _rigidbody;
 
-    private float _speed => _player.Stats.GetStats().MoveSpeed;
+    private float _speed => _playerStats.GetStats().MoveSpeed;
 
     private void Awake()
     {
