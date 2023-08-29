@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class ItemCircleMove : ItemMovable
 {
-    [SerializeField] private Item _item;
-    
     [SerializeField] private float _radius = 0.5f; 
     
     private float _angle = 0;
-    private float _speed => _item.Config.MoveSpeed;
+    private float _speed;
     private Transform _center => transform.parent;
+
+    public void Init(float speed)
+    {
+        _speed = speed;
+    }
     
     public override void Move()
     {

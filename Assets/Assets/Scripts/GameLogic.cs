@@ -11,41 +11,24 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     [Header("Player")]
     [SerializeField] private Player _player;
 
-    [Header("ItemDataBase")] 
-    [SerializeField] private ItemDataBase _data;
-    
     [Header("All Entities")]
     [SerializeField] private List<Entity> _entities = new List<Entity>();
     [Header("Enemies")]
     [SerializeField] private  List<Enemy> _enemies = new List<Enemy>();
-    [Header("Items")]
-    [SerializeField] private List<Item> _items = new List<Item>();
 
+    public event Action<Enemy> OnEnemyKilled;
     public event Action GameOver;
-
-    private void OnEnable()
-    {
-        _entities.Add(_player);
-        _enemySpawner.OnEnemySpawned += OnEnemySpawned;
-    }
-
+    
     private void Update()
     {
         _enemySpawner.OnUpdate();
-        
         foreach (var enemy in _enemies)
         {
-            enemy.TargetFinder.OnUpdate(this);
-        }
-
-        foreach (var item in _items)
-        {
-            if(item.TargetFinder != null)
-                item.TargetFinder.OnUpdate(this);
+            enemy.FindTarget.OnUpdate(this);
         }
     }
-
-    Entity ITargetFinder.FindTarget(Entity entity)
+    
+    Entity ITargetFinder.FindTarget(Entity selfEntity)
     {
         Entity result = null;
 
@@ -53,48 +36,61 @@ public class GameLogic : MonoBehaviour, ITargetFinder
 
         foreach (var e in _entities)
         {
-            if (e.Type == entity.Type || e.Type == EntityType.Player)
+            if (e.Type == selfEntity.Type || e.Type == EntityType.Player)
                 continue;
 
-            var tempDistance = (entity.transform.position - e.transform.position).magnitude;
-            if (tempDistance < distance)
-            {
-                distance = tempDistance;
-                result = e;
-            }
+            var tempDistance = (selfEntity.transform.position - e.transform.position).magnitude;
+            if (!(tempDistance < distance)) continue;
+            
+            distance = tempDistance;
+            result = e;
         }
 
         return result;
     }
+    
+    private void OnEnable()
+    { 
+        _entities.Add(_player);
+        if(_player.TryGetComponent(out PlayerHealth health)) 
+            health.OnDie += DestroyEntity;
+        _enemySpawner.OnEnemySpawned += OnEnemySpawned;
+    }
 
+    
+    
+    
+    
     private void OnEnemySpawned(Enemy enemy)
     {
         _enemies.Add(enemy);
         _entities.Add(enemy);
-        enemy.Health.OnDie += DestroyEntity;
-        
+        if (enemy.TryGetComponent(out EnemyHealth health))
+            health.OnDie += DestroyEntity;
     }
 
-    public void OnItemInteracted(ItemID itemID)
-    {
-        var instance = _data.GetItem(itemID);
-        //  instance.Initialize();
-        Instantiate(instance, _player.transform);
-        _items.Add(instance);
-    }
-    
     private void DestroyEntity(Entity entity)
     {
-        entity.Health.OnDie -= DestroyEntity;
-        _entities.Remove(entity);
+        if (entity.TryGetComponent(out EntityHealth health))
+            health.OnDie -= DestroyEntity;
+
+        if (entity.GetComponent<Player>()) 
+            GameOver?.Invoke();
+
+
         if (entity.TryGetComponent(out Enemy enemy))
+        {
             _enemies.Remove(enemy);
+            OnEnemyKilled?.Invoke(enemy);
+        }
+
+        _entities.Remove(entity);
         Destroy(entity.gameObject);
     }
     
     private void OnDisable()
     {
-        _entities.Remove(_player);
+        _entities.Clear();
         _enemySpawner.OnEnemySpawned -= OnEnemySpawned;
     }
 }

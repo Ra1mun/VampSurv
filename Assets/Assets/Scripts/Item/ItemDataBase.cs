@@ -23,7 +23,7 @@ public class ItemDataBase : ScriptableObject
                 throw new NotImplementedException($"Stats {itemID} is not founded");
         }
     }
-
+    
     public Item GetItem(ItemID itemID)
     {
         switch (itemID)

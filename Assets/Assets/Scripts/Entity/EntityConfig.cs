@@ -8,7 +8,6 @@ public class EntityConfig : ScriptableObject
     [SerializeField] private float _attackSpeed;
     [SerializeField] private int _damage;
     [SerializeField] private int _maxHealth;
-    [SerializeField] private int _expPerKill;
     [SerializeField] private float _attackCooldown;
 
     public float AttackDistance => _attackDistance;
@@ -16,6 +15,5 @@ public class EntityConfig : ScriptableObject
     public int Damage => _damage;
     public int MaxHealth => _maxHealth;
     public float MoveSpeed => _moveSpeed;
-    public int ExpPerKill => _expPerKill;
     public float AttackCooldown => _attackCooldown;
 }

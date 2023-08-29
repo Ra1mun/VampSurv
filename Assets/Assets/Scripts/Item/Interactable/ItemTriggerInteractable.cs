@@ -3,17 +3,14 @@ using UnityEngine;
 
 public class ItemTriggerInteractable : ItemInteractable
 {
-    public override event Action<ItemID> OnItemInteracted;
-
-    protected override void Interact(PlayerInteract player)
+    protected override void Interact(Interaction player)
     {
-        OnItemInteracted?.Invoke(_itemID);
-        player.InteractWithItem(_itemID);
+        player.InteractWithItem(_item);
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        col.gameObject.Route<PlayerInteract>(Interact);
+        col.gameObject.Route<Interaction>(Interact);
     }
 }
