@@ -6,7 +6,8 @@ public class EnemyConfig : EntityConfig
 {
     
     [SerializeField] private Enemy _prefab;
-    [SerializeField] private float _expPerKill;
+    [SerializeField] private int _expOnDie;
+    
     public Enemy Prefab => _prefab;
-    public float ExpPerKill => _expPerKill;
+    public int ExpOnDie => _expOnDie;
 }

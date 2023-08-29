@@ -6,8 +6,9 @@ public class AssetItem : ScriptableObject
 {
     [SerializeField] private ItemID _id;
     [SerializeField] private Sprite _icon;
+    [SerializeField] private string _name;
     
-    [CanBeNull] public string Name => nameof(_id);
     public ItemID ID => _id;
     public Sprite Icon => _icon;
+    public string Name => _name;
 }

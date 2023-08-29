@@ -6,13 +6,14 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    private List<AssetItem> _items = new List<AssetItem>();
+    [SerializeField] private List<AssetItem> _items = new List<AssetItem>();
 
     public event Action<AssetItem> OnItemAdded;
     public event Action<AssetItem> OnItemRemoved;
 
     public void AddItem(AssetItem assetItem)
     {
+        Debug.Log(assetItem.Name);
         _items.Add(assetItem);
         OnItemAdded?.Invoke(assetItem);
     }

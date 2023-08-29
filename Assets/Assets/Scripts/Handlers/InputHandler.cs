@@ -23,13 +23,15 @@ public class InputHandler : MonoBehaviour
         //_animation.InputDirection(direction);
     }
     
+    public void OnDisableInput()
+    {
+        _input.OnInput -= OnInput;
+    }
+    
     private void OnDisable()
     {
         _input.OnInput -= OnInput;
     }
     
-    public void OnDisableInput()
-    {
-        _input.OnInput -= OnInput;
-    }
+   
 }

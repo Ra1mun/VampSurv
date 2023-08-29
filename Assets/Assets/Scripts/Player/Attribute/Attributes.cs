@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Attributes
+public class Attributes : MonoBehaviour
 {
+    [SerializeField] private Experience _experience;
     private Dictionary<AttributeType, int> _attributeLevels = new Dictionary<AttributeType, int>()
     {
 
@@ -11,10 +13,25 @@ public class Attributes
         [AttributeType.Paganism] = 0,
     };
 
-    public Action<AttributeType, int> OnLevelChanged;
-    
-    public void AttributeLevelUp(AttributeType type, int exp)
+    public event Action OnUpLevel; 
+
+    private void OnEnable()
     {
-        _attributeLevels[type] += exp;
+        _experience.OnLevelChanged += OnLevelChanged;
+    }
+
+    private void OnLevelChanged()
+    {
+        OnUpLevel?.Invoke();
+    }
+
+    public void AttributeLevelUp(AttributeType type)
+    {
+        _attributeLevels[type]++;
+    }
+    
+    private void OnDisable()
+    {
+        _experience.OnLevelChanged -= OnLevelChanged;
     }
 }

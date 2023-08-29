@@ -12,23 +12,16 @@ public class ExperiencePresenter
     public void Enable()
     {
         _model.OnExperienceChanged += OnExperienceChanged;
-        _model.OnLevelChanged += OnLevelChaged;
     }
     
-    private void OnExperienceChanged(int value)
+    private void OnExperienceChanged(int currentExperience, int maxExperience)
     {
-        
+        _view.UpdateExperience(currentExperience, maxExperience);
     }
 
-    private void OnLevelChaged()
-    {
-        
-    }
-    
     public void Disable()
     {
         _model.OnExperienceChanged -= OnExperienceChanged;
-        _model.OnLevelChanged -= OnLevelChaged;
     }
 
     

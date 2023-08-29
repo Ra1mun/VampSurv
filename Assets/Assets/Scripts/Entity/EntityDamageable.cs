@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class EntityDamageable : MonoBehaviour
+public abstract class EntityDamageable : MonoBehaviour, IDamageable
 {
     [SerializeField] private EntityHealth _entityHealth;
 

@@ -15,9 +15,9 @@ public class RangeDamageDealer : MonoBehaviour, IDamageDealer
         if (_attackTime <= 0)
         {
             _attackTime = Constants.ATTTACK_INTERVAL;
-            if (target.TryGetComponent(out EntityDamageable damagable))
+            if (target.TryGetComponent(out IDamageable damageable))
             {
-                damagable.ApplyDamage(_entityStats.GetStats().Damage);
+                damageable.ApplyDamage(_entityStats.GetStats().Damage);
             }
         }
 

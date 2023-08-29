@@ -15,7 +15,7 @@ public class MeleeDamageDealer : MonoBehaviour, IDamageDealer
         if (_attackTime <= 0)
         {
             _attackTime = Constants.ATTTACK_INTERVAL;
-            if (target.TryGetComponent(out EntityDamageable damageable))
+            if (target.TryGetComponent(out IDamageable damageable))
             {
                 damageable.ApplyDamage(_entityStats.GetStats().Damage);
             }

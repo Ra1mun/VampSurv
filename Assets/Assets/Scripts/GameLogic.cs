@@ -19,15 +19,6 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     public event Action<Enemy> OnEnemyKilled;
     public event Action GameOver;
     
-
-    private void OnEnable()
-    { 
-        _entities.Add(_player);
-        if(_player.TryGetComponent(out PlayerHealth health)) 
-            health.OnDie += DestroyEntity;
-        _enemySpawner.OnEnemySpawned += OnEnemySpawned;
-    }
-
     private void Update()
     {
         _enemySpawner.OnUpdate();
@@ -49,15 +40,26 @@ public class GameLogic : MonoBehaviour, ITargetFinder
                 continue;
 
             var tempDistance = (selfEntity.transform.position - e.transform.position).magnitude;
-            if (tempDistance < distance)
-            {
-                distance = tempDistance;
-                result = e;
-            }
+            if (!(tempDistance < distance)) continue;
+            
+            distance = tempDistance;
+            result = e;
         }
 
         return result;
     }
+    
+    private void OnEnable()
+    { 
+        _entities.Add(_player);
+        if(_player.TryGetComponent(out PlayerHealth health)) 
+            health.OnDie += DestroyEntity;
+        _enemySpawner.OnEnemySpawned += OnEnemySpawned;
+    }
+
+    
+    
+    
     
     private void OnEnemySpawned(Enemy enemy)
     {
@@ -72,14 +74,16 @@ public class GameLogic : MonoBehaviour, ITargetFinder
         if (entity.TryGetComponent(out EntityHealth health))
             health.OnDie -= DestroyEntity;
 
-        if (entity.TryGetComponent(out Player player)) 
+        if (entity.GetComponent<Player>()) 
             GameOver?.Invoke();
-        
+
 
         if (entity.TryGetComponent(out Enemy enemy))
+        {
             _enemies.Remove(enemy);
-        
-        
+            OnEnemyKilled?.Invoke(enemy);
+        }
+
         _entities.Remove(entity);
         Destroy(entity.gameObject);
     }
