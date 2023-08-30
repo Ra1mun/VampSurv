@@ -8,12 +8,16 @@ public abstract class EntityHealth: MonoBehaviour, IHealth
     
     private int _currentHealth;
     
-    private int _maxHealth => _entityStats.Provider.GetStats().MaxHealth;
+    private int _maxHealth;
     
     public event Action<int> OnHealthChanged;
 
     public event Action<Entity> OnDie;
-
+    private void Start()
+    {
+        _maxHealth = _entityStats.GetStats().MaxHealth;
+        CurrentHealth = _maxHealth;
+    }
     public int CurrentHealth
     {
         get => _currentHealth;

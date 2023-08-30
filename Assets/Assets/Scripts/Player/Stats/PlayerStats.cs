@@ -7,8 +7,5 @@ public class PlayerStats : EntityStats
     
     public event Action<Stats> OnStatsChanged;
     
-    protected override void Initialize()
-    {
-        Provider = new InitializeStats(_player.Config);
-    }
+    
 }

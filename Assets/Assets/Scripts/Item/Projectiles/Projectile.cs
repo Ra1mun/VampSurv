@@ -8,9 +8,9 @@ public abstract class Projectile : MonoBehaviour
 
     [SerializeField] private LayerMask _targetLayerMask;
 
-    [SerializeField] protected float _radius;
-    [SerializeField] protected int _damage;
-    [SerializeField] protected float _speed;
+    protected float _radius;
+    protected int _damage;
+    protected float _speed;
     protected Vector2 _targetPosition;
     protected Vector2 _originPosition;
 
@@ -21,11 +21,6 @@ public abstract class Projectile : MonoBehaviour
     public ProjectileDisposeType DisposeType => _disposeType;
 
     public bool IsProjectileDisposed;
-
-    private void Awake()
-    {
-        gameObject.GetComponent<Collider2D>().isTrigger = true;
-    }
     private void Update()
     {
         ManualDispose();
@@ -43,7 +38,7 @@ public abstract class Projectile : MonoBehaviour
     {
         if (IsProjectileDisposed)
             return;
-        if (collision.gameObject.TryGetComponent(out EntityDamagable damageable))
+        if (collision.gameObject.TryGetComponent(out EntityDamageable damageable))
         {
             if (1 << collision.gameObject.layer == _targetLayerMask.value)
             {
@@ -80,6 +75,6 @@ public abstract class Projectile : MonoBehaviour
     protected virtual void OnProjectileDispose() { }
     protected virtual void OnAnyCollision(Collider2D collision) { }
     protected virtual void OnOtherCollision(Collider2D collision) { }
-    protected virtual void OnTargetCollision(Collider2D collision, EntityDamagable damageable) { }
+    protected virtual void OnTargetCollision(Collider2D collision, EntityDamageable damageable) { }
     protected virtual void ManualDispose(){ }
 }

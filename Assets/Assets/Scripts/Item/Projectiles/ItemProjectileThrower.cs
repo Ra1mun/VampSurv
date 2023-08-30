@@ -5,11 +5,11 @@ using UnityEngine;
 public class ItemProjectileThrower : MonoBehaviour
 {
     [SerializeField] private Projectile projectile;
-    [SerializeField] private Item _item;
+    [SerializeField] private ItemStats _itemStats;
     [SerializeField] private ItemNearestTargetFinder _targetFinder;
 
-    private float _cooldownDuration => _item.Stats.GetStats().AttackCooldown; //must be deleted from this, stats and etc.
-    private float _attackSpeed => _item.Stats.GetStats().AttackSpeed;
+    private float _cooldownDuration => _itemStats.GetStats().AttackCooldown; //must be deleted from this, stats and etc.
+    private float _attackSpeed => _itemStats.GetStats().AttackSpeed;
 
     private float _attackTime;
 
@@ -34,7 +34,7 @@ public class ItemProjectileThrower : MonoBehaviour
     }
     private void LookForTarget()
     {
-        _target = _targetFinder.LookForTarget(_item.Stats.GetStats().AttackDistance);
+        _target = _targetFinder.LookForTarget(_itemStats.GetStats().AttackDistance);
         if (_target != null)
             _state = ItemState.AttackTarget;
         else
@@ -44,9 +44,9 @@ public class ItemProjectileThrower : MonoBehaviour
     {
         _direction = _target.gameObject.transform.position;
         var instance = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-        instance.Initialize(_item.Stats.GetStats().MoveSpeed,
-            _item.Stats.GetStats().AttackDistance,
-            _item.Stats.GetStats().Damage,
+        instance.Initialize(_itemStats.GetStats().MoveSpeed,
+            _itemStats.GetStats().AttackDistance,
+            _itemStats.GetStats().Damage,
             _direction,
             gameObject.transform.position);
 

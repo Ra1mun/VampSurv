@@ -11,7 +11,7 @@ public class ProjectileLinear : Projectile
             DisposeProjectile();
         //Need optimization. Sqrt func every frame is very rich. Might be worth adding coroutine.
     }
-    protected override void OnTargetCollision(Collider2D collision, EntityDamagable damageable)
+    protected override void OnTargetCollision(Collider2D collision, EntityDamageable damageable)
     {
         damageable.ApplyDamage(_damage);
     }
