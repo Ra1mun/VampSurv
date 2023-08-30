@@ -1,16 +1,14 @@
 using System;
 using UnityEngine;
 
-public class Enemy : Entity
+public class Enemy : Unit
 {
-    [SerializeField] private EnemyFindTarget _enemyFindTarget;
     private EnemyConfig _enemyConfig;
-
-    public EnemyFindTarget FindTarget => _enemyFindTarget;
+    
     public EnemyConfig Config => _enemyConfig;
     
     
-    public void Initialize(EnemyConfig config, EntityType type)
+    public void Initialize(EnemyConfig config, UnitType type)
     {
         _enemyConfig = config;
         _type = type;

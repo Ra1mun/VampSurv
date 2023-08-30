@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class EntityStats : MonoBehaviour
+public abstract class UnitStats : MonoBehaviour
 {
     public IStatsProvider Provider;
 

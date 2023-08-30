@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EntityConfig : ScriptableObject
+public class UnitConfig : ScriptableObject
 {
     [Header("Common")]
     [SerializeField] private float _attackDistance;

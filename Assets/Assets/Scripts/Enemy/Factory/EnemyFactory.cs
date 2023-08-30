@@ -6,7 +6,7 @@ public abstract class EnemyFactory : ScriptableObject
     {
         var config = GetConfig(type);
         var instance = Instantiate(config.Prefab, transform, Quaternion.identity);
-        instance.Initialize(config, EntityType.Enemy);
+        instance.Initialize(config, UnitType.Enemy);
 
         return instance;
     }

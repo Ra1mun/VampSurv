@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyStats : EntityStats
+public class EnemyStats : UnitStats
 {
     [SerializeField] private Enemy _enemy;
     protected override void Initialize()

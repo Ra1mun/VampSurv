@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Item : Entity
+public class Item : Unit
 {
     private ItemConfig _itemConfig;
 
