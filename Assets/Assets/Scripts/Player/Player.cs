@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : Entity
 {
-
-    [SerializeField] private PlayerInteract _playerInteract;
-
-    public PlayerInteract Interact => _playerInteract;
+    [SerializeField] private PlayerConfig _playerConfig;
+    public PlayerConfig Config => _playerConfig;
+    
+    [SerializeField] private Interaction interaction;
+    public Interaction Interaction => interaction;
 
     private void Awake()
     {

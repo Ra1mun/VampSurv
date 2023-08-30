@@ -3,9 +3,7 @@ using UnityEngine;
 
 public abstract class ItemInteractable : MonoBehaviour
 {
-    [SerializeField] protected ItemID _itemID;
-    
-    public abstract event Action<ItemID> OnItemInteracted;
+    [SerializeField] protected AssetItem _item;
 
-    protected abstract void Interact(PlayerInteract player);
+    protected abstract void Interact(Interaction player);
 }

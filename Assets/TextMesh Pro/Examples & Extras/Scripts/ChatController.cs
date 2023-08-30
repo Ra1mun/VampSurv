@@ -45,7 +45,7 @@ public class ChatController : MonoBehaviour
         // Keep Chat input field active
         ChatInputField.ActivateInputField();
 
-        // Set the scrollbar to the bottom when next text is submitted.
+        // UpdateExperience the scrollbar to the bottom when next text is submitted.
         ChatScrollbar.value = 0;
     }
 }

@@ -1,4 +1,4 @@
 public interface ITargetFinder
 {
-    Entity FindTarget(Entity entity);
+    Entity FindTarget(Entity selfEntity);
 }
