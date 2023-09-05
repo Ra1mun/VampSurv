@@ -14,11 +14,11 @@ public class ItemDataBase : ScriptableObject
         switch (itemID)
         {
             case ItemID.Curiass:
-                return _curiass.GetStats();
+                return _curiass.AddStats();
             case ItemID.Sphere:
-                return _sphere.GetStats();
+                return _sphere.AddStats();
             case ItemID.Spear:
-                return _spear.GetStats();
+                return _spear.AddStats();
             default:
                 throw new NotImplementedException($"Stats {itemID} is not founded");
         }
@@ -26,14 +26,21 @@ public class ItemDataBase : ScriptableObject
     
     public Item GetItem(ItemID itemID)
     {
+        Item instance = null;
         switch (itemID)
         {
             case ItemID.Curiass:
-                return _curiass.Prefab;
+                instance = Instantiate(_curiass.Prefab);
+                instance.Initialize(_curiass, UnitType.Item);
+                return instance;
             case ItemID.Sphere:
-                return _sphere.Prefab;
+                instance = Instantiate(_sphere.Prefab);
+                instance.Initialize(_spear, UnitType.Item);
+                return instance;
             case ItemID.Spear:
-                return _spear.Prefab;
+                instance = Instantiate(_spear.Prefab);
+                instance.Initialize(_spear, UnitType.Item);
+                return instance;
             default:
                 throw new NotImplementedException($"Prefab {itemID} is not founded");
         }

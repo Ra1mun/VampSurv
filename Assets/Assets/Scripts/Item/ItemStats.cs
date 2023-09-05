@@ -1,11 +1,10 @@
+using System;
 using UnityEngine;
 
 public class ItemStats : UnitStats
 {
-    [SerializeField] private Item _item;
-
-    protected override void Initialize()
+    public void AddAttributeStats()
     {
-        Provider = new InitializeStats(_item.Config);
+        _provider = new UpItemStatsDecorator(_provider);
     }
 }

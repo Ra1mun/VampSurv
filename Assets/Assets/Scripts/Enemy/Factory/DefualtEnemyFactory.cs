@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class DefualtEnemyFactory : EnemyFactory
         {
             case EnemyType.TestEnemy:
                 return _testEnemy;
+            default:
+                throw new ArgumentOutOfRangeException($"Enemy type: {type} wasn't set!");
         }
 
         return _testEnemy;

@@ -17,6 +17,7 @@ public class PlayerMovement : UnitMoveable
 
     public override void Move(Vector2 direction)
     {
+
         _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.deltaTime);
     }
     

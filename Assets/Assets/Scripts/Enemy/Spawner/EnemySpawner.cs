@@ -1,42 +1,44 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private List<Vector3> _spawnPositions;
-
-    [SerializeField] private EnemyFactory _enemyFactory;
-
-    [SerializeField] private float _delayBeforeSpawn;
-
+    [SerializeField] private List<Transform> _spawnPositions;
     [SerializeField] private EnemySpawnerState _state;
+    [SerializeField] private EnemyFactory _enemyFactory;
+    private float _delayBeforeSpawn;
+    private float _elapsedTime;
     
     public event Action<Enemy> OnEnemySpawned;
-
-    private float _elapsedTime;
-
-    private void Start()
+    
+    private void Awake()
     {
-        if (_spawnPositions.Count == 0) _spawnPositions.Add(Vector3.zero);
+        if (_spawnPositions.Count != 0) return;
+        
+        _state = EnemySpawnerState.None;
+        throw new InvalidImplementationException("Not set spawn positions!");
     }
 
-    public void OnUpdate()
+    private void Update()
     {
         switch (_state)
         {
             case EnemySpawnerState.Start:
-                Single();
+                SingleSpawn();
                 break;
             case EnemySpawnerState.Update:
-                SpawnUpdate();
+                UpdateSpawn();
                 break;
+            case EnemySpawnerState.None:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
-    
-
-    private void SpawnUpdate()
+    private void UpdateSpawn()
     {
         if (_elapsedTime > _delayBeforeSpawn)
         {
@@ -47,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
         _elapsedTime += Time.deltaTime;
     }
 
-    private void Single()
+    private void SingleSpawn()
     {
         if (FindObjectOfType<Enemy>() == false)
             Spawn();
@@ -55,8 +57,8 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        var spawnPosition = _spawnPositions.RandomItem();
-        var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPosition);
+        var spawnPoint = _spawnPositions.RandomItem();
+        var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPoint.position);
 
         OnEnemySpawned?.Invoke(enemy);
     }

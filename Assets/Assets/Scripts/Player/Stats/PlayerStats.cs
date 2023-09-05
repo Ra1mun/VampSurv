@@ -1,14 +1,19 @@
 using System;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class PlayerStats : UnitStats
 {
-    [SerializeField] private Player _player;
-    
     public event Action<Stats> OnStatsChanged;
-    
-    protected override void Initialize()
+
+    public void AddItemStats(ItemID itemID)
     {
-        Provider = new InitializeStats(_player.Config);
+        _provider = new ItemStatsDecorator(_provider, itemID);
+        OnStatsChanged?.Invoke(_provider.GetStats());
+    }
+    
+    public void AddAttributeStats(AttributeType type)
+    {
+        _provider = new AttributeStatsDecorator(_provider, type);
     }
 }

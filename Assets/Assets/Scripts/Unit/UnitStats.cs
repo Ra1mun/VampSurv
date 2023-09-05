@@ -2,18 +2,12 @@ using UnityEngine;
 
 public abstract class UnitStats : MonoBehaviour
 {
-    public IStatsProvider Provider;
+    protected IStatsProvider _provider;
 
-    public Stats GetStats()
+    public Stats GetStats() => _provider.GetStats();
+
+    public void Initialize(UnitConfig config)
     {
-        return Provider.GetStats();
+        _provider = new InitializeStats(config);
     }
-    
-    private void Awake()
-    {
-        Initialize();
-    }
-
-    protected abstract void Initialize();
-
 }

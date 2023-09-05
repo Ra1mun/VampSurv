@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attributes : MonoBehaviour
 {
     [SerializeField] private Experience _experience;
+    [SerializeField] private InventoryModel inventoryModel;
     private Dictionary<AttributeType, int> _attributeLevels = new Dictionary<AttributeType, int>()
     {
 
@@ -13,7 +14,7 @@ public class Attributes : MonoBehaviour
         [AttributeType.Paganism] = 0,
     };
 
-    public event Action OnUpLevel; 
+    public event Action OnLevelUp; 
 
     private void OnEnable()
     {
@@ -22,12 +23,13 @@ public class Attributes : MonoBehaviour
 
     private void OnLevelChanged()
     {
-        OnUpLevel?.Invoke();
+        OnLevelUp?.Invoke();
     }
 
     public void AttributeLevelUp(AttributeType type)
     {
         _attributeLevels[type]++;
+        
     }
     
     private void OnDisable()

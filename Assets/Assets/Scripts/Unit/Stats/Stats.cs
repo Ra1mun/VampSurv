@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public struct Stats
 {
     public int MaxHealth { get; set; }
@@ -22,17 +24,17 @@ public struct Stats
         };
     }
 
-    public static Stats operator *(Stats a, Stats b)
+    public static Stats operator *(Stats a, float m)
     {
         return new Stats
         {
-            MaxHealth = a.MaxHealth * b.MaxHealth,
-            MoveSpeed = a.MoveSpeed * b.MoveSpeed,
-            Damage = a.Damage * b.Damage,
-            AttackDistance = a.AttackDistance * b.AttackDistance,
-            AttackSpeed = a.AttackSpeed * b.AttackSpeed,
-            Armor = a.Armor * b.Armor,
-            AttackCooldown = a.AttackCooldown * b.AttackCooldown
+            MaxHealth = Mathf.RoundToInt(a.MaxHealth * m),
+            MoveSpeed = a.MoveSpeed * m,
+            Damage = Mathf.RoundToInt(a.Damage * m),
+            AttackDistance = a.AttackDistance * m,
+            AttackSpeed = a.AttackSpeed * m,
+            Armor = Mathf.RoundToInt(a.Armor * m),
+            AttackCooldown = a.AttackCooldown * m,
         };
     }
 }

@@ -8,7 +8,7 @@ public abstract class UnitHealth: MonoBehaviour, IHealth
     
     private int _currentHealth;
     
-    private int _maxHealth => unitStats.Provider.GetStats().MaxHealth;
+    private int _maxHealth => unitStats.GetStats().MaxHealth;
     
     public event Action<int> OnHealthChanged;
 

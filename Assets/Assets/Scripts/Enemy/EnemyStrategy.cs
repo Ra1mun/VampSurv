@@ -6,15 +6,18 @@ public class EnemyStrategy : MonoBehaviour
 {
     [SerializeField] private Enemy _enemy;
     [SerializeField] private EnemyStats _stats;
-    [SerializeField] private EnemyFindTarget _findTarget;
+    [SerializeField] private UnitMoveable _moveable;
+    private ITargetFinder _findTarget;
     private float _attackDistance => _stats.GetStats().AttackDistance;
-
     private IDamageDealer _damageDealer;
-    
     private EnemyState _state;
-    
     private Unit _target;
-    
+
+    private void Awake()
+    {
+        _findTarget = new EnemyFindTarget();
+    }
+
     private void Update()
     {
         switch (_state)
@@ -49,7 +52,8 @@ public class EnemyStrategy : MonoBehaviour
             _state = EnemyState.LookForTarget;
             return;
         }
-
+        
+        _moveable.Move(_target.transform.position);
         var distance = (transform.position - _target.transform.position).sqrMagnitude;
         if (distance <= _attackDistance) _state = EnemyState.AttackTarget;
     }

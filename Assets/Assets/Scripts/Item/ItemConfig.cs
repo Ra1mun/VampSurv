@@ -15,10 +15,14 @@ public class ItemConfig : UnitConfig
     
     [Header("Prefab")] 
     [SerializeField] private Item _prefab;
+
+    [Header("Attribute")] 
+    [SerializeField] private AttributeType _attribute;
     
     public Item Prefab => _prefab;
+    public AttributeType Attribute => _attribute;
 
-    public Stats GetStats()
+    public Stats AddStats()
     {
         return new Stats
         {

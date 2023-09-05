@@ -5,10 +5,8 @@ using UnityEngine.Serialization;
 public class Player : Unit
 {
     [SerializeField] private PlayerConfig _playerConfig;
+    [SerializeField] private PlayerStats _stats;
     public PlayerConfig Config => _playerConfig;
-    
-    [SerializeField] private Interaction interaction;
-    public Interaction Interaction => interaction;
 
     private void Awake()
     {
@@ -18,5 +16,6 @@ public class Player : Unit
     private void Initialize()
     {
         _type = UnitType.Player;
+        _stats.Initialize(_playerConfig);
     }
 }

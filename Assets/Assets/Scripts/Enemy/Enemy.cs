@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : Unit
 {
+    [SerializeField] private EnemyStats _stats;
     private EnemyConfig _enemyConfig;
     
     public EnemyConfig Config => _enemyConfig;
@@ -12,5 +13,6 @@ public class Enemy : Unit
     {
         _enemyConfig = config;
         _type = type;
+        _stats.Initialize(config);
     }
 }

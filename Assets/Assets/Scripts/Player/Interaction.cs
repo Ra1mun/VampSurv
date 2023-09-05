@@ -4,11 +4,11 @@ using UnityEngine;
 public class Interaction : MonoBehaviour, IInteractionVisitor
 {
     [SerializeField] private PlayerStats _stats;
-    [SerializeField] private Inventory _inventory;
+    [SerializeField] private InventoryModel inventoryModel;
     
     public void Visit(AssetItem item)
     {
-        _stats.Provider = new ItemStatsDecorator(_stats.Provider, item.ID);
-        _inventory.AddItem(item);
+        _stats.AddItemStats(item.ID);
+        inventoryModel.AddItem(item);
     }
 }
