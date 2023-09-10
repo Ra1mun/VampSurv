@@ -11,7 +11,7 @@ public abstract class Projectile : MonoBehaviour
     protected float _radius;
     protected int _damage;
     protected float _speed;
-    protected Vector2 _targetPosition;
+    [SerializeField]protected Vector2 _targetPosition;
     protected Vector2 _originPosition;
 
     public Vector2 TargetPosition => _targetPosition;
@@ -23,7 +23,8 @@ public abstract class Projectile : MonoBehaviour
     public bool IsProjectileDisposed;
     private void Update()
     {
-        ManualDispose();
+        if(_disposeType == ProjectileDisposeType.Manual)
+            ManualDispose();
     }
     public void Initialize(float speed, float radius, int damage, Vector2 target, Vector2 originPosition)
     {

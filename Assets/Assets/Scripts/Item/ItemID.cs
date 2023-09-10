@@ -2,5 +2,7 @@
 {
     Curiass,
     Sphere,
-    Spear
+    Spear,
+    HolyWater,
+    Mjolnir
 }

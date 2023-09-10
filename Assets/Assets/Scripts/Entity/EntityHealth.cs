@@ -6,7 +6,7 @@ public abstract class EntityHealth: MonoBehaviour, IHealth
     [SerializeField] private Entity _entity;
     [SerializeField] private EntityStats _entityStats;
     
-    private int _currentHealth;
+    [SerializeField] private int _currentHealth;
     
     private int _maxHealth;
     

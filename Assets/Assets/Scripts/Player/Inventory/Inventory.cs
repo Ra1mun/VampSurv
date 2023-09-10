@@ -29,6 +29,6 @@ public class Inventory : MonoBehaviour
     
     public void ActivateItem(Item item)
     {
-        var instance = Instantiate(item, _player.transform);
+        var instance = Instantiate(item, _player.gameObject.transform);
     }
 }

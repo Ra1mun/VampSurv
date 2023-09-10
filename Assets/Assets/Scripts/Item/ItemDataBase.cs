@@ -1,41 +1,34 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "ItemDataBase", menuName = "Source/Data Base/ItemDataBase", order = 0)]
 public class ItemDataBase : ScriptableObject
 {
-    [SerializeField] private ItemConfig _curiass;
-    [SerializeField] private ItemConfig _sphere;
-    [SerializeField] private ItemConfig _spear;
+    [SerializeField] public ItemDictionary _items;
 
     public Stats GetStats(ItemID itemID)
     {
-        switch (itemID)
+        if(_items.TryGetValue(itemID, out var value))
         {
-            case ItemID.Curiass:
-                return _curiass.GetStats();
-            case ItemID.Sphere:
-                return _sphere.GetStats();
-            case ItemID.Spear:
-                return _spear.GetStats();
-            default:
-                throw new NotImplementedException($"Stats {itemID} is not founded");
+            return value.GetStats();
+        }
+        else
+        {
+            throw new NotImplementedException($"Stats {itemID} is not founded");
         }
     }
     
     public Item GetItem(ItemID itemID)
     {
-        switch (itemID)
+        if (_items.TryGetValue(itemID, out var value))
         {
-            case ItemID.Curiass:
-                return _curiass.Prefab;
-            case ItemID.Sphere:
-                return _sphere.Prefab;
-            case ItemID.Spear:
-                return _spear.Prefab;
-            default:
-                throw new NotImplementedException($"Prefab {itemID} is not founded");
+            return value.Prefab;
+        }
+        else
+        {
+            throw new NotImplementedException($"Prefab {itemID} is not founded");
         }
     }
 }

@@ -47,8 +47,6 @@ ExportedObj/
 *.opendb
 *.VC.db
 # scenes and prefab
-.asset
-.prefab
 .unity
 
 # Unity3D generated meta files

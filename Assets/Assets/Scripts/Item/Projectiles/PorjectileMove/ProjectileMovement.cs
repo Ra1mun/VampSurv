@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Projectile))]
-public class ProjectileLinearMovement : MonoBehaviour
+public abstract class ProjectileMovement : MonoBehaviour
 {
     [SerializeField] protected Projectile _projectile;
     [SerializeField] protected Rigidbody2D projectileRigidbody;
@@ -10,9 +10,5 @@ public class ProjectileLinearMovement : MonoBehaviour
     {
         Move();
     }
-    protected void Move()
-    {
-        projectileRigidbody.velocity = ((_projectile.TargetPosition - _projectile.OriginPosition).normalized
-            * _projectile.Speed);
-    }
+    protected virtual void Move() { }
 }
