@@ -13,6 +13,7 @@ public abstract class UnitDamageable : MonoBehaviour, IDamageable
         var totalDamage = ProcessDamage(damage);
         
         _unitHealth.CurrentHealth -= damage;
+        Debug.Log(_unitHealth.CurrentHealth);
     }
 
     protected virtual int ProcessDamage(int damage)
