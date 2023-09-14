@@ -2,13 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class Player : Entity
+public class Player : Unit
 {
     [SerializeField] private PlayerConfig _playerConfig;
+    [SerializeField] private PlayerStats _stats;
     public PlayerConfig Config => _playerConfig;
-    
-    [SerializeField] private Interaction interaction;
-    public Interaction Interaction => interaction;
 
     private void Awake()
     {
@@ -17,6 +15,7 @@ public class Player : Entity
     
     private void Initialize()
     {
-        _type = EntityType.Player;
+        _type = UnitType.Player;
+        _stats.Initialize(_playerConfig);
     }
 }

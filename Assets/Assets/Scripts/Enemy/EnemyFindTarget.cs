@@ -1,72 +1,25 @@
 using UnityEngine;
 
-public class EnemyFindTarget : MonoBehaviour
+public class EnemyFindTarget : ITargetFinder
 {
-    [SerializeField] private Enemy _enemy;
-    [SerializeField] private EnemyStats _enemyStats;
-    private int _damage => _enemyStats.GetStats().Damage;
-    private float _attackDistance => _enemyStats.GetStats().AttackDistance;
-
-    private IDamageDealer _damageDealer;
-    
-    private EnemyState _state;
-    
-    private Entity _target;
-    
-    public void OnUpdate(ITargetFinder targetFinder)
+    public Unit FindTarget(Unit selfUnit)
     {
-        switch (_state)
+        Unit result = null;
+
+        var distance = float.MaxValue;
+
+        foreach (var unit in UnitsPool.Units)
         {
-            case EnemyState.LookForTarget:
-                LookForTarget(targetFinder);
-                break;
-            case EnemyState.MoveToTarget:
-                MoveToTarget();
-                break;
-            case EnemyState.AttackTarget:
-                AttackTarget();
-                break;
-        }
-    }
+            if (unit.Type == selfUnit.Type || unit.Type == UnitType.Player)
+                continue;
 
-    private void LookForTarget(ITargetFinder targetFinder)
-    {
-        _target = targetFinder.FindTarget(_enemy);
-        if (_target == null)
-            return;
-
-        _state = EnemyState.MoveToTarget;
-    }
-
-    private void MoveToTarget()
-    {
-        if (_target == null)
-        {
-            _state = EnemyState.LookForTarget;
-            return;
+            var tempDistance = (selfUnit.transform.position - unit.transform.position).magnitude;
+            if (!(tempDistance < distance)) continue;
+            
+            distance = tempDistance;
+            result = unit;
         }
 
-        var distance = (transform.position - _target.transform.position).sqrMagnitude;
-        if (distance <= _attackDistance) _state = EnemyState.AttackTarget;
-    }
-
-    private void AttackTarget()
-    {
-        var distance = (transform.position - _target.transform.position).magnitude;
-        if (_target == null)
-        {
-            _damageDealer.Rest();
-            _state = EnemyState.LookForTarget;
-            return;
-        }
-
-        if (distance >= _attackDistance)
-        {
-            _damageDealer.Rest();
-            _state = EnemyState.MoveToTarget;
-            return;
-        }
-
-        _damageDealer.TryDamage(_target, _damage);
+        return result;
     }
 }

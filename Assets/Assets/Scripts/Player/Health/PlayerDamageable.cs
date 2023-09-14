@@ -1,4 +1,4 @@
-public class PlayerDamageable : EntityDamageable
+public class PlayerDamageable : UnitDamageable
 {
         
 }

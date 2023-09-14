@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Config/ItemConfig", fileName = "ItemConfig", order = 0)]
-public class ItemConfig : EntityConfig
+public class ItemConfig : UnitConfig
 {
     [Header("Given Stats")]
     [SerializeField] private float _addAttackDistance;
@@ -15,10 +15,14 @@ public class ItemConfig : EntityConfig
     
     [Header("Prefab")] 
     [SerializeField] private Item _prefab;
+
+    [Header("Attribute")] 
+    [SerializeField] private AttributeType _attribute;
     
     public Item Prefab => _prefab;
+    public AttributeType Attribute => _attribute;
 
-    public Stats GetStats()
+    public Stats AddStats()
     {
         return new Stats
         {

@@ -1,4 +1,4 @@
-public enum EntityType
+public enum UnitType
 {
     Player,
     Enemy,

@@ -1,4 +1,4 @@
-public class EnemyHealth : EntityHealth
+public class EnemyHealth : UnitHealth
 {
         
 }

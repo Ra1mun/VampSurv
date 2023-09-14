@@ -3,7 +3,7 @@ using UnityEngine;
 public class InventorySetup : MonoBehaviour
 {
     [SerializeField] private InventoryView _view;
-    [SerializeField] private Inventory _model;
+    [SerializeField] private InventoryModel _model;
     [SerializeField] private ItemDataBase _data;
     private InventoryPresenter _presenter;
 

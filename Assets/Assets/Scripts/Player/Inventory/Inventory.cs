@@ -1,34 +1,21 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private List<AssetItem> _items = new List<AssetItem>();
-
-    public event Action<AssetItem> OnItemAdded;
-    public event Action<AssetItem> OnItemRemoved;
-
-    public void AddItem(AssetItem assetItem)
-    {
-        Debug.Log(assetItem.Name);
-        _items.Add(assetItem);
-        OnItemAdded?.Invoke(assetItem);
-    }
-    
-    public void RemoveItem(AssetItem item)
-    {
-        if (_items.Contains(item) == false)
-            return;
-
-        _items.Remove(item);
-        OnItemRemoved?.Invoke(item);
-    }
-    
+    private List<Item> _items = new List<Item>();
     public void ActivateItem(Item item)
     {
-        var instance = Instantiate(item, _player.transform);
+        var instance = Instantiate(item, transform.position, Quaternion.identity, transform);
+        _items.Add(instance);
+    }
+
+    public void BuffItems(AttributeType type)
+    {
+        _items.ForEach(item =>
+        {
+            if(item.Attribute == type) item.Stats.AddAttributeStats();
+        });
     }
 }

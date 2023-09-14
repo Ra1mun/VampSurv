@@ -8,28 +8,28 @@ public class AttributeView : MonoBehaviour
     [SerializeField] private Button _atheismButton;
     [SerializeField] private Button _paganismButton;
 
-    public event Action<AttributeType> OnUpLevelAttribute;
+    public event Action<AttributeType> OnAttributeLevelChanged;
 
     private void OnEnable()
     {
-        _christianButton.onClick.AddListener(ChristianButtonClick);
-        _atheismButton.onClick.AddListener(AtheismButtonClick);
-        _paganismButton.onClick.AddListener(PaganismButtonClick);
+        _christianButton.onClick.AddListener(OnChristianButtonClick);
+        _atheismButton.onClick.AddListener(OnAtheismButtonClick);
+        _paganismButton.onClick.AddListener(OnPaganismButtonClick);
     }
 
-    private void ChristianButtonClick()
+    private void OnChristianButtonClick()
     {
-        OnUpLevelAttribute?.Invoke(AttributeType.Christianity);
+        OnAttributeLevelChanged?.Invoke(AttributeType.Christianity);
     }
     
-    private void AtheismButtonClick()
+    private void OnAtheismButtonClick()
     {
-        OnUpLevelAttribute?.Invoke(AttributeType.Atheism);
+        OnAttributeLevelChanged?.Invoke(AttributeType.Atheism);
     }
     
-    private void PaganismButtonClick()
+    private void OnPaganismButtonClick()
     {
-        OnUpLevelAttribute?.Invoke(AttributeType.Paganism);
+        OnAttributeLevelChanged?.Invoke(AttributeType.Paganism);
     }
     
     public void Close()

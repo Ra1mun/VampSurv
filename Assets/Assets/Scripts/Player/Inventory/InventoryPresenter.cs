@@ -1,10 +1,11 @@
 public class InventoryPresenter
 {
-    private readonly Inventory _model;
+    private readonly Inventory _inventory;
+    private readonly InventoryModel _model;
     private readonly InventoryView _view;
     private readonly ItemDataBase _data;
 
-    public InventoryPresenter(Inventory model, InventoryView view, ItemDataBase data)
+    public InventoryPresenter(InventoryModel model, InventoryView view, ItemDataBase data)
     {
         _model = model;
         _view = view;
@@ -20,7 +21,7 @@ public class InventoryPresenter
     private void OnItemAdded(AssetItem item)
     {
         //_view.RenderItem(item);
-        _model.ActivateItem(_data.GetItem(item.ID));
+        _inventory.ActivateItem(_data.GetItem(item.ID));
     }
 
     private void OnItemRemoved(AssetItem item)

@@ -1,6 +1,6 @@
 using System;
 
-public class PlayerHealth : EntityHealth
+public class PlayerHealth : UnitHealth
 {
     
 }

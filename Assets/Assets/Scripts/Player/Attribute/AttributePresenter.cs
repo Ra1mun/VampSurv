@@ -5,16 +5,16 @@ public class AttributePresenter
 
     public void Enable()
     {
-        _view.OnUpLevelAttribute += OnUpLevelAttribute;
-        _model.OnUpLevel += OnUpLevel;
+        _view.OnAttributeLevelChanged += OnAttributeLevelChanged;
+        _model.OnLevelUp += OnLevelUp;
     }
 
-    private void OnUpLevel()
+    private void OnLevelUp()
     {
         _view.Open();
     }
     
-    private void OnUpLevelAttribute(AttributeType type)
+    private void OnAttributeLevelChanged(AttributeType type)
     {
         _model.AttributeLevelUp(type);
         _view.Close();
@@ -22,7 +22,7 @@ public class AttributePresenter
     
     public void Disable()
     {
-        _view.OnUpLevelAttribute -= OnUpLevelAttribute;
-        _model.OnUpLevel -= OnUpLevel;
+        _view.OnAttributeLevelChanged -= OnAttributeLevelChanged;
+        _model.OnLevelUp -= OnLevelUp;
     }
 }
