@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,6 @@ using UnityEngine;
 public abstract class ProjectilePlash : MonoBehaviour
 {
     [SerializeField] private LayerMask _targetLayerMask;
-
-    [SerializeField] protected PeriodicalDamageDealer _damageDealer;
 
     protected float _radius;
     protected int _damage;
@@ -22,28 +21,25 @@ public abstract class ProjectilePlash : MonoBehaviour
         _damage = damage;
         _speed = speed;
     }
-    private void Awake()
-    {
-        
-    }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collider)
     {
         if (IsProjectileDisposed)
             return;
-        if (collision.gameObject.TryGetComponent(out Unit entity))
+        if (collider.gameObject.TryGetComponent(out Unit unit))
         {
-            if (1 << collision.gameObject.layer == _targetLayerMask.value)
+            if (1 << collider.gameObject.layer == _targetLayerMask.value)
             {
-                OnTargetCollision(collision, entity);
+                OnTargetCollision(collider, unit);
             }
         }
         else
         {
-            OnOtherCollision(collision);
+            OnOtherCollision(collider);
         }
-        OnAnyCollision(collision);
+        OnAnyCollision(collider);
     }
+
     public void DisposeProjectile()
     {
         OnProjectileDispose();
@@ -55,5 +51,6 @@ public abstract class ProjectilePlash : MonoBehaviour
     protected virtual void OnAnyCollision(Collider2D collision) { }
     protected virtual void OnOtherCollision(Collider2D collision) { }
     protected virtual void OnTargetCollision(Collider2D collision, Unit unit){    }
+    
     protected virtual void ManualDispose() { }
 }
