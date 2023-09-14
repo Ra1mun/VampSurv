@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-    [SerializeField] private EnemyFindTarget _enemyFindTarget;
-    [SerializeField] private EnemyConfig _enemyConfig;
-    [SerializeField] private EnemyStats _enemyStats;
-    public EnemyFindTarget FindTarget => _enemyFindTarget;
+    [SerializeField] private EnemyStats _stats;
+    private EnemyConfig _enemyConfig;
+    
     public EnemyConfig Config => _enemyConfig;
     
     
-    public void Initialize(EnemyConfig config, EntityType type)
+    public void Initialize(EnemyConfig config, UnitType type)
     {
         _enemyConfig = config;
         _type = type;
-        _enemyStats.Initialize(config);
+        _stats.Initialize(config);
     }
 }
