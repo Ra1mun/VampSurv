@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Assets/Scripts/Item/Projectiles/ProjectileDisposeType.cs.meta
+guid: f654ce3d724130a489d9e55ac0343cac
+========
 guid: f6f7239c891807b44833f90d2dfb4964
+>>>>>>>> origin/Develop:Assets/Assets/Scripts/Player/PlayerAnimation.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
