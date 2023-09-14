@@ -12,34 +12,26 @@ public class GameLogic : MonoBehaviour, ITargetFinder
     [SerializeField] private Player _player;
 
     [Header("All Entities")]
-    [SerializeField] private List<Entity> _entities = new List<Entity>();
+    [SerializeField] private List<Unit> _entities = new List<Unit>();
     [Header("Enemies")]
     [SerializeField] private  List<Enemy> _enemies = new List<Enemy>();
 
     public event Action<Enemy> OnEnemyKilled;
     public event Action GameOver;
     
-    private void Update()
-    {
-        _enemySpawner.OnUpdate();
-        foreach (var enemy in _enemies)
-        {
-            enemy.FindTarget.OnUpdate(this);
-        }
-    }
     
-    Entity ITargetFinder.FindTarget(Entity selfEntity)
+    Unit ITargetFinder.FindTarget(Unit selfUnit)
     {
-        Entity result = null;
+        Unit result = null;
 
         var distance = float.MaxValue;
 
         foreach (var e in _entities)
         {
-            if (e.Type == selfEntity.Type || e.Type == EntityType.Player)
+            if (e.Type == selfUnit.Type || e.Type == UnitType.Player)
                 continue;
 
-            var tempDistance = (selfEntity.transform.position - e.transform.position).magnitude;
+            var tempDistance = (selfUnit.transform.position - e.transform.position).magnitude;
             if (!(tempDistance < distance)) continue;
             
             distance = tempDistance;
@@ -69,23 +61,23 @@ public class GameLogic : MonoBehaviour, ITargetFinder
             health.OnDie += DestroyEntity;
     }
 
-    private void DestroyEntity(Entity entity)
+    private void DestroyEntity(Unit unit)
     {
-        if (entity.TryGetComponent(out EntityHealth health))
+        if (unit.TryGetComponent(out UnitHealth health))
             health.OnDie -= DestroyEntity;
 
-        if (entity.GetComponent<Player>()) 
+        if (unit.GetComponent<Player>()) 
             GameOver?.Invoke();
 
 
-        if (entity.TryGetComponent(out Enemy enemy))
+        if (unit.TryGetComponent(out Enemy enemy))
         {
             _enemies.Remove(enemy);
             OnEnemyKilled?.Invoke(enemy);
         }
 
-        _entities.Remove(entity);
-        Destroy(entity.gameObject);
+        _entities.Remove(unit);
+        Destroy(unit.gameObject);
     }
     
     private void OnDisable()

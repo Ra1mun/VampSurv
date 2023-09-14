@@ -31,7 +31,7 @@ public abstract class ProjectilePlash : MonoBehaviour
     {
         if (IsProjectileDisposed)
             return;
-        if (collision.gameObject.TryGetComponent(out Entity entity))
+        if (collision.gameObject.TryGetComponent(out Unit entity))
         {
             if (1 << collision.gameObject.layer == _targetLayerMask.value)
             {
@@ -54,6 +54,6 @@ public abstract class ProjectilePlash : MonoBehaviour
     protected virtual void OnProjectileDispose() { }
     protected virtual void OnAnyCollision(Collider2D collision) { }
     protected virtual void OnOtherCollision(Collider2D collision) { }
-    protected virtual void OnTargetCollision(Collider2D collision, Entity entity){    }
+    protected virtual void OnTargetCollision(Collider2D collision, Unit unit){    }
     protected virtual void ManualDispose() { }
 }

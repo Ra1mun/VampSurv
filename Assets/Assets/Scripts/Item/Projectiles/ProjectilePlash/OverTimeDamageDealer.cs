@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class OverTimeDamageDealer : MonoBehaviour
 {
-    [SerializeField] private List<EntityDamageable> _entitiesToDamage = new List<EntityDamageable>();
+    [SerializeField] private List<UnitDamageable> _entitiesToDamage = new List<UnitDamageable>();
     [SerializeField] private ProjectilePlash _plash;
     private Coroutine _attackInProgress;
 
-    public void AddEntity(EntityDamageable entity)
+    public void AddEntity(UnitDamageable unit)
     {
-        _entitiesToDamage.Add(entity);
+        _entitiesToDamage.Add(unit);
         if (_attackInProgress == null)
             _attackInProgress = StartCoroutine(OverTimeDamageDeal());
-        //Needs check entity _isAlive?
+        //Needs check unit _isAlive?
     }
-    public void RemoveEntity(EntityDamageable entity)
+    public void RemoveEntity(UnitDamageable unit)
     {
-        _entitiesToDamage.Remove(entity);
+        _entitiesToDamage.Remove(unit);
     }
     IEnumerator OverTimeDamageDeal()
     {
         while(_entitiesToDamage.Count > 0)
         {
-            foreach(EntityDamageable entity in _entitiesToDamage)
+            foreach(UnitDamageable entity in _entitiesToDamage)
             {
                 entity.ApplyDamage(_plash.Damage);
             }

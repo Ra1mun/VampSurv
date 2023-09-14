@@ -11,7 +11,7 @@ public class PeriodicalDamageDealer : MonoBehaviour, IDamageDealer
         _attackTime = 0f;
     }
 
-    public void TryDamage(Entity target, int damage)
+    public void TryDamage(Unit target, int damage)
     {
         if (_attackTime <= 0)
         {

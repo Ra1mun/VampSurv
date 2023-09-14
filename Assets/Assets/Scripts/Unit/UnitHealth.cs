@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public abstract class EntityHealth: MonoBehaviour, IHealth
+public abstract class UnitHealth: MonoBehaviour, IHealth
 {
-    [SerializeField] private Entity _entity;
-    [SerializeField] private EntityStats _entityStats;
+    [SerializeField] private Unit unit;
+    [SerializeField] private UnitStats unitStats;
     
     [SerializeField] private int _currentHealth;
     
@@ -12,10 +12,10 @@ public abstract class EntityHealth: MonoBehaviour, IHealth
     
     public event Action<int> OnHealthChanged;
 
-    public event Action<Entity> OnDie;
+    public event Action<Unit> OnDie;
     private void Start()
     {
-        _maxHealth = _entityStats.GetStats().MaxHealth;
+        _maxHealth = unitStats.GetStats().MaxHealth;
         CurrentHealth = _maxHealth;
     }
     public int CurrentHealth
@@ -25,7 +25,7 @@ public abstract class EntityHealth: MonoBehaviour, IHealth
         {
             _currentHealth = Mathf.Clamp(value, 0, _maxHealth);
             if(_currentHealth == 0)
-                OnDie?.Invoke(_entity);
+                OnDie?.Invoke(unit);
             
             OnHealthChanged?.Invoke(_currentHealth);
         }

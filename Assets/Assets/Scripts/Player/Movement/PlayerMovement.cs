@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : EntityMoveable
+public class PlayerMovement : UnitMoveable
 {
     [SerializeField] private PlayerStats _playerStats;
 

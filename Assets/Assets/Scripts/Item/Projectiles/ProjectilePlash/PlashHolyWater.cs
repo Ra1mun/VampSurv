@@ -9,9 +9,9 @@ public class PlashHolyWater : ProjectilePlash
     {
         Debug.Log("Plash Added");
     }
-    protected override void OnTargetCollision(Collider2D collision, Entity entity)
+    protected override void OnTargetCollision(Collider2D collision, Unit unit)
     {
-        _damageDealer.TryDamage(entity, _damage);
+        _damageDealer.TryDamage(unit, _damage);
     }
     
 

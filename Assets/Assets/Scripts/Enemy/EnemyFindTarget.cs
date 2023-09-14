@@ -11,7 +11,7 @@ public class EnemyFindTarget : MonoBehaviour
     
     private EnemyState _state;
     
-    private Entity _target;
+    private Unit _target;
     
     public void OnUpdate(ITargetFinder targetFinder)
     {

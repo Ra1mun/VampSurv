@@ -3,25 +3,25 @@ using UnityEngine;
 public class MeleeDamageDealer : MonoBehaviour, IDamageDealer
 {
     private float _attackTime;
-    private EntityStats _entityStats;
+    private UnitStats _unitStats;
 
     private void Awake()
     {
-        _entityStats = GetComponent<EntityStats>();
+        _unitStats = GetComponent<UnitStats>();
     }
 
-    public void TryDamage(Entity target, int damage)
+    public void TryDamage(Unit target, int damage)
     {
         if (_attackTime <= 0)
         {
             _attackTime = Constants.ATTTACK_INTERVAL;
             if (target.TryGetComponent(out IDamageable damageable))
             {
-                damageable.ApplyDamage(_entityStats.GetStats().Damage);
+                damageable.ApplyDamage(_unitStats.GetStats().Damage);
             }
         }
 
-        _attackTime -= Time.deltaTime * _entityStats.GetStats().AttackSpeed;
+        _attackTime -= Time.deltaTime * _unitStats.GetStats().AttackSpeed;
     }
 
     public void Rest()

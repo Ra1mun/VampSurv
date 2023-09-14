@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Enemy : Entity
+public class Enemy : Unit
 {
     [SerializeField] private EnemyStats _stats;
     private EnemyConfig _enemyConfig;

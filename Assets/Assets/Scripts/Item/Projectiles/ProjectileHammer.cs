@@ -8,7 +8,7 @@ public class ProjectileHammer : Projectile
     {
         
     }
-    protected override void OnTargetCollision(Collider2D collision, EntityDamageable damageable)
+    protected override void OnTargetCollision(Collider2D collision, UnitDamageable damageable)
     {
         damageable.ApplyDamage(_damage);
     }

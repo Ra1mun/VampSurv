@@ -1,8 +1,8 @@
 public class InitializeStats : IStatsProvider
 {
-    private readonly EntityConfig _config;
+    private readonly UnitConfig _config;
 
-    public InitializeStats(EntityConfig config)
+    public InitializeStats(UnitConfig config)
     {
         _config = config;
     }

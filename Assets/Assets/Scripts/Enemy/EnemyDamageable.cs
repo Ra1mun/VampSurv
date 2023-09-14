@@ -1,4 +1,4 @@
-public class EnemyDamageable : EntityDamageable
+public class EnemyDamageable : UnitDamageable
     {
         
     }

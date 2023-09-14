@@ -39,7 +39,7 @@ public abstract class Projectile : MonoBehaviour
     {
         if (IsProjectileDisposed)
             return;
-        if (collision.gameObject.TryGetComponent(out EntityDamageable damageable))
+        if (collision.gameObject.TryGetComponent(out UnitDamageable damageable))
         {
             if (1 << collision.gameObject.layer == _targetLayerMask.value)
             {
@@ -76,6 +76,6 @@ public abstract class Projectile : MonoBehaviour
     protected virtual void OnProjectileDispose() { }
     protected virtual void OnAnyCollision(Collider2D collision) { }
     protected virtual void OnOtherCollision(Collider2D collision) { }
-    protected virtual void OnTargetCollision(Collider2D collision, EntityDamageable damageable) { }
+    protected virtual void OnTargetCollision(Collider2D collision, UnitDamageable damageable) { }
     protected virtual void ManualDispose(){ }
 }

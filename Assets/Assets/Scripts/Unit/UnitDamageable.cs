@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public abstract class EntityDamageable : MonoBehaviour, IDamageable
+public abstract class UnitDamageable : MonoBehaviour, IDamageable
 {
-    [SerializeField] private EntityHealth _entityHealth;
+    [SerializeField] private UnitHealth unitHealth;
 
     public void ApplyDamage(int damage)
     {
@@ -12,7 +12,7 @@ public abstract class EntityDamageable : MonoBehaviour, IDamageable
 
         var totalDamage = ProcessDamage(damage);
         
-        _entityHealth.CurrentHealth -= damage;
+        unitHealth.CurrentHealth -= damage;
     }
 
     protected virtual int ProcessDamage(int damage)

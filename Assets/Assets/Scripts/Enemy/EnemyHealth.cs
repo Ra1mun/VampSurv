@@ -1,5 +1,5 @@
 using UnityEngine;
-public class EnemyHealth : EntityHealth
+public class EnemyHealth : UnitHealth
 {
     
 }

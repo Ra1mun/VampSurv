@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42123936-c2b5-425a-aea9-087bd3a7be96" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Damageable/IDamageable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Damageable/IDamageable.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/EnemiesHandler/EnemyDeathHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/EnemiesHandler/EnemyDeathHandler.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/AttributePresenter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/AttributePresenter.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/AttributeView.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/AttributeView.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Wave/WaveSpawnSpeedPerTime.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Wave/WaveSpawnSpeedPerTime.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.VampSurvTD/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.VampSurvTD/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyConfig.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/EnemyConfig.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/Damage Dealers/MeleeDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/Damage Dealers/MeleeDamageDealer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/Damage Dealers/RangeDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/Damage Dealers/RangeDamageDealer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityDamageable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Entity/EntityDamageable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/GameLogic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/GameLogic.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/InputHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Handlers/InputHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/AssetItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/AssetItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemInteractable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemTriggerInteractable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Interactable/ItemTriggerInteractable.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Item.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/ItemStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/Attributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Attribute/Attributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience/Experience.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience/Experience.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience/ExperiencePresenter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience/ExperiencePresenter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience/ExperienceView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Experience/ExperienceView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Inventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Player/Inventory/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/ChatController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/SimpleScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TMP_ExampleScript_01.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Examples &amp; Extras/Scripts/TeleType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,6 +87,7 @@
       <workItem from="1693237710121" duration="2081000" />
       <workItem from="1693293473572" duration="1402000" />
       <workItem from="1693296721635" duration="1461000" />
+      <workItem from="1694705439203" duration="495000" />
     </task>
     <servers />
   </component>

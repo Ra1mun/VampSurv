@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerStats : EntityStats
+public class PlayerStats : UnitStats
 {
     [SerializeField] private Player _player;
     

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Config/EnemyConfig", fileName = "EnemyConfig", order = 0)]
-public class EnemyConfig : EntityConfig
+public class EnemyConfig : UnitConfig
 {
     
     [SerializeField] private Enemy _prefab;

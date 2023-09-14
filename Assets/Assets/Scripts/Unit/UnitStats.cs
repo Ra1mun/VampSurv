@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class EntityStats : MonoBehaviour
+public abstract class UnitStats : MonoBehaviour
 {
     public IStatsProvider Provider;
     
@@ -11,7 +11,7 @@ public abstract class EntityStats : MonoBehaviour
     
     
 
-    public void Initialize(EntityConfig config)
+    public void Initialize(UnitConfig config)
     {
         Provider = new InitializeStats(config);
     }

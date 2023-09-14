@@ -1,5 +1,5 @@
 using UnityEngine;
 
-public class EnemyStats : EntityStats
+public class EnemyStats : UnitStats
 {    
 }
