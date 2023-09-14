@@ -2,7 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42123936-c2b5-425a-aea9-087bd3a7be96" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/AssetItem/AssetItem.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/AssetItem/AssetItem.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Config/Item/Item_Mjolnir.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Config/Item/Item_Mjolnir.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Enemies/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Enemies/Enemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Items_Mjolnir.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Items_Mjolnir.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/Plashes/HolyWaterPlash.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/Plashes/HolyWaterPlash.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/ProjectileMjolnir.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/ProjectileMjolnir.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/ProjectileSpear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/ProjectileSpear.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/Projectile_HolyWater.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Prefabs/Items/Projectiles/Projectile_HolyWater.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Resources/Source/ItemDataBase.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Resources/Source/ItemDataBase.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Moveable/ProjectileCurveMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Moveable/ProjectileCurveMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileHammer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileHammer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileHammer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinearSpear.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinear.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinearSpear.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectileLinear.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/PeriodicalDamageDealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/PeriodicalDamageDealer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/PeriodicalDamageDealer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/PlashHolyWater.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/PlashHolyWater.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/ProjectilePlash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Scripts/Item/Projectiles/ProjectilePlash/ProjectilePlash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MichaeleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MichaeleScene.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +106,7 @@
       <workItem from="1693237710121" duration="2081000" />
       <workItem from="1693293473572" duration="1402000" />
       <workItem from="1693296721635" duration="1461000" />
-      <workItem from="1694705439203" duration="495000" />
+      <workItem from="1694705439203" duration="1342000" />
     </task>
     <servers />
   </component>
