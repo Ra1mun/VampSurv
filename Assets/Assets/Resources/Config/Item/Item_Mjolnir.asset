@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Item_Mjolnir
   m_EditorClassIdentifier: 
   _attackDistance: 10
-  _moveSpeed: 1
+  _moveSpeed: 0.5
   _attackSpeed: 1
   _damage: 10
   _maxHealth: 0

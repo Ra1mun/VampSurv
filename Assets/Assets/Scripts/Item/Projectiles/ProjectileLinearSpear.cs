@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLinear : Projectile
+public class ProjectileLinearSpear : Projectile
 {
     protected override void ManualDispose()
     {

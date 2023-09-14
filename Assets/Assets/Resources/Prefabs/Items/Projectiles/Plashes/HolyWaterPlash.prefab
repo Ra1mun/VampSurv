@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7970960537591638721}
   - component: {fileID: 7970960537591638726}
   - component: {fileID: 7970960537591638727}
-  - component: {fileID: 7970960537591638724}
+  - component: {fileID: 3181358042787382291}
   m_Layer: 0
   m_Name: HolyWaterPlash
   m_TagString: Untagged
@@ -118,9 +118,9 @@ MonoBehaviour:
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _damageDealer: {fileID: 3181358042787382291}
   IsProjectileDisposed: 0
-  _damageDealer: {fileID: 7970960537591638724}
---- !u!114 &7970960537591638724
+--- !u!114 &3181358042787382291
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,8 +129,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7970960537591638725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d13cb949c21f647b52296354dbfb2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 592e11b39525ad84e9c85f3b9e7c0dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entitiesToDamage: []
-  _plash: {fileID: 7970960537591638727}

@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class PlashHolyWater : ProjectilePlash
 {
-    [SerializeField] private OverTimeDamageDealer _damageDealer;
+    
     private void Awake()
     {
         Debug.Log("Plash Added");
     }
-    protected override void OnTargetCollision(Collider2D collision, EntityDamageable damageable)
+    protected override void OnTargetCollision(Collider2D collision, Entity entity)
     {
-        _damageDealer.AddEntity(damageable);
+        _damageDealer.TryDamage(entity, _damage);
     }
-    protected override void OnTargetCollisionExit(Collider2D collision, EntityDamageable damageable)
-    {
-        _damageDealer.RemoveEntity(damageable);
-    }
+    
 
 }

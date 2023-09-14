@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cacd548781f6e4bae33da3a0ea9b0e, type: 3}
   m_Name: AssetItem
   m_EditorClassIdentifier: 
-  _id: 3
-  _icon: {fileID: -1208615599, guid: 1e041727ac5dd0d448c1504c079dcc37, type: 3}
-  _name: HolyWater
+  _id: 4
+  _icon: {fileID: 1875897304, guid: 0e864ab3349641345b90d4290a05f8c7, type: 3}
+  _name: Mjolnir

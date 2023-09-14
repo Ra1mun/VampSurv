@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bade22880bf282429afebaa6de7aa1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 7611983541858589131, guid: 6ce1813108ac2e54bab4e8808914bf3a, type: 3}
   _itemStats: {fileID: 3699535086917861924}
   _targetFinder: {fileID: 7410181459372058582}
 --- !u!114 &3699535086917861924

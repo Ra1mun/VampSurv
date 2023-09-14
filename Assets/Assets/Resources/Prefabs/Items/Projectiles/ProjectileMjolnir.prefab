@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1554902341569118663}
   - component: {fileID: 8057253753608687768}
   - component: {fileID: 4349836630798942123}
-  - component: {fileID: 7969760415748605956}
   - component: {fileID: 7606486296816069816}
+  - component: {fileID: 7611983541858589131}
   m_Layer: 0
   m_Name: ProjectileMjolnir
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9039425321663739931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.579, y: 0.267, z: 0.2069211}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2069211}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -97,30 +97,12 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.25, y: 0.36}
   m_Direction: 0
---- !u!114 &7969760415748605956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9039425321663739931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd0a1f0d6378735458495ae31c9205fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _disposeType: 2
-  _targetLayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  _targetPosition: {x: 0, y: 0}
-  IsProjectileDisposed: 0
 --- !u!114 &7606486296816069816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,10 +115,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7db4a1ce213d53c46acf5826fb40d5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projectile: {fileID: 0}
+  _projectile: {fileID: 7611983541858589131}
   projectileRigidbody: {fileID: 0}
-  _controlPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _controlPoints: []
+  _deflectionCoefficientVertical: 1
+  _deflectionCoefficientHorizontal: 1.5
+--- !u!114 &7611983541858589131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9039425321663739931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11f5aed80e2cd3a4eb698592e0af2429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _disposeType: 2
+  _targetLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _targetPosition: {x: 0, y: 0}
+  IsProjectileDisposed: 0
