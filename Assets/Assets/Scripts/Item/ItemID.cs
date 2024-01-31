@@ -1,0 +1,19 @@
+﻿public enum ItemID : uint
+{
+    Curiass,
+    Sphere,
+    Spear,
+    HolyWater,
+    Mjolnir,
+    Cross,
+    Big_Cross,
+    Bible,
+    Censer,
+    Thorn_Rune,
+    GjallarHorn,
+    Gleipnir,
+    Zwaihander,
+    Throwing_Dagger,
+    Scourge,
+    TorchLight
+}

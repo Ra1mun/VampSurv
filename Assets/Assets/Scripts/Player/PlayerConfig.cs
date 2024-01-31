@@ -1,19 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PlayerConfig : MonoBehaviour
+[CreateAssetMenu(menuName = "Config/PlayerConfig", fileName = "PlayerConfig", order = 0)]
+public class PlayerConfig : UnitConfig
 {
-    public Player Player;
-    public float MoveSpeed;
-    public int MaxHealth;
-    public float AttackDistance;
-    public float AttackSpeed;
-    public int Damage;
-
-    private void Start()
-    {
-        Player.Initialize(MaxHealth, AttackDistance, AttackSpeed, Damage, MoveSpeed);
-    }
+    
 }

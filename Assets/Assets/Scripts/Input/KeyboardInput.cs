@@ -1,15 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class KeyboardInput : MonoBehaviour
 {
-    [SerializeField] private PhysicsMovement _physicsMovement;
-
-    private void Update()
+    public event Action<Vector2> OnInput;
+    
+    private void FixedUpdate()
     {
-        _physicsMovement.MoveDirection(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+        OnInput?.Invoke(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
     }
 }

@@ -1,5 +1,3 @@
-
-
 public enum EnemyType
 {
     TestEnemy
