@@ -8,6 +8,7 @@ public class ItemSelectionSetup : MonoBehaviour
     [SerializeField] private Interaction interaction;
     [SerializeField] private ItemSelectionView view;
     [SerializeField] public List<AssetItem> itemsPool;
+
     private ItemSelectionPresenter presenter;
     void OnEnable()
     {

@@ -15,7 +15,7 @@ public class ItemSelectionPresenter
     public void Enable()
     {
         model.OnItemSelection += SelectItem;
-        view.OnItemSelected += ItemSelected;
+        view.OnItemSelectedEvent += ItemSelected;
     }
     void SelectItem()
     {
