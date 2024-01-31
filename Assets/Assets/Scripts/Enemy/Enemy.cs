@@ -4,7 +4,7 @@ using UnityEngine;
 public class Enemy : Unit
 {
     [SerializeField] private EnemyStats _stats;
-    private EnemyConfig _enemyConfig;
+    [SerializeField] private EnemyConfig _enemyConfig;
     
     public EnemyConfig Config => _enemyConfig;
     

@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private List<Transform> _spawnPositions;
     [SerializeField] private EnemySpawnerState _state;
     [SerializeField] private EnemyFactory _enemyFactory;
-    private float _delayBeforeSpawn;
+    [SerializeField] private float _delayBeforeSpawn;
     private float _elapsedTime;
     
     public event Action<Enemy> OnEnemySpawned;

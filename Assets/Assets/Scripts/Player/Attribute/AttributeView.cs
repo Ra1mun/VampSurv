@@ -34,11 +34,15 @@ public class AttributeView : MonoBehaviour
     
     public void Close()
     {
-        
+        _christianButton.gameObject.SetActive(false);
+        _atheismButton.gameObject.SetActive(false);
+        _paganismButton.gameObject.SetActive(false);
     }
 
     public void Open()
     {
-        
+        _christianButton.gameObject.SetActive(true);
+        _atheismButton.gameObject.SetActive(true);
+        _paganismButton.gameObject.SetActive(true);
     }
 }

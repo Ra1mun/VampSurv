@@ -8,12 +8,14 @@ public class UnitConfig : ScriptableObject
     [SerializeField] private float _attackSpeed;
     [SerializeField] private int _damage;
     [SerializeField] private int _maxHealth;
-    [SerializeField] private float _attackCooldown;
+    [SerializeField] private int _armor;
+    [SerializeField] private int _expPerKill;
 
     public float AttackDistance => _attackDistance;
     public float AttackSpeed => _attackSpeed;
     public int Damage => _damage;
     public int MaxHealth => _maxHealth;
     public float MoveSpeed => _moveSpeed;
-    public float AttackCooldown => _attackCooldown;
+    public int Armor => _armor;
+    public int ExpPerKill => _expPerKill;
 }

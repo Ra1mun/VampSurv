@@ -4,7 +4,11 @@ public abstract class UnitStats : MonoBehaviour
 {
     protected IStatsProvider _provider;
 
-    public Stats GetStats() => _provider.GetStats();
+    public Stats GetStats()
+    {
+        return _provider.GetStats();
+    }
+    
 
     public void Initialize(UnitConfig config)
     {

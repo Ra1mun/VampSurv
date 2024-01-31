@@ -13,7 +13,7 @@ public abstract class UnitDamageable : MonoBehaviour, IDamageable
         var totalDamage = ProcessDamage(damage);
         
         _unitHealth.CurrentHealth -= damage;
-        Debug.Log(_unitHealth.CurrentHealth);
+        Debug.Log(gameObject.name + " Takes damage: " + damage);
     }
 
     protected virtual int ProcessDamage(int damage)

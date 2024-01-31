@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: ItemDataBase
   m_EditorClassIdentifier: 
   _items:
-    m_keys: 0000000001000000020000000300000004000000
+    m_keys: 000000000100000002000000030000000400000005000000
     m_values:
     - {fileID: 11400000, guid: ad789a63b2d099046ba2984db07f99c2, type: 2}
     - {fileID: 11400000, guid: f68cbdb51ff531248bc2885342e71401, type: 2}
     - {fileID: 11400000, guid: 310da5287e7b84f4b9fb1a85d5c2ec8a, type: 2}
     - {fileID: 11400000, guid: db1e9bbfc379e83428801f7982e25da4, type: 2}
-    - {fileID: 0}
+    - {fileID: 11400000, guid: 108996704d91b3242bd6f70a49633573, type: 2}
+    - {fileID: 11400000, guid: fe7353b8f03f6d3439698decb12a12de, type: 2}

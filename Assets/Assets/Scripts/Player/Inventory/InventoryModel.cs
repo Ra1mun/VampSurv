@@ -4,7 +4,7 @@ using Unity.Mathematics;
 using UnityEditor.SceneTemplate;
 using UnityEngine;
 
-public class InventoryModel
+public class InventoryModel : MonoBehaviour
 {
     private List<AssetItem> _items = new List<AssetItem>();
 

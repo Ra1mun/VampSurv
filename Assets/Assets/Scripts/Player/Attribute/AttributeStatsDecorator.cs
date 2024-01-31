@@ -1,37 +1,17 @@
+using UnityEngine;
 public class AttributeStatsDecorator : StatsDecorator
 {
-    private readonly AttributeType _type;
-    
-    public AttributeStatsDecorator(IStatsProvider wrappedEntity, AttributeType type) : base(wrappedEntity)
+    private ItemConfig _config; 
+
+    public AttributeStatsDecorator(IStatsProvider wrappedEntity, ItemConfig config) : base(wrappedEntity)
     {
-        _type = type;
+        _config = config;
     }
 
     protected override Stats GetStatsInternal()
     {
-        var stat = new Stats();
-        switch (_type)
-        {
-            case AttributeType.Christianity:
-                stat += new Stats()
-                {
-                    MaxHealth = 10,
-                };
-                break;
-            case AttributeType.Atheism:
-                stat += new Stats()
-                {
-                    MaxHealth = 10,
-                };
-                break;
-            case AttributeType.Paganism:
-                stat += new Stats()
-                {
-                    MaxHealth = 10,
-                };
-                break;
-        }
-
-        return _wrappedEntity.GetStats() + stat;
+        var stats = new Stats();
+        stats += _config.ChangeGivenStatsByStep();
+        return _wrappedEntity.GetStats() + stats;
     }
 }

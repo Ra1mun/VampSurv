@@ -2,11 +2,15 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]public class AttributesDictionary : SerializableDictionary<AttributeType, int>
+{ }
+
+
 public class Attributes : MonoBehaviour
 {
-    [SerializeField] private Experience _experience;
-    [SerializeField] private InventoryModel inventoryModel;
-    private Dictionary<AttributeType, int> _attributeLevels = new Dictionary<AttributeType, int>()
+    [SerializeField] private PlayerLevel _level;
+    [SerializeField] private Inventory _inventory;
+    [SerializeField] private AttributesDictionary _attributeLevels = new AttributesDictionary()
     {
 
         [AttributeType.Atheism] = 0,
@@ -18,7 +22,7 @@ public class Attributes : MonoBehaviour
 
     private void OnEnable()
     {
-        _experience.OnLevelChanged += OnLevelChanged;
+        _level.SelectAttribute += OnLevelChanged;
     }
 
     private void OnLevelChanged()
@@ -29,11 +33,11 @@ public class Attributes : MonoBehaviour
     public void AttributeLevelUp(AttributeType type)
     {
         _attributeLevels[type]++;
-        
+        _inventory.BuffItems(type);
     }
     
     private void OnDisable()
     {
-        _experience.OnLevelChanged -= OnLevelChanged;
+        _level.SelectAttribute -= OnLevelChanged;
     }
 }

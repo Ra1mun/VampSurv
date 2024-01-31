@@ -7,8 +7,8 @@ public struct Stats
     public float AttackSpeed { get; set; }
     public float AttackDistance { get; set; }
     public int Damage { get; set; }
-    public float AttackCooldown { get;set; }
     public int Armor { get; set; }
+    public int ExpPerKill { get; set; }
 
     public static Stats operator +(Stats a, Stats b)
     {
@@ -20,7 +20,7 @@ public struct Stats
             AttackDistance = a.AttackDistance + b.AttackDistance,
             AttackSpeed = a.AttackSpeed + b.AttackSpeed,
             Armor = a.Armor + b.Armor,
-            AttackCooldown = a.AttackCooldown + b.AttackCooldown
+            ExpPerKill = a.ExpPerKill + b.ExpPerKill,
         };
     }
 
@@ -34,7 +34,7 @@ public struct Stats
             AttackDistance = a.AttackDistance * m,
             AttackSpeed = a.AttackSpeed * m,
             Armor = Mathf.RoundToInt(a.Armor * m),
-            AttackCooldown = a.AttackCooldown * m,
+            ExpPerKill = Mathf.RoundToInt(a.ExpPerKill * m),
         };
     }
 }

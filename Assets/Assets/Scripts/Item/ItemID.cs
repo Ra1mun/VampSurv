@@ -4,5 +4,16 @@
     Sphere,
     Spear,
     HolyWater,
-    Mjolnir
+    Mjolnir,
+    Cross,
+    Big_Cross,
+    Bible,
+    Censer,
+    Thorn_Rune,
+    GjallarHorn,
+    Gleipnir,
+    Zwaihander,
+    Throwing_Dagger,
+    Scourge,
+    TorchLight
 }

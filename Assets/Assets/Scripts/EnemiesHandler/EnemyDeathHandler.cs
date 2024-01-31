@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class EnemyDeathHandler : MonoBehaviour
 {
-    [SerializeField] private readonly UnitsPool _unitsPool;
-    [SerializeField] private readonly Experience _experience;
+    [SerializeField] private UnitsPool _unitsPool;
+    [SerializeField] private Experience _experience;
 
     private void OnEnable()
     {

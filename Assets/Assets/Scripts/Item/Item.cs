@@ -4,7 +4,7 @@ public class Item : Unit
 {
     [SerializeField] private ItemStats _stats;
     
-    private ItemConfig _itemConfig;
+    [SerializeField]private ItemConfig _itemConfig;
     public ItemConfig Config => _itemConfig;
     public ItemStats Stats => _stats;
     public AttributeType Attribute => _itemConfig.Attribute;

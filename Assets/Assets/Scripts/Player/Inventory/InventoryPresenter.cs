@@ -5,8 +5,9 @@ public class InventoryPresenter
     private readonly InventoryView _view;
     private readonly ItemDataBase _data;
 
-    public InventoryPresenter(InventoryModel model, InventoryView view, ItemDataBase data)
+    public InventoryPresenter(Inventory inventory,InventoryModel model, InventoryView view, ItemDataBase data)
     {
+        _inventory = inventory;
         _model = model;
         _view = view;
         _data = data;

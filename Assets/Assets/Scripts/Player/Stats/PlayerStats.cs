@@ -12,8 +12,8 @@ public class PlayerStats : UnitStats
         OnStatsChanged?.Invoke(_provider.GetStats());
     }
     
-    public void AddAttributeStats(AttributeType type)
+    public void AddAttributeStats(ItemConfig itemConfig)
     {
-        _provider = new AttributeStatsDecorator(_provider, type);
+        _provider = new AttributeStatsDecorator(_provider, itemConfig);
     }
 }

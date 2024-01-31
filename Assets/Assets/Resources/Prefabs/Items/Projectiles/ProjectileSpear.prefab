@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1923897713, guid: 216da4b79e269bf4eaf5f1327f9cee92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -120,11 +120,7 @@ MonoBehaviour:
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _radius: 0
-  _damage: 0
-  _speed: 0
   _targetPosition: {x: 0, y: 0}
-  _originPosition: {x: 0, y: 0}
   IsProjectileDisposed: 0
 --- !u!50 &-3302030954000138419
 Rigidbody2D:

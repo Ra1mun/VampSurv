@@ -5,7 +5,7 @@ public class MeleeDamageDealer : MonoBehaviour, IDamageDealer
     [SerializeField] private UnitStats _stats;
     private float _attackTime;
     
-    public void TryDamage(Unit target)
+    public void TryDamage(Unit target, int damage)
     {
         if (_attackTime <= 0)
         {
@@ -15,7 +15,7 @@ public class MeleeDamageDealer : MonoBehaviour, IDamageDealer
                 damageable.ApplyDamage(_stats.GetStats().Damage);
             }
         }
-
+        
         _attackTime -= Time.deltaTime * _stats.GetStats().AttackSpeed;
     }
 

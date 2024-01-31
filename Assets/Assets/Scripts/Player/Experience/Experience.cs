@@ -4,7 +4,7 @@ using UnityEngine;
 public class Experience : MonoBehaviour
 {
     [SerializeField] private int _maxExperience = 100;
-    private int _currentExperience;
+    [SerializeField]private int _currentExperience;
     
     public Action<int, int> OnExperienceChanged;
     public Action OnLevelChanged;

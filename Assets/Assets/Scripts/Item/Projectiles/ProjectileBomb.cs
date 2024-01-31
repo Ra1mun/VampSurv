@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ProjectileBomb : Projectile
 {
-    [SerializeField] private ProjectilePlash _plash;
+    [SerializeField] private Area _plash;
     protected override void OnProjectileDispose()
     {
         var instance = Instantiate(_plash,gameObject.transform.position, Quaternion.identity);
-        instance.Initialize(_speed, _radius, _damage);
+        instance.Initialize(_radius, _damage);
     }
 }

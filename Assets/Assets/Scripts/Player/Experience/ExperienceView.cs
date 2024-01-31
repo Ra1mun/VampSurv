@@ -10,7 +10,7 @@ public class ExperienceView : MonoBehaviour
 
     public void UpdateExperience(int currentExperience, int maxExperience)
     {
-        _experienceBar.value = currentExperience;
+        _experienceBar.value = currentExperience / 100;
         _text.text = $"{currentExperience} / {maxExperience}";
     }
 }

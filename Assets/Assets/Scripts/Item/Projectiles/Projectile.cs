@@ -37,14 +37,16 @@ public abstract class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
+
         if (IsProjectileDisposed)
             return;
+
         if (collision.gameObject.TryGetComponent(out UnitDamageable damageable))
         {
             if (1 << collision.gameObject.layer == _targetLayerMask.value)
             {
                 OnTargetCollision(collision, damageable);
-
                 if (_disposeType == ProjectileDisposeType.OnTargetCollision)
                 {
                     DisposeProjectile();

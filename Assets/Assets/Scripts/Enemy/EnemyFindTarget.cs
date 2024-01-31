@@ -10,14 +10,17 @@ public class EnemyFindTarget : ITargetFinder
 
         foreach (var unit in UnitsPool.Units)
         {
-            if (unit.Type == selfUnit.Type || unit.Type == UnitType.Player)
-                continue;
+            if (unit.Type == UnitType.Player)
+            {
+                var tempDistance = (selfUnit.transform.position - unit.transform.position).magnitude;
+                if ((tempDistance < distance))
+                {
+                    distance = tempDistance;
+                    result = unit;
+                }
+            }
 
-            var tempDistance = (selfUnit.transform.position - unit.transform.position).magnitude;
-            if (!(tempDistance < distance)) continue;
             
-            distance = tempDistance;
-            result = unit;
         }
 
         return result;

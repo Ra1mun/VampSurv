@@ -16,6 +16,7 @@ public class EnemyStrategy : MonoBehaviour
     private void Awake()
     {
         _findTarget = new EnemyFindTarget();
+        gameObject.TryGetComponent<IDamageDealer>(out _damageDealer);
     }
 
     private void Update()
@@ -34,6 +35,7 @@ public class EnemyStrategy : MonoBehaviour
             default:
                 throw new InvalidImplementationException($"State: {_state} not found!");
         }
+        Debug.Log(_state);
     }
 
     private void LookForTarget()
@@ -75,6 +77,6 @@ public class EnemyStrategy : MonoBehaviour
             return;
         }
 
-        _damageDealer.TryDamage(_target);
+        _damageDealer.TryDamage(_target, _stats.GetStats().Damage);
     }
 }

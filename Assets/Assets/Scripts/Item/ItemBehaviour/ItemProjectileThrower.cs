@@ -2,45 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(ItemNearestTargetFinder))]
-public class ItemProjectileThrower : MonoBehaviour
+public class ItemProjectileThrower : ItemBehaviour
 {
     [SerializeField] private Projectile projectile;
-    [SerializeField] private ItemStats _itemStats;
     [SerializeField] private ItemNearestTargetFinder _targetFinder;
 
-    private float _cooldownDuration => _itemStats.GetStats().AttackCooldown; //must be deleted from this, stats and etc.
     private float _attackSpeed => _itemStats.GetStats().AttackSpeed;
 
     private float _attackTime;
 
     private Enemy _target;
     private Vector2 _direction;
-    private ItemState _state = ItemState.LookForTarget;
-    private void Update()
-    {
-        switch (_state)
-        {
-            case ItemState.LookForTarget:
-                LookForTarget();
-                break;
-            case ItemState.AttackTarget:
-                SpawnProjectile();
-                break;
-            case ItemState.OnCooldown:
-                OnCooldown();
-                break;
-        }
-
-    }
-    private void LookForTarget()
+    
+    protected override void LookForTarget()
     {
         _target = _targetFinder.LookForTarget(_itemStats.GetStats().AttackDistance);
         if (_target != null)
-            _state = ItemState.AttackTarget;
+            _currentState = ItemState.AttackTarget;
         else
             return;
     }
-    public void SpawnProjectile()
+    protected override void SpawnProjectile()
     {
         _direction = _target.gameObject.transform.position;
         var instance = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
@@ -51,16 +33,16 @@ public class ItemProjectileThrower : MonoBehaviour
             gameObject.transform.position);
 
 
-        _attackTime = _cooldownDuration; //maybe replace from this
-        _state = ItemState.OnCooldown;
+        _attackTime = _attackSpeed; //maybe replace from this
+        _currentState = ItemState.OnCooldown;
     }
 
-    private void OnCooldown()
+    protected override void OnCooldown()
     {
         if (_attackTime <= 0)
         {
-            _attackTime = _cooldownDuration;
-            _state = ItemState.LookForTarget;
+            _attackTime = _attackSpeed;
+            _currentState = ItemState.LookForTarget;
         }
         _attackTime -= Time.deltaTime;
     }
