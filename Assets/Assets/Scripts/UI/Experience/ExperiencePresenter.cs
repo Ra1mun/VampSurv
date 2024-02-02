@@ -11,7 +11,7 @@ public class ExperiencePresenter
 
     public void Enable()
     {
-        _model.OnExperienceChanged += OnExperienceChanged;
+        _model.OnExperienceChangedEvent += OnExperienceChanged;
     }
     
     private void OnExperienceChanged(int currentExperience, int maxExperience)
@@ -21,7 +21,7 @@ public class ExperiencePresenter
 
     public void Disable()
     {
-        _model.OnExperienceChanged -= OnExperienceChanged;
+        _model.OnExperienceChangedEvent -= OnExperienceChanged;
     }
 
     

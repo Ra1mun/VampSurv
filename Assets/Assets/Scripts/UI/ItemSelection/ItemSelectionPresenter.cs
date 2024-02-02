@@ -1,30 +1,36 @@
 using System;
+using UnityEngine;
 
 public class ItemSelectionPresenter
 {
-    Interaction model;
-    ItemSelectionView view;
+    private readonly ItemSelectionVisitor _model;
+    private readonly AssetItemGenerator _generator;
+    private readonly ItemSelectionView _view;
+    
 
-    public Action<AssetItem> OnItemSelected;
-
-    public ItemSelectionPresenter(Interaction model, ItemSelectionView view)
+    public ItemSelectionPresenter(
+        ItemSelectionView view,
+        ItemSelectionVisitor model,
+        AssetItemGenerator generator)
     {
-        this.model = model;
-        this.view = view;
+        _model = model;
+        _generator = generator;
+        _view = view;
+        
     }
+
     public void Enable()
     {
-        model.OnItemSelection += SelectItem;
-        view.OnItemSelectedEvent += ItemSelected;
+        _model.OnItemSelectionEvent += OnItemSelection;
     }
-    void SelectItem()
+
+    private void OnItemSelection()
     {
-        view.Open();
+        _view.Init(_generator.GenerateAssetItem(3));
     }
-    public void ItemSelected(AssetItem item)
+
+    public void Disable()
     {
-        model.Visit(item);
-        OnItemSelected?.Invoke(item);
-        view.Close();
+        _model.OnItemSelectionEvent -= OnItemSelection;
     }
 }

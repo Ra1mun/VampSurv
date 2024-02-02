@@ -4,44 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemSelectionView : MonoBehaviour
+public class ItemSelectionView : UIPanel
 {
-    private const int buttonsCount = 3;
-    
-    [SerializeField] private ItemSelectButton[] itemsButtons;
-    [SerializeField] private ItemSelectionSetup setup;
-    
-    private List<AssetItem> itemsToSelect;
+    [SerializeField] private ItemSelectButton _prefabSelectButton;
+    [SerializeField] private RectTransform _container;
+    public event Action<AssetItem> OnItemSelectedEvent;
 
-    public Action<AssetItem> OnItemSelectedEvent;
+    private List<ItemSelectButton> _initButtons = new List<ItemSelectButton>();
     
-    private void OnEnable()
+    public void Init(List<AssetItem> items)
     {
-        itemsToSelect = setup.GenerateButtons(buttonsCount);
-        for (int i = 0; i < buttonsCount; i++)
+        for (int i = 0; i < items.Count; i++)
         {
-            itemsButtons[i].Init(itemsToSelect[i]);
-            itemsButtons[i].OnItemSelectButtonClickEvent += OnItemSelectButtonClick;
+            var button = Instantiate(_prefabSelectButton, _container);
+            button.Init(items[i]);
+            _initButtons.Add(button);
         }
     }
-    private void OnItemSelectButtonClick(AssetItem item)
+    
+    public override void Open()
+    {
+        foreach (var buttons in _initButtons)
+        {
+            buttons.OnItemSelectButtonClickEvent += OnItemSelected;
+        }
+    }
+
+    private void OnItemSelected(AssetItem item)
     {
         OnItemSelectedEvent?.Invoke(item);
     }
-    
-    public void Open()
+
+    public override void Close()
     {
-        foreach (var button in itemsButtons)
+        foreach (var button in _initButtons)
         {
-            button.gameObject.SetActive(true);
+            button.OnItemSelectButtonClickEvent -= OnItemSelected;
         }
-    }
-    
-    public void Close()
-    {
-        foreach (var button in itemsButtons)
-        {
-            button.gameObject.SetActive(false);
-        }
+        
+        _initButtons.Clear();
     }
 }

@@ -13,4 +13,5 @@ public class ExperienceView : MonoBehaviour
         _experienceBar.value = currentExperience / 100;
         _text.text = $"{currentExperience} / {maxExperience}";
     }
+    
 }
