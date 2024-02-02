@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]public class AttributesDictionary : SerializableDictionary<AttributeType, int>
 { }
 
-
 public class Attributes : MonoBehaviour
 {
     [SerializeField] private PlayerLevel _level;

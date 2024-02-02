@@ -7,10 +7,6 @@ public class AttributesSetup : MonoBehaviour
     [SerializeField] Attributes attributes;
     [SerializeField] AttributeView attributeView;
     private AttributePresenter attributePresenter;
-    private void Awake()
-    {
-        
-    }
     private void OnEnable()
     {
         attributePresenter = new AttributePresenter(attributes, attributeView);

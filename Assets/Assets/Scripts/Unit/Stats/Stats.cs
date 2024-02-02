@@ -37,4 +37,18 @@ public struct Stats
             ExpPerKill = Mathf.RoundToInt(a.ExpPerKill * m),
         };
     }
+    
+    public static Stats NULL()
+    {
+        return new Stats
+        {
+            MaxHealth = 0,
+            MoveSpeed = 0,
+            Damage = 0,
+            AttackDistance = 0,
+            AttackSpeed = 0,
+            Armor = 0,
+            ExpPerKill = 0
+        };
+    }
 }
