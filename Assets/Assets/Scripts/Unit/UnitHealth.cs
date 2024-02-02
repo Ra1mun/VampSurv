@@ -6,9 +6,8 @@ public abstract class UnitHealth: MonoBehaviour, IHealth
     [SerializeField] private Unit unit;
     [SerializeField] private UnitStats unitStats;
     
-    [SerializeField]private int _currentHealth;
-    
-    [SerializeField]private int _maxHealth => unitStats.GetStats().MaxHealth;
+    private int _maxHealth => unitStats.GetStats().MaxHealth;
+    private int _currentHealth;
     
     public event Action<int> OnHealthChanged;
 
@@ -17,6 +16,7 @@ public abstract class UnitHealth: MonoBehaviour, IHealth
     {
         CurrentHealth = _maxHealth;
     }
+    
     public int CurrentHealth
     {
         get => _currentHealth;

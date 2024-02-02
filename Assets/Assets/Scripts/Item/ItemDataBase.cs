@@ -12,6 +12,7 @@ public class ItemDataBase : ScriptableObject
     [NonSerialized] private bool _isInit;
 
     private Dictionary<ItemID, ItemConfig> _itemStorage = new Dictionary<ItemID, ItemConfig>();
+    
     private void Init()
     {
         for (int i = 0; i < _items.Length; i++)
