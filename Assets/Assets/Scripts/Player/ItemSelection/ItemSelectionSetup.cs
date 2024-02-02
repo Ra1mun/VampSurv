@@ -18,7 +18,7 @@ public class ItemSelectionSetup : MonoBehaviour
     public List<AssetItem> GenerateButtons(int buttonsCount)
     {
         var buttons = new List<AssetItem>();
-        for(int n = 0; n<buttonsCount;n++)
+        for(int n = 0; n<itemsPool.Count;n++)
         {
             //int ind = Random.Range(0,itemsPool.Count);
             buttons.Add(itemsPool[n]);

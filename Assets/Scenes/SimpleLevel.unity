@@ -984,7 +984,7 @@ MonoBehaviour:
   interaction: {fileID: 1300380349}
   view: {fileID: 1820095000}
   itemsPool:
-  - {fileID: 11400000, guid: fa6465e17d330c14ba6facdbd1b69adf, type: 2}
+  - {fileID: 11400000, guid: 9fe7103856624284c9d20fd04ac43f36, type: 2}
   - {fileID: 11400000, guid: 6eacd891022633643b06b05f43c97038, type: 2}
   - {fileID: 11400000, guid: 80fc7fd4b63ea9a40bdbc4f8c4299eae, type: 2}
 --- !u!4 &416985422

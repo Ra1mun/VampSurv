@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class ItemSelectButton : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ItemSelectButton : MonoBehaviour
     public void Init(AssetItem item)
     {
         _item = item;
+        gameObject.SetActive(true);
+        
     }
     private void OnEnable()
     {

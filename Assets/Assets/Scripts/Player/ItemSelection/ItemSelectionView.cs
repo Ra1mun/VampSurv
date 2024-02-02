@@ -24,15 +24,15 @@ public class ItemSelectionView : MonoBehaviour
     public void Open()
     {
         itemsToSelect = setup.GenerateButtons(_buttonsCount);
-        for (int i = 0; i < _buttonsCount; i++)
+        for (int i = 0; i < itemsToSelect.Count; i++)
         {
             itemsButtons[i].Init(itemsToSelect[i]);
             itemsButtons[i].SelectedItem += ItemSelected;
         }
-        foreach (var button in itemsButtons)
+        /*foreach (var button in itemsButtons)
         {
             button.gameObject.SetActive(true);
-        }
+        }*/
     }
     public void Close()
     {
