@@ -35,7 +35,6 @@ public class EnemyStrategy : MonoBehaviour
             default:
                 throw new InvalidImplementationException($"State: {_state} not found!");
         }
-        Debug.Log(_state);
     }
 
     private void LookForTarget()
