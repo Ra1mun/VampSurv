@@ -9,14 +9,14 @@ using UnityEngine.Serialization;
 public class ItemSelectionSetup : MonoBehaviour
 {
     [SerializeField] private ItemSelectionView _view;
-    [SerializeField] private ItemSelectionVisitor _model;
+    [FormerlySerializedAs("_model")] [SerializeField] private ItemSelectionVisitor _visitor;
     [SerializeField] private AssetItemSelectionConfig _config;
 
     private ItemSelectionPresenter _presenter;
 
     private void OnEnable()
     {
-        _presenter = new ItemSelectionPresenter(_view, _model, new AssetItemGenerator(_config));
+        _presenter = new ItemSelectionPresenter(_view, _visitor, new AssetItemGenerator(_config));
         _presenter.Enable();
     }
 

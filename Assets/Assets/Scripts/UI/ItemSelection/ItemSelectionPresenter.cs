@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class ItemSelectionPresenter
 {
-    private readonly ItemSelectionVisitor _model;
+    private readonly ItemSelectionVisitor _visitor;
     private readonly AssetItemGenerator _generator;
     private readonly ItemSelectionView _view;
     
 
     public ItemSelectionPresenter(
         ItemSelectionView view,
-        ItemSelectionVisitor model,
+        ItemSelectionVisitor visitor,
         AssetItemGenerator generator)
     {
-        _model = model;
+        _visitor = visitor;
         _generator = generator;
         _view = view;
         
@@ -21,7 +21,7 @@ public class ItemSelectionPresenter
 
     public void Enable()
     {
-        _model.OnItemSelectionEvent += OnItemSelection;
+        _visitor.OnItemSelectionEvent += OnItemSelection;
     }
 
     private void OnItemSelection()
@@ -31,6 +31,6 @@ public class ItemSelectionPresenter
 
     public void Disable()
     {
-        _model.OnItemSelectionEvent -= OnItemSelection;
+        _visitor.OnItemSelectionEvent -= OnItemSelection;
     }
 }
