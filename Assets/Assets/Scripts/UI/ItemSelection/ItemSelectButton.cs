@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ItemSelectButton : MonoBehaviour
 {
-    public event Action<AssetItem> OnItemSelectButtonClickEvent;
+    public event Action<ItemID> OnItemSelectButtonClickEvent;
     
     [SerializeField] private Button _button;
     [SerializeField] private Image _image;
@@ -26,7 +26,7 @@ public class ItemSelectButton : MonoBehaviour
     
     private void OnItemSelectButtonClick()
     {
-        OnItemSelectButtonClickEvent?.Invoke(_item);
+        OnItemSelectButtonClickEvent?.Invoke(_item.ID);
     }
     
     private void OnDisable()

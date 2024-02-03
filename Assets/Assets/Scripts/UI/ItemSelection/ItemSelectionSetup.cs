@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.UI;
 using Assets.Scripts.UI.ItemSelection;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,12 +12,18 @@ public class ItemSelectionSetup : MonoBehaviour
     [SerializeField] private ItemSelectionView _view;
     [FormerlySerializedAs("_model")] [SerializeField] private ItemSelectionVisitor _visitor;
     [SerializeField] private AssetItemSelectionConfig _config;
+    [SerializeField] private UIPanelController _uiPanelController;
 
     private ItemSelectionPresenter _presenter;
 
     private void OnEnable()
     {
-        _presenter = new ItemSelectionPresenter(_view, _visitor, new AssetItemGenerator(_config));
+        _presenter = new ItemSelectionPresenter(
+            _view,
+            _visitor,
+            new AssetItemGenerator(_config), 
+            _uiPanelController);
+        
         _presenter.Enable();
     }
 

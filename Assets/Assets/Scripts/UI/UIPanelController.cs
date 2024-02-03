@@ -11,42 +11,34 @@ namespace Assets.Scripts.UI
         [SerializeField] private AttributeView _attributeView;
         [SerializeField] private UIRoot _uiRoot;
 
-        private Dictionary<Type, UIPanel> _uiPanels = new Dictionary<Type, UIPanel>();
+        private readonly List<UIPanel> _initPanels = new List<UIPanel>();
 
         private void Awake()
         {
-            _uiPanels.Add(_itemView.GetType(), _itemView);
-            _uiPanels.Add(_attributeView.GetType(), _attributeView);
+            _initPanels.Add(_itemView);
+            _initPanels.Add(_attributeView);
         }
 
-        public void Show<T>() where T : UIPanel
+        public void Show(UIPanel panel)
         {
-            var type = typeof(T);
-            if (_uiPanels.ContainsKey(type))
+            if (_initPanels.Contains(panel))
             {
-                var view = _uiPanels[type];
+                panel.transform.SetParent(_uiRoot.Container);
+                panel.transform.localPosition = Vector3.zero;
+                panel.transform.localRotation = Quaternion.identity;
+                panel.transform.localScale = Vector3.one;
                 
-                view.transform.SetParent(_uiRoot.Container);
-                view.transform.localPosition = Vector3.zero;
-                view.transform.localRotation = Quaternion.identity;
-                view.transform.localScale = Vector3.one;
-
-                var component = view.GetComponent<T>();
-                component.Open();
+                panel.Open();
             }
         }
         
-        public void Close<T>() where T : UIPanel
+        public void Close(UIPanel panel)
         {
-            var type = typeof(T);
-            if (_uiPanels.ContainsKey(type))
+            if (_initPanels.Contains(panel))
             {
-                var view = _uiPanels[type];
+                panel.Close();
                 
-                view.transform.SetParent(_uiRoot.PoolContainer);
-                
-                var component = view.GetComponent<T>();
-                component.Close();
+                panel.transform.SetParent(_uiRoot.PoolContainer);
             }
         }
     }

@@ -8,7 +8,7 @@ public class ItemSelectionView : UIPanel
 {
     [SerializeField] private ItemSelectButton _prefabSelectButton;
     [SerializeField] private RectTransform _container;
-    public event Action<AssetItem> OnItemSelectedEvent;
+    public event Action<ItemID> OnItemSelectedEvent;
 
     private List<ItemSelectButton> _initButtons = new List<ItemSelectButton>();
     
@@ -30,16 +30,17 @@ public class ItemSelectionView : UIPanel
         }
     }
 
-    private void OnItemSelected(AssetItem item)
+    private void OnItemSelected(ItemID itemID)
     {
-        OnItemSelectedEvent?.Invoke(item);
+        OnItemSelectedEvent?.Invoke(itemID);
     }
 
     public override void Close()
     {
-        foreach (var button in _initButtons)
+        for (int i = 0; i < _initButtons.Count; i++)
         {
-            button.OnItemSelectButtonClickEvent -= OnItemSelected;
+            _initButtons[i].OnItemSelectButtonClickEvent += OnItemSelected;
+            Destroy(_initButtons[i].gameObject);
         }
         
         _initButtons.Clear();
