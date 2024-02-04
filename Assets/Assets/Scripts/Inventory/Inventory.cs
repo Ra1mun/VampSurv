@@ -25,5 +25,13 @@ public class Inventory : MonoBehaviour
 
     public void BuffItems(AttributeType type)
     {
+        foreach (var item in _items)
+        {
+            if (item.Attribute == type)
+            {
+                item.Stats.AddAttributeStats(item.Config);
+                stats.AddAttributeStats(item.Config);
+            }
+        }
     }
 }
