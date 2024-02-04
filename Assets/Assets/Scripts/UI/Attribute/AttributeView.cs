@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AttributeView : MonoBehaviour
+public class AttributeView : UIPanel
 {
     [SerializeField] private AttributeButton[] _attributeButtons;
 
@@ -33,7 +33,7 @@ public class AttributeView : MonoBehaviour
         }
     }
 
-    public void Close()
+    public override void Close()
     {
         for (int i = 0; i < _attributeButtons.Length; i++)
         {
@@ -41,7 +41,7 @@ public class AttributeView : MonoBehaviour
         }
     }
 
-    public void Open()
+    public override void Open()
     {
         for (int i = 0; i < _attributeButtons.Length; i++)
         {

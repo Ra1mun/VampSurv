@@ -5,6 +5,6 @@ public class ItemTriggerInteractable : ItemInteractable
 {
     private void OnTriggerEnter2D(Collider2D col)
     {
-        col.gameObject.Route<Interaction>(Interact);
+        col.gameObject.Route<ItemSelectionVisitor>(Interact);
     }
 }

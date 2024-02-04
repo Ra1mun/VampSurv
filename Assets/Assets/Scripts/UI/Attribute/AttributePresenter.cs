@@ -13,10 +13,10 @@ public class AttributePresenter
     public void Enable()
     {
         _view.OnAttributeLevelClickEvent += OnAttributeLevelClickEvent;
-        _model.OnLevelUp += OnLevelUp;
+        _model.OnAttributeLevelChangedEvent += AttributeLevelChangedEvent;
     }
 
-    private void OnLevelUp()
+    private void AttributeLevelChangedEvent()
     {
         _view.Open();
     }
@@ -30,6 +30,6 @@ public class AttributePresenter
     public void Disable()
     {
         _view.OnAttributeLevelClickEvent -= OnAttributeLevelClickEvent;
-        _model.OnLevelUp -= OnLevelUp;
+        _model.OnAttributeLevelChangedEvent -= AttributeLevelChangedEvent;
     }
 }

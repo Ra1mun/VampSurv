@@ -16,7 +16,5 @@ public class DefualtEnemyFactory : EnemyFactory
             default:
                 throw new ArgumentOutOfRangeException($"Enemy type: {type} wasn't set!");
         }
-
-        return _testEnemy;
     }
 }

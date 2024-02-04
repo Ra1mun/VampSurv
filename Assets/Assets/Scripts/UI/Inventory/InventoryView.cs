@@ -18,4 +18,5 @@ public class InventoryView : MonoBehaviour
         var cell = Instantiate(_inventoryCellTemplate, _container);
         cell.Render(item);
     }
+    
 }

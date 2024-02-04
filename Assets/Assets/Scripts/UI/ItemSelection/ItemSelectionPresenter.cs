@@ -1,30 +1,49 @@
 using System;
+using Assets.Scripts.UI;
+using UnityEngine;
 
 public class ItemSelectionPresenter
 {
-    Interaction model;
-    ItemSelectionView view;
+    private readonly ItemSelectionVisitor _visitor;
+    private readonly AssetItemGenerator _generator;
+    private readonly UIPanelController _uiPanelController;
+    private readonly ItemSelectionView _view;
+    
 
-    public Action<AssetItem> OnItemSelected;
-
-    public ItemSelectionPresenter(Interaction model, ItemSelectionView view)
+    public ItemSelectionPresenter(
+        ItemSelectionView view,
+        ItemSelectionVisitor visitor,
+        AssetItemGenerator generator,
+        UIPanelController uiPanelController)
     {
-        this.model = model;
-        this.view = view;
+        _visitor = visitor;
+        _generator = generator;
+        _uiPanelController = uiPanelController;
+        _view = view;
+        
     }
+
     public void Enable()
     {
-        model.OnItemSelection += SelectItem;
-        view.OnItemSelectedEvent += ItemSelected;
+        _visitor.OnItemSelectionEvent += OpenItemSelection;
     }
-    void SelectItem()
+
+    private void OpenItemSelection()
     {
-        view.Open();
+        _view.Init(_generator.GenerateAssetItem(3));
+        _uiPanelController.Show(_view);
+        _view.OnItemSelectedEvent += OnItemSelected;
     }
-    public void ItemSelected(AssetItem item)
+
+    private void OnItemSelected(ItemID itemID)
     {
-        model.Visit(item);
-        OnItemSelected?.Invoke(item);
-        view.Close();
+        _view.OnItemSelectedEvent -= OnItemSelected;
+        _uiPanelController.Close(_view);
+        //add to inventory
+    }
+
+    public void Disable()
+    {
+        _visitor.OnItemSelectionEvent -= OpenItemSelection;
     }
 }
