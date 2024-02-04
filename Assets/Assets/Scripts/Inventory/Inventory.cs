@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private PlayerStats stats;
+    [SerializeField] private Transform container;
 
     private readonly List<Item> _items = new List<Item>();
 
@@ -18,7 +19,7 @@ public class Inventory : MonoBehaviour
     
     private void ActivateItem(Item item)
     {
-        var instance = Instantiate(item, transform.position, Quaternion.identity, transform);
+        var instance = Instantiate(item, transform.position, Quaternion.identity, container);
         instance.Initialize(item.Config, UnitType.Item);
     }
 
