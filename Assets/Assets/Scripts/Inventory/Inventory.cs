@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        stats.AddItemStats();
         _items.Add(item);
         ActivateItem(item);
     }

@@ -7,7 +7,7 @@ public class AttributeView : UIPanel
 {
     [SerializeField] private AttributeButton[] _attributeButtons;
 
-    public event Action<AttributeType> OnAttributeLevelClickEvent;
+    public event Action<AttributeType> OnAttributeButtonClickEvent;
 
     private void OnEnable()
     {
@@ -22,7 +22,7 @@ public class AttributeView : UIPanel
 
     private void OnAttributeButtonClick(AttributeType attributeType)
     {
-        OnAttributeLevelClickEvent.Invoke(attributeType);
+        OnAttributeButtonClickEvent.Invoke(attributeType);
     }
 
     private void OnDisable()

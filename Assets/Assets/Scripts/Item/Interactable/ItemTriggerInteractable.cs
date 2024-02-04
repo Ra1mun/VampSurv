@@ -14,5 +14,6 @@ public class ItemTriggerInteractable : MonoBehaviour
     private void Interact(ItemSelectionObserver player)
     {
         player.AddItem(_item);
+        Destroy(gameObject);
     }
 }
