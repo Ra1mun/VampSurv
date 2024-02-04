@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private const int InventorySize = 6;
-    
     [SerializeField] private PlayerStats stats;
-    
+
     private readonly List<Item> _items = new List<Item>();
 
 
-    public void AddItem(Item item)
+    public void AddItem(Item item, ItemID id)
     {
-        stats.AddItemStats();
+        stats.AddItemStats(id);
         _items.Add(item);
         ActivateItem(item);
     }
@@ -26,13 +24,5 @@ public class Inventory : MonoBehaviour
 
     public void BuffItems(AttributeType type)
     {
-        for (int i = 0; i < _items.Count; i++)
-        {
-            if (_items[i].Attribute == type)
-            {
-                _items[i].Stats.AddAttributeStats(_items[i].Config);
-                stats.AddAttributeStats(_items[i].Config);
-            }
-        }
     }
 }

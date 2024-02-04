@@ -14,9 +14,15 @@ public class AssetItemGenerator
     public List<AssetItem> GenerateAssetItem(int count)
     {
         var result = new List<AssetItem>();
-        for (int i = 0; i < count; i++)
+        
+        while(result.Count != count)
         {
-            result.Add(_config.GetRandomItem());
+            var randomItem = _config.GetRandomItem();
+            
+            if (!result.Contains(randomItem))
+            {
+                result.Add(randomItem);
+            }
         }
 
         return result;

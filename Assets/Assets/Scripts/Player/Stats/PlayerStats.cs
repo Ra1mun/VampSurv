@@ -5,11 +5,6 @@ using UnityEngine;
 public class PlayerStats : UnitStats
 {
     public event Action<Stats> OnStatsChanged;
-
-    public void AddStats(Stats stats)
-    {
-        _provider.
-    }
     
     public void AddItemStats(ItemID itemID)
     {

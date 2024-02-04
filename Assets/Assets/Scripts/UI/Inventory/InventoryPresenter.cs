@@ -27,7 +27,7 @@ public class InventoryPresenter
     private void OnItemAdded(AssetItem item)
     {
         _view.RenderItem(item);
-        _model.AddItem(_data.GetItem(item.ID));
+        _model.AddItem(_data.GetItem(item.ID), item.ID);
     }
 
     public void Disable()

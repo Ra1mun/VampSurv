@@ -27,14 +27,14 @@ MonoBehaviour:
   _stepArmor: 0
   _stepExpPerKill: 0
   _addAttackDistance: 0
-  _addMoveSpeed: 1
+  _addMoveSpeed: 2
   _addAttackSpeed: 0
   _addDamage: 0
   _addMaxHealth: 0
   _addExpPerKill: 0
   _addArmor: 0
   _stepAddAttackDistance: 0
-  _stepAddMoveSpeed: 1
+  _stepAddMoveSpeed: 2
   _stepAddAttackSpeed: 0
   _stepAddDamage: 0
   _stepAddMaxHealth: 0

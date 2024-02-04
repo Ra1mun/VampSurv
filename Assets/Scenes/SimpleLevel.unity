@@ -671,11 +671,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4be072a40233f4418e495efd82d69d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 0}
-  _playerLevelObserver: {fileID: 0}
-  _config: {fileID: 0}
-  _observer: {fileID: 0}
-  _uiPanelController: {fileID: 0}
+  _view: {fileID: 1507084171}
+  _playerLevelObserver: {fileID: 1300380349}
+  _config: {fileID: 11400000, guid: 49e5b6f56a6376446a32efe5d905c705, type: 2}
+  _observer: {fileID: 1300380362}
+  _uiPanelController: {fileID: 180366770}
 --- !u!4 &416985422
 Transform:
   m_ObjectHideFlags: 0
@@ -1137,10 +1137,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970853baca124863b670d23bf96cddd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _observer: {fileID: 0}
-  _view: {fileID: 0}
-  _data: {fileID: 0}
-  _model: {fileID: 0}
+  _observer: {fileID: 1300380362}
+  _view: {fileID: 115262258}
+  _data: {fileID: 11400000, guid: b94101e7fa9a09e4ca8a56872050c86e, type: 2}
+  _model: {fileID: 1300380357}
 --- !u!1 &658971319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,9 +2159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e704c0ec8302708428b3b2b070588f71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attributes: {fileID: 0}
-  _attributeView: {fileID: 0}
-  _observer: {fileID: 0}
+  _attributes: {fileID: 1300380359}
+  _attributeView: {fileID: 1970908239}
+  _observer: {fileID: 1300380349}
+  _uiPanelController: {fileID: 180366770}
 --- !u!4 &1238719261
 Transform:
   m_ObjectHideFlags: 0
@@ -2337,6 +2338,7 @@ GameObject:
   - component: {fileID: 1300380359}
   - component: {fileID: 1300380360}
   - component: {fileID: 1300380361}
+  - component: {fileID: 1300380362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2605,6 +2607,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _experience: {fileID: 1300380360}
+--- !u!114 &1300380362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300380338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4bf1c72a9304519b867681a339750d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1350805348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,6 +2941,7 @@ GameObject:
   - component: {fileID: 1716114263}
   - component: {fileID: 1716114261}
   - component: {fileID: 1716114265}
+  - component: {fileID: 1716114266}
   m_Layer: 0
   m_Name: TestItem (1)
   m_TagString: Untagged
@@ -3040,6 +3055,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.59191275, y: 0.5907216}
   m_EdgeRadius: 0
+--- !u!50 &1716114266
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716114260}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1779536346
 GameObject:
   m_ObjectHideFlags: 0
@@ -20464,9 +20500,9 @@ MonoBehaviour:
   - _button: {fileID: 1973939076}
     _attributeType: 0
   - _button: {fileID: 170996702}
-    _attributeType: 0
+    _attributeType: 1
   - _button: {fileID: 680686738}
-    _attributeType: 0
+    _attributeType: 2
 --- !u!224 &1970908240
 RectTransform:
   m_ObjectHideFlags: 0
