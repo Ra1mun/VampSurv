@@ -1,23 +1,27 @@
 using System;
+using Assets.Scripts.Inventory;
 using Assets.Scripts.UI;
 using UnityEngine;
 
 public class ItemSelectionPresenter
 {
-    private readonly ItemSelectionVisitor _visitor;
+    private readonly PlayerLevelObserver _visitor;
     private readonly AssetItemGenerator _generator;
+    private readonly ItemSelectionObserver _observer;
     private readonly UIPanelController _uiPanelController;
     private readonly ItemSelectionView _view;
     
 
     public ItemSelectionPresenter(
         ItemSelectionView view,
-        ItemSelectionVisitor visitor,
+        PlayerLevelObserver visitor,
         AssetItemGenerator generator,
+        ItemSelectionObserver observer,
         UIPanelController uiPanelController)
     {
         _visitor = visitor;
         _generator = generator;
+        _observer = observer;
         _uiPanelController = uiPanelController;
         _view = view;
         
@@ -30,16 +34,17 @@ public class ItemSelectionPresenter
 
     private void OpenItemSelection()
     {
+        
         _view.Init(_generator.GenerateAssetItem(3));
         _uiPanelController.Show(_view);
         _view.OnItemSelectedEvent += OnItemSelected;
     }
 
-    private void OnItemSelected(ItemID itemID)
+    private void OnItemSelected(AssetItem item)
     {
         _view.OnItemSelectedEvent -= OnItemSelected;
         _uiPanelController.Close(_view);
-        //add to inventory
+        _observer.AddItem(item);
     }
 
     public void Disable()

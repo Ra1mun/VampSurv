@@ -8,7 +8,7 @@ public class ItemSelectionView : UIPanel
 {
     [SerializeField] private ItemSelectButton _prefabSelectButton;
     [SerializeField] private RectTransform _container;
-    public event Action<ItemID> OnItemSelectedEvent;
+    public event Action<AssetItem> OnItemSelectedEvent;
 
     private List<ItemSelectButton> _initButtons = new List<ItemSelectButton>();
     
@@ -30,9 +30,9 @@ public class ItemSelectionView : UIPanel
         }
     }
 
-    private void OnItemSelected(ItemID itemID)
+    private void OnItemSelected(AssetItem item)
     {
-        OnItemSelectedEvent?.Invoke(itemID);
+        OnItemSelectedEvent?.Invoke(item);
     }
 
     public override void Close()

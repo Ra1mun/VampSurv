@@ -1,35 +1,39 @@
 
-
 public class AttributePresenter
 {
     private readonly Attributes _model;
     private readonly AttributeView _view;
+    private readonly PlayerLevelObserver _observer;
     
-    public AttributePresenter(Attributes model, AttributeView view)
+    public AttributePresenter(
+        Attributes model,
+        AttributeView view,
+        PlayerLevelObserver observer)
     {
         _model = model;
         _view = view;
+        _observer = observer;
     }
     public void Enable()
     {
-        _view.OnAttributeLevelClickEvent += OnAttributeLevelClickEvent;
-        _model.OnAttributeLevelChangedEvent += AttributeLevelChangedEvent;
+        _observer.OnAttributeSelectionEvent += AttributeLevelChangedEvent;
     }
 
     private void AttributeLevelChangedEvent()
     {
+        _view.OnAttributeLevelClickEvent += OnAttributeLevelClickEvent;
         _view.Open();
     }
     
     private void OnAttributeLevelClickEvent(AttributeType type)
     {
-        _model.AttributeLevelUp(type);
+        _view.OnAttributeLevelClickEvent -= OnAttributeLevelClickEvent;
         _view.Close();
+        _model.AttributeLevelUp(type);
     }
     
     public void Disable()
     {
-        _view.OnAttributeLevelClickEvent -= OnAttributeLevelClickEvent;
-        _model.OnAttributeLevelChangedEvent -= AttributeLevelChangedEvent;
+        _observer.OnAttributeSelectionEvent -= AttributeLevelChangedEvent;
     }
 }

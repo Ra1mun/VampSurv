@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    private const int InventorySize = 6;
+    
     [SerializeField] private PlayerStats stats;
-    public int _inventorySize;
-    private List<Item> _items = new List<Item>();
+    
+    private readonly List<Item> _items = new List<Item>();
 
 
     public void AddItem(Item item)

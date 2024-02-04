@@ -1,13 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-public class ItemSelectionVisitor : MonoBehaviour, IInteractionVisitor
+public class PlayerLevelObserver : MonoBehaviour
 {
-    [SerializeField] private PlayerStats _stats;
-    [SerializeField] private InventoryModel inventoryModel;
     [SerializeField] private PlayerLevel _playerLevel;
 
-    public Action OnItemSelectionEvent;
+    public event Action OnItemSelectionEvent;
+    public event Action OnAttributeSelectionEvent;
     
     private void OnEnable()
     {
@@ -20,16 +19,14 @@ public class ItemSelectionVisitor : MonoBehaviour, IInteractionVisitor
         {
             OnItemSelectionEvent?.Invoke();
         }
+        else
+        {
+            OnAttributeSelectionEvent?.Invoke();
+        }
     }
     
     private void OnDisable()
     {
         _playerLevel.OnLevelChangedEvent -= OnLevelChanged;
-    }
-    
-    public void Visit(AssetItem item)
-    {
-        _stats.AddItemStats(item.ID);
-        inventoryModel.AddItem(item);
     }
 }

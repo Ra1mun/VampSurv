@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 public class PlayerLevel : MonoBehaviour
 {
-    [FormerlySerializedAs("_Exp")] [SerializeField] private Experience _experience;
+    [SerializeField] private Experience _experience;
     
     private int _level;
     

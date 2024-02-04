@@ -1,16 +1,22 @@
+using Assets.Scripts.Inventory;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public class InventorySetup : MonoBehaviour
 {
+    [SerializeField] private ItemSelectionObserver _observer;
     [SerializeField] private InventoryView _view;
-    [FormerlySerializedAs("statsData")] [FormerlySerializedAs("_data")] [SerializeField] private ItemDataBase data;
+    [SerializeField] private ItemDataBase _data;
     [SerializeField] private Inventory _model;
     private InventoryPresenter _presenter;
 
     private void OnEnable()
     {
-        _presenter = new InventoryPresenter(_model, _view, data);
+        _presenter = new InventoryPresenter(
+            _model, 
+            _view, 
+            _data,
+            _observer);
         
         _presenter.Enable();
     }
