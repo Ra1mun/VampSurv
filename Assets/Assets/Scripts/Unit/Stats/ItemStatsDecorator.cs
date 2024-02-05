@@ -17,7 +17,7 @@ namespace Assets.Scripts.Item
 
         protected override Stats GetStatsInternal()
         {
-            return _wrappedEntity.GetStats() + _data.GetStats(_itemID);
+            return _wrappedEntity.GetStats() + _data.GetGivenStats(_itemID);
         }
     }
 }

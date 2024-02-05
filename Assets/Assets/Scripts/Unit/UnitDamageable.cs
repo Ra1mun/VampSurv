@@ -15,7 +15,7 @@ namespace Assets.Scripts.Unit
 
             var totalDamage = ProcessDamage(damage);
         
-            _unitHealth.CurrentHealth -= damage;
+            _unitHealth.CurrentHealth -= totalDamage;
             Debug.Log(gameObject.name + " Takes damage: " + damage);
         }
 

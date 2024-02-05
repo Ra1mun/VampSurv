@@ -18,13 +18,13 @@ namespace Assets.Scripts.Item
         {
             for (int i = 0; i < _items.Length; i++)
             {
-                _itemStorage.Add(_items[i].ID, _items[i].Item);
+                _itemStorage.Add(_items[i].ID, _items[i].ItemConfig);
             }
 
             _isInit = true;
         }
     
-        public Stats GetStats(ItemID itemID)
+        public Stats GetGivenStats(ItemID itemID)
         {
             if (!_isInit)
             {
@@ -40,7 +40,7 @@ namespace Assets.Scripts.Item
         }
    
 
-        public Item GetItem(ItemID itemID)
+        public ItemConfig GetConfig(ItemID itemID)
         {
             if (!_isInit)
             {
@@ -48,7 +48,7 @@ namespace Assets.Scripts.Item
             }
             if (_itemStorage.ContainsKey(itemID))
             {
-                return _itemStorage[itemID].Prefab;
+                return _itemStorage[itemID];
             }
 
             return null;
@@ -59,10 +59,10 @@ namespace Assets.Scripts.Item
     public class DataItem
     {
         public ItemID ID => _itemID;
-        public ItemConfig Item => _item;
+        public ItemConfig ItemConfig => _itemConfig;
     
         [SerializeField] private ItemID _itemID;
-        [SerializeField] private ItemConfig _item;
+        [SerializeField] private ItemConfig _itemConfig;
     }
     
     public enum ItemID : uint

@@ -14,9 +14,7 @@ namespace Assets.Scripts.Player
     
         public void AddAttributeStats(AttributeStats attributeStats)
         {
-            Debug.Log(_provider);
             _provider = new AttributeStatsDecorator(_provider, attributeStats);
-            Debug.Log(_provider);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Item.ItemBehaviour
 {
-    public class ItemAreaSpawner : global::Assets.Scripts.Item.ItemBehaviour.ItemBehaviour
+    public class ItemAreaSpawner : ItemBehaviour
     {
         [SerializeField] Area area;
 

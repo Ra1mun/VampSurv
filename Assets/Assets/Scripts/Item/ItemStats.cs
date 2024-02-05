@@ -8,9 +8,7 @@ namespace Assets.Scripts.Item
     {
         public void AddInternalStats(InternalStats internalStats)
         {
-            Debug.Log(_provider);
             _provider = new InternalStatsDecorator(_provider, internalStats);
-            Debug.Log(_provider);
         }
     }
 }

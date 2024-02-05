@@ -32,7 +32,8 @@ namespace Assets.Scripts.UI.Inventory
         private void OnItemAdded(AssetItem item)
         {
             _view.RenderItem(item);
-            _model.AddItem(_data.GetItem(item.ID), item.ID);
+            _model.ActivateAndAddItem(_data.GetConfig(item.ID));
+            _model.AddStats(item.ID);
         }
 
         public void Disable()
