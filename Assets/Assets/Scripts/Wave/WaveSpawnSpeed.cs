@@ -1,22 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class WaveSpawnSpeed : MonoBehaviour
+namespace Assets.Scripts.Wave
 {
-    [SerializeField] private float _timeBetweenWaves;
-    private float _elapsedTime;
-
-    private void Update()
+    public abstract class WaveSpawnSpeed : MonoBehaviour
     {
-        _elapsedTime += Time.deltaTime;
-        if (_elapsedTime > _timeBetweenWaves)
-        {
-            IncreaseSpawns();
-            _elapsedTime = 0f;
-        }
-    }
+        [SerializeField] private float _timeBetweenWaves;
+        private float _elapsedTime;
 
-    protected abstract void IncreaseSpawns();
+        private void Update()
+        {
+            _elapsedTime += Time.deltaTime;
+            if (_elapsedTime > _timeBetweenWaves)
+            {
+                IncreaseSpawns();
+                _elapsedTime = 0f;
+            }
+        }
+
+        protected abstract void IncreaseSpawns();
+    }
 }

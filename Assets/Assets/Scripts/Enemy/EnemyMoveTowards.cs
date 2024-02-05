@@ -1,13 +1,17 @@
+using Assets.Scripts.Unit;
 using UnityEngine;
 
-public class EnemyMoveTowards : UnitMoveable
+namespace Assets.Scripts.Enemy
 {
-    [SerializeField] private EnemyStats _stats;
-
-    private float _speed => _stats.GetStats().MoveSpeed;
-    
-    public override void Move(Vector2 direction)
+    public class EnemyMoveTowards : UnitMoveable
     {
-        transform.position = Vector2.MoveTowards(transform.position, direction, _speed * Time.deltaTime);
+        [SerializeField] private EnemyStats _stats;
+
+        private float _speed => _stats.GetStats().MoveSpeed;
+    
+        public override void Move(Vector2 direction)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, direction, _speed * Time.deltaTime);
+        }
     }
 }

@@ -1,6 +1,9 @@
-using System;
+using Assets.Scripts.Unit;
 
-public class PlayerHealth : UnitHealth
+namespace Assets.Scripts.Player.Health
 {
+    public class PlayerHealth : UnitHealth
+    {
     
+    }
 }

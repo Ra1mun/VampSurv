@@ -1,21 +1,22 @@
-using System;
+using Assets.Scripts.Unit;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class Player : Unit
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private PlayerConfig _playerConfig;
-    [SerializeField] private PlayerStats _stats;
-    public PlayerConfig Config => _playerConfig;
+    public class Player : global::Assets.Scripts.Unit.Unit
+    {
+        [SerializeField] private PlayerConfig _playerConfig;
+        [SerializeField] private PlayerStats _stats;
 
-    private void Awake()
-    {
-        Initialize();
-    }
+        private void Awake()
+        {
+            Initialize();
+        }
     
-    private void Initialize()
-    {
-        _type = UnitType.Player;
-        _stats.Initialize(_playerConfig);
+        private void Initialize()
+        {
+            _type = UnitType.Player;
+            _stats.Initialize(_playerConfig.CommonStats);
+        }
     }
 }

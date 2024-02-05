@@ -1,21 +1,23 @@
-    using System;
 using UnityEngine;
 
-public class ItemCircleMove : ItemMovable
+namespace Assets.Scripts.Item.Moveable
 {
-    [SerializeField] private float _radius = 0.5f;
-    
-    private Transform _center => transform.parent;
-    
-    private float _angle;
-    
-    
-    public override void Move()
+    public class ItemCircleMove : ItemMovable
     {
-        _angle += Time.deltaTime;
+        [SerializeField] private float _radius = 0.5f;
+    
+        private Transform _center => transform.parent;
+    
+        private float _angle;
+    
+    
+        public override void Move()
+        {
+            _angle += Time.deltaTime;
 
-        var x = Mathf.Cos(_angle) * _radius;
-        var y = Mathf.Cos(_angle) * _radius;
-        transform.position = _center.position + new Vector3(x, y, 0);
+            var x = Mathf.Cos(_angle) * _radius;
+            var y = Mathf.Cos(_angle) * _radius;
+            transform.position = _center.position + new Vector3(x, y, 0);
+        }
     }
 }

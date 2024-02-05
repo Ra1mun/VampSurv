@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ListExtension
+namespace Assets.Scripts.Extension
 {
-    public static T RandomItem<T>(this List<T> list)
+    public static class ListExtension
     {
-        var index = Random.Range(0, list.Count);
-        return list[index];
+        public static T RandomItem<T>(this List<T> list)
+        {
+            var index = Random.Range(0, list.Count);
+            return list[index];
+        }
     }
 }

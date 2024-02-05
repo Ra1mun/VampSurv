@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Item.Projectiles.ProjectilePlash;
 using UnityEngine;
 
-public class ItemLargeCross : ItemBehaviour
+namespace Assets.Scripts.Item.ItemBehaviour
 {
-    [SerializeField]private Area area;
+    public class ItemLargeCross : ItemBehaviour
+    {
+        [SerializeField] private Area area;
 
     
+    }
 }

@@ -1,23 +1,27 @@
-using System;
+using Assets.Scripts.Player.Experience;
+using Assets.Scripts.Unit;
 using UnityEngine;
 
-public class EnemyDeathHandler : MonoBehaviour
+namespace Assets.Scripts.EnemiesHandler
 {
-    [SerializeField] private UnitsPool _unitsPool;
-    [SerializeField] private Experience _experience;
-
-    private void OnEnable()
+    public class EnemyDeathHandler : MonoBehaviour
     {
-        _unitsPool.OnEnemyKilled += OnEnemyKilled;
-    }
+        [SerializeField] private UnitsPool _unitsPool;
+        [SerializeField] private Experience _experience;
 
-    private void OnEnemyKilled(Enemy enemy)
-    {
-        _experience.AddExperience(enemy.Config.ExperienceOnDie);
-    }
+        private void OnEnable()
+        {
+            _unitsPool.OnEnemyKilled += OnEnemyKilled;
+        }
 
-    private void OnDisable()
-    {
-        _unitsPool.OnEnemyKilled -= OnEnemyKilled;
+        private void OnEnemyKilled(Enemy.Enemy enemy)
+        {
+            _experience.AddExperience(enemy.Config.ExperienceOnDie);
+        }
+
+        private void OnDisable()
+        {
+            _unitsPool.OnEnemyKilled -= OnEnemyKilled;
+        }
     }
 }

@@ -1,65 +1,78 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Enemy.Factory;
+using Assets.Scripts.Extension;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+namespace Assets.Scripts.Enemy.Spawner
 {
-    [SerializeField] private List<Transform> _spawnPositions;
-    [SerializeField] private EnemySpawnerState _state;
-    [SerializeField] private EnemyFactory _enemyFactory;
-    [SerializeField] private float _delayBeforeSpawn;
-    private float _elapsedTime;
-    
-    public event Action<Enemy> OnEnemySpawned;
-    
-    private void Awake()
+    public class EnemySpawner : MonoBehaviour
     {
-        if (_spawnPositions.Count != 0) return;
+        [SerializeField] private List<Transform> _spawnPositions;
+        [SerializeField] private EnemySpawnerState _state;
+        [SerializeField] private EnemyFactory _enemyFactory;
+        [SerializeField] private float _delayBeforeSpawn;
+        private float _elapsedTime;
+    
+        public event Action<global::Assets.Scripts.Enemy.Enemy> OnEnemySpawned;
+    
+        private void Awake()
+        {
+            if (_spawnPositions.Count != 0) return;
         
-        _state = EnemySpawnerState.None;
-        throw new InvalidImplementationException("Not set spawn positions!");
-    }
-
-    private void Update()
-    {
-        switch (_state)
-        {
-            case EnemySpawnerState.Start:
-                SingleSpawn();
-                break;
-            case EnemySpawnerState.Update:
-                UpdateSpawn();
-                break;
-            case EnemySpawnerState.None:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    private void UpdateSpawn()
-    {
-        if (_elapsedTime > _delayBeforeSpawn)
-        {
-            Spawn();
-            _elapsedTime = 0f;
+            _state = EnemySpawnerState.None;
+            throw new InvalidImplementationException("Not set spawn positions!");
         }
 
-        _elapsedTime += Time.deltaTime;
+        private void Update()
+        {
+            switch (_state)
+            {
+                case EnemySpawnerState.Start:
+                    SingleSpawn();
+                    break;
+                case EnemySpawnerState.Update:
+                    UpdateSpawn();
+                    break;
+                case EnemySpawnerState.None:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void UpdateSpawn()
+        {
+            if (_elapsedTime > _delayBeforeSpawn)
+            {
+                Spawn();
+                _elapsedTime = 0f;
+            }
+
+            _elapsedTime += Time.deltaTime;
+        }
+
+        private void SingleSpawn()
+        {
+            if (FindObjectOfType<global::Assets.Scripts.Enemy.Enemy>() == false)
+                Spawn();
+        }
+
+        private void Spawn()
+        {
+            var spawnPoint = _spawnPositions.RandomItem();
+            var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPoint.position);
+
+            OnEnemySpawned?.Invoke(enemy);
+        }
     }
-
-    private void SingleSpawn()
+    
+    public enum EnemySpawnerState
     {
-        if (FindObjectOfType<Enemy>() == false)
-            Spawn();
-    }
-
-    private void Spawn()
-    {
-        var spawnPoint = _spawnPositions.RandomItem();
-        var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPoint.position);
-
-        OnEnemySpawned?.Invoke(enemy);
+        None,
+        Start,
+        Update,
+    
     }
 }

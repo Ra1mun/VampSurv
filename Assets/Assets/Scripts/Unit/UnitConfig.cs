@@ -1,21 +1,39 @@
-﻿using UnityEngine;
+﻿using System;
+using Assets.Scripts.Unit.Stats;
+using UnityEngine;
 
-public class UnitConfig : ScriptableObject
+namespace Assets.Scripts.Unit
 {
-    [Header("Common")]
-    [SerializeField] private float _attackDistance;
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _attackSpeed;
-    [SerializeField] private int _damage;
-    [SerializeField] private int _maxHealth;
-    [SerializeField] private int _armor;
-    [SerializeField] private int _expPerKill;
+    public class UnitConfig : ScriptableObject
+    {
+        public CommonStats CommonStats => _commonStats;
+    
+        [SerializeField] private CommonStats _commonStats;
+    }
 
-    public float AttackDistance => _attackDistance;
-    public float AttackSpeed => _attackSpeed;
-    public int Damage => _damage;
-    public int MaxHealth => _maxHealth;
-    public float MoveSpeed => _moveSpeed;
-    public int Armor => _armor;
-    public int ExpPerKill => _expPerKill;
+    [Serializable]
+    public class CommonStats
+    {
+        [SerializeField] private float _attackDistance;
+        [SerializeField] private float _moveSpeed;
+        [SerializeField] private float _attackSpeed;
+        [SerializeField] private int _damage;
+        [SerializeField] private int _maxHealth;
+        [SerializeField] private int _expPerKill;
+        [SerializeField] private int _armor;
+
+        public Stats.Stats GetStats()
+        {
+            return new Stats.Stats()
+            {
+                AttackDistance = _attackDistance,
+                MoveSpeed = _moveSpeed,
+                AttackSpeed = _attackSpeed,
+                Damage = _damage,
+                MaxHealth = _maxHealth,
+                ExpPerKill = _expPerKill,
+                Armor = _armor,
+            };
+        }
+    }
 }

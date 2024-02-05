@@ -1,13 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Item.Projectiles.ProjectilePlash;
 using UnityEngine;
 
-public class ProjectileBomb : Projectile
+namespace Assets.Scripts.Item.Projectiles
 {
-    [SerializeField] private Area _plash;
-    protected override void OnProjectileDispose()
+    public class ProjectileBomb : Projectile
     {
-        var instance = Instantiate(_plash,gameObject.transform.position, Quaternion.identity);
-        instance.Initialize(_radius, _damage);
+        [SerializeField] private Area _plash;
+        protected override void OnProjectileDispose()
+        {
+            var instance = Instantiate(_plash,gameObject.transform.position, Quaternion.identity);
+            instance.Initialize(_radius, _damage);
+        }
     }
 }

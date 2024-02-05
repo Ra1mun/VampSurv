@@ -1,28 +1,32 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Inventory;
 using UnityEngine;
 
-public class Attributes : MonoBehaviour
+namespace Assets.Scripts.Player.Attribute
 {
-    [SerializeField] private Inventory _inventory;
-    
-    private Dictionary<AttributeType, int> _attributeLevels = new Dictionary<AttributeType, int>()
+    public class Attributes : MonoBehaviour
     {
-        [AttributeType.Atheism] = 0,
-        [AttributeType.Christianity] = 0,
-        [AttributeType.Paganism] = 0,
-    };
+        [SerializeField] private Inventory.Inventory _inventory;
     
-    public void AttributeLevelUp(AttributeType type)
-    {
-        _attributeLevels[type]++;
-        _inventory.BuffItems(type);
+        private readonly Dictionary<AttributeType, int> _attributeLevels = new Dictionary<AttributeType, int>()
+        {
+            [AttributeType.Atheism] = 0,
+            [AttributeType.Christianity] = 0,
+            [AttributeType.Paganism] = 0,
+        };
+    
+        public void AttributeLevelUp(AttributeType type)
+        {
+            _inventory.BuffItems(type);
+            _attributeLevels[type]++;
+        }
     }
-}
 
-public enum AttributeType
-{
-    Christianity,
-    Atheism,
-    Paganism
+    public enum AttributeType
+    {
+        Christianity,
+        Atheism,
+        Paganism
+    }
 }

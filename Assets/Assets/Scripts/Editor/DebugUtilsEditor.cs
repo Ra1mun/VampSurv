@@ -1,25 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Text;
 using UnityEditor;
-using System.Text;
 
-public static class DebugUtilsEditor
+namespace Assets.Scripts.Editor
 {
-	public static string ToString(SerializedProperty property)
+	public static class DebugUtilsEditor
 	{
-		StringBuilder sb = new StringBuilder();
-		var iterator = property.Copy();
-		var end = property.GetEndProperty();
-		do
+		public static string ToString(SerializedProperty property)
 		{
-			sb.AppendLine(iterator.propertyPath + " (" + iterator.type + " " + iterator.propertyType + ") = "
-				+ SerializableDictionaryPropertyDrawer.GetPropertyValue(iterator)
-				#if UNITY_5_6_OR_NEWER
-				+ (iterator.isArray ? " (" + iterator.arrayElementType + ")" : "")
-				#endif
+			StringBuilder sb = new StringBuilder();
+			var iterator = property.Copy();
+			var end = property.GetEndProperty();
+			do
+			{
+				sb.AppendLine(iterator.propertyPath + " (" + iterator.type + " " + iterator.propertyType + ") = "
+				              + SerializableDictionaryPropertyDrawer.GetPropertyValue(iterator)
+#if UNITY_5_6_OR_NEWER
+				              + (iterator.isArray ? " (" + iterator.arrayElementType + ")" : "")
+#endif
 				);
-		} while(iterator.Next(true) && iterator.propertyPath != end.propertyPath);
-		return sb.ToString();
+			} while(iterator.Next(true) && iterator.propertyPath != end.propertyPath);
+			return sb.ToString();
+		}
 	}
 }

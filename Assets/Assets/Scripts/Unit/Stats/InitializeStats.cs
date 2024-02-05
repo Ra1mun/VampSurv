@@ -1,23 +1,17 @@
-public class InitializeStats : IStatsProvider
+namespace Assets.Scripts.Unit.Stats
 {
-    private readonly UnitConfig _config;
+    public class InitializeStats : IStatsProvider
+    {
+        private readonly CommonStats _commonStats;
 
-    public InitializeStats(UnitConfig config)
-    {
-        _config = config;
-    }
-    
-    public Stats GetStats()
-    {
-        return new Stats()
+        public InitializeStats(CommonStats commonStats)
         {
-            MoveSpeed = _config.MoveSpeed,
-            Damage = _config.Damage,
-            MaxHealth = _config.MaxHealth,
-            AttackDistance = _config.AttackDistance,
-            AttackSpeed = _config.AttackSpeed,
-            Armor = _config.Armor,
-            ExpPerKill = _config.ExpPerKill,
-        };
+            _commonStats = commonStats;
+        }
+    
+        public Stats GetStats()
+        {
+            return _commonStats.GetStats();
+        }
     }
 }

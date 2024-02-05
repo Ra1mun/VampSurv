@@ -1,4 +1,7 @@
-public interface IDamageable
+namespace Assets.Scripts.Damageable
 {
-    void ApplyDamage(int damage);
+    public interface IDamageable
+    {
+        void ApplyDamage(int damage);
+    }
 }

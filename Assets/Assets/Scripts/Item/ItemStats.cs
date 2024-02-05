@@ -1,11 +1,16 @@
-using System;
+using Assets.Scripts.Unit;
+using Assets.Scripts.Unit.Stats;
 using UnityEngine;
 
-public class ItemStats : UnitStats
+namespace Assets.Scripts.Item
 {
-
-    public void AddAttributeStats(ItemConfig config)
+    public class ItemStats : UnitStats
     {
-        _provider = new UpItemStatsDecorator(_provider, config);
+        public void AddInternalStats(InternalStats internalStats)
+        {
+            Debug.Log(_provider);
+            _provider = new InternalStatsDecorator(_provider, internalStats);
+            Debug.Log(_provider);
+        }
     }
 }

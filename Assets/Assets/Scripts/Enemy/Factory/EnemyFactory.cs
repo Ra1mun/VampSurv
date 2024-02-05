@@ -1,15 +1,19 @@
+using Assets.Scripts.Unit;
 using UnityEngine;
 
-public abstract class EnemyFactory : ScriptableObject
+namespace Assets.Scripts.Enemy.Factory
 {
-    public Enemy Spawn(EnemyType type, Vector3 transform)
+    public abstract class EnemyFactory : ScriptableObject
     {
-        var config = GetConfig(type);
-        var instance = Instantiate(config.Prefab, transform, Quaternion.identity);
-        instance.Initialize(config, UnitType.Enemy);
+        public Enemy Spawn(EnemyType type, Vector3 transform)
+        {
+            var config = GetConfig(type);
+            var instance = Instantiate(config.Prefab, transform, Quaternion.identity);
+            instance.Initialize(config, UnitType.Enemy);
 
-        return instance;
+            return instance;
+        }
+
+        protected abstract EnemyConfig GetConfig(EnemyType type);
     }
-
-    protected abstract EnemyConfig GetConfig(EnemyType type);
 }

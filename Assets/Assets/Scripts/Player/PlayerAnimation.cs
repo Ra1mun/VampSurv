@@ -1,20 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-[RequireComponent(typeof(Animator))]
-public class PlayerAnimation : MonoBehaviour
+
+namespace Assets.Scripts.Player
 {
-    private Animator _animator;
-
-    private void Awake()
+    [RequireComponent(typeof(Animator))]
+    public class PlayerAnimation : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-    }
+        private Animator _animator;
 
-    public void InputDirection(Vector2 direction)
-    {
+        private void Awake()
+        {
+            _animator = GetComponent<Animator>();
+        }
+
+        public void InputDirection(Vector2 direction)
+        {
         
+        }
     }
 }

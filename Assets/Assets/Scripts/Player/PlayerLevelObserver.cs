@@ -1,32 +1,36 @@
 ﻿using System;
+using Assets.Scripts.Player.Experience;
 using UnityEngine;
 
-public class PlayerLevelObserver : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    [SerializeField] private PlayerLevel _playerLevel;
+    public class PlayerLevelObserver : MonoBehaviour
+    {
+        [SerializeField] private PlayerLevel _playerLevel;
 
-    public event Action OnItemSelectionEvent;
-    public event Action OnAttributeSelectionEvent;
+        public event Action OnItemSelectionEvent;
+        public event Action OnAttributeSelectionEvent;
     
-    private void OnEnable()
-    {
-        _playerLevel.OnLevelChangedEvent += OnLevelChanged;
-    }
+        private void OnEnable()
+        {
+            _playerLevel.OnLevelChangedEvent += OnLevelChanged;
+        }
 
-    private void OnLevelChanged(int level)
-    {
-        if (level % Constants.ITEM_SELECTION_ON_LEVEL == 0)
+        private void OnLevelChanged(int level)
         {
-            OnItemSelectionEvent?.Invoke();
+            if (level % Constants.ITEM_SELECTION_ON_LEVEL == 0)
+            {
+                OnItemSelectionEvent?.Invoke();
+            }
+            else
+            {
+                OnAttributeSelectionEvent?.Invoke();
+            }
         }
-        else
-        {
-            OnAttributeSelectionEvent?.Invoke();
-        }
-    }
     
-    private void OnDisable()
-    {
-        _playerLevel.OnLevelChangedEvent -= OnLevelChanged;
+        private void OnDisable()
+        {
+            _playerLevel.OnLevelChangedEvent -= OnLevelChanged;
+        }
     }
 }

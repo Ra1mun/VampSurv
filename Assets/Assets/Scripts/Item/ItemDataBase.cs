@@ -1,65 +1,87 @@
 using System;
 using System.Collections.Generic;
-using TMPro;
+using Assets.Scripts.Unit.Stats;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "ItemDataBase", menuName = "Source/Data Base/ItemDataBase", order = 0)]
-public class ItemDataBase : ScriptableObject
+namespace Assets.Scripts.Item
 {
-    [SerializeField] public ItemBase[] _items;
-
-    [NonSerialized] private bool _isInit;
-
-    private Dictionary<ItemID, ItemConfig> _itemStorage = new Dictionary<ItemID, ItemConfig>();
-    
-    private void Init()
+    [CreateAssetMenu(fileName = "ItemDataBase", menuName = "Source/Data Base/ItemDataBase", order = 0)]
+    public class ItemDataBase : ScriptableObject
     {
-        for (int i = 0; i < _items.Length; i++)
-        {
-            _itemStorage.Add(_items[i].ID, _items[i].Item);
-        }
+        [SerializeField] public DataItem[] _items;
 
-        _isInit = true;
-    }
+        [NonSerialized] private bool _isInit;
+
+        private Dictionary<ItemID, ItemConfig> _itemStorage = new Dictionary<ItemID, ItemConfig>();
     
-    public Stats GetStats(ItemID itemID)
-    {
-        if (!_isInit)
+        private void Init()
         {
-            Init();
-        }
+            for (int i = 0; i < _items.Length; i++)
+            {
+                _itemStorage.Add(_items[i].ID, _items[i].Item);
+            }
 
-        if (_itemStorage.ContainsKey(itemID))
+            _isInit = true;
+        }
+    
+        public Stats GetStats(ItemID itemID)
         {
-            return _itemStorage[itemID].AddStats();
-        }
+            if (!_isInit)
+            {
+                Init();
+            }
 
-        return Stats.NULL();
-    }
+            if (_itemStorage.ContainsKey(itemID))
+            {
+                return _itemStorage[itemID].GivenStats.GetStats();
+            }
+
+            return Stats.Null();
+        }
    
 
-    public Item GetItem(ItemID itemID)
-    {
-        if (!_isInit)
+        public Item GetItem(ItemID itemID)
         {
-            Init();
-        }
-        if (_itemStorage.ContainsKey(itemID))
-        {
-            return _itemStorage[itemID].Prefab;
-        }
+            if (!_isInit)
+            {
+                Init();
+            }
+            if (_itemStorage.ContainsKey(itemID))
+            {
+                return _itemStorage[itemID].Prefab;
+            }
 
-        return null;
+            return null;
+        }
     }
-}
 
-[Serializable]
-public class ItemBase
-{
-    public ItemID ID => _itemID;
-    public ItemConfig Item => _item;
+    [Serializable]
+    public class DataItem
+    {
+        public ItemID ID => _itemID;
+        public ItemConfig Item => _item;
     
-    [SerializeField] private ItemID _itemID;
-    [SerializeField] private ItemConfig _item;
+        [SerializeField] private ItemID _itemID;
+        [SerializeField] private ItemConfig _item;
+    }
+    
+    public enum ItemID : uint
+    {
+        Curiass,
+        Sphere,
+        Spear,
+        HolyWater,
+        Mjolnir,
+        Cross,
+        Big_Cross,
+        Bible,
+        Censer,
+        Thorn_Rune,
+        GjallarHorn,
+        Gleipnir,
+        Zwaihander,
+        Throwing_Dagger,
+        Scourge,
+        TorchLight
+    }
 }

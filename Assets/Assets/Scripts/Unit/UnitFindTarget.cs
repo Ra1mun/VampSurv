@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class UnitFindTarget : MonoBehaviour, ITargetFinder
+namespace Assets.Scripts.Unit
 {
-    public abstract Unit FindTarget(Unit selfUnit);
+    public abstract class UnitFindTarget : MonoBehaviour, ITargetFinder
+    {
+        public abstract Unit FindTarget(Unit selfUnit);
+    }
 }

@@ -1,83 +1,95 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Unit;
 using UnityEngine;
-[RequireComponent(typeof(Collider2D))]
-public abstract class Projectile : MonoBehaviour
+
+namespace Assets.Scripts.Item.Projectiles
 {
-    [SerializeField] private ProjectileDisposeType _disposeType = ProjectileDisposeType.OnAnyCollision;
+    [RequireComponent(typeof(Collider2D))]
+    public abstract class Projectile : MonoBehaviour
+    {
+        [SerializeField] private ProjectileDisposeType _disposeType = ProjectileDisposeType.OnAnyCollision;
 
-    [SerializeField] private LayerMask _targetLayerMask;
+        [SerializeField] private LayerMask _targetLayerMask;
 
-    protected float _radius;
-    protected int _damage;
-    protected float _speed;
-    [SerializeField]protected Vector2 _targetPosition;
-    protected Vector2 _originPosition;
+        protected float _radius;
+        protected int _damage;
+        protected float _speed;
+        [SerializeField] protected Vector2 _targetPosition;
+        protected Vector2 _originPosition;
 
-    public Vector2 TargetPosition => _targetPosition;
-    public Vector2 OriginPosition => _originPosition;
-    public float Speed => _speed;
+        public Vector2 TargetPosition => _targetPosition;
+        public Vector2 OriginPosition => _originPosition;
+        public float Speed => _speed;
     
-    public ProjectileDisposeType DisposeType => _disposeType;
+        public ProjectileDisposeType DisposeType => _disposeType;
 
-    public bool IsProjectileDisposed;
-    private void Update()
-    {
-        if(_disposeType == ProjectileDisposeType.Manual)
-            ManualDispose();
-    }
-    public void Initialize(float speed, float radius, int damage, Vector2 target, Vector2 originPosition)
-    {
-        
-        _radius = radius;
-        _damage = damage;
-        _speed = speed;
-        _targetPosition = target;
-        _originPosition = originPosition;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-
-        if (IsProjectileDisposed)
-            return;
-
-        if (collision.gameObject.TryGetComponent(out UnitDamageable damageable))
+        public bool IsProjectileDisposed;
+        private void Update()
         {
-            if (1 << collision.gameObject.layer == _targetLayerMask.value)
+            if(_disposeType == ProjectileDisposeType.Manual)
+                ManualDispose();
+        }
+        public void Initialize(float speed, float radius, int damage, Vector2 target, Vector2 originPosition)
+        {
+        
+            _radius = radius;
+            _damage = damage;
+            _speed = speed;
+            _targetPosition = target;
+            _originPosition = originPosition;
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+        
+
+            if (IsProjectileDisposed)
+                return;
+
+            if (collision.gameObject.TryGetComponent(out UnitDamageable damageable))
             {
-                OnTargetCollision(collision, damageable);
-                if (_disposeType == ProjectileDisposeType.OnTargetCollision)
+                if (1 << collision.gameObject.layer == _targetLayerMask.value)
                 {
-                    DisposeProjectile();
+                    OnTargetCollision(collision, damageable);
+                    if (_disposeType == ProjectileDisposeType.OnTargetCollision)
+                    {
+                        DisposeProjectile();
+                    }
                 }
             }
-        }
-        else
-        {
-            OnOtherCollision(collision);
-            if (_disposeType == ProjectileDisposeType.OnNotTargetCollision)
+            else
+            {
+                OnOtherCollision(collision);
+                if (_disposeType == ProjectileDisposeType.OnNotTargetCollision)
+                    DisposeProjectile();
+            }
+
+            OnAnyCollision(collision);
+
+            if (_disposeType == ProjectileDisposeType.OnAnyCollision)
+            {
                 DisposeProjectile();
+            }
+
         }
-
-        OnAnyCollision(collision);
-
-        if (_disposeType == ProjectileDisposeType.OnAnyCollision)
+        public void DisposeProjectile()
         {
-            DisposeProjectile();
+            OnProjectileDispose();
+            Destroy(gameObject);
+            IsProjectileDisposed = true;
         }
 
+        protected virtual void OnProjectileDispose() { }
+        protected virtual void OnAnyCollision(Collider2D collision) { }
+        protected virtual void OnOtherCollision(Collider2D collision) { }
+        protected virtual void OnTargetCollision(Collider2D collision, UnitDamageable damageable) { }
+        protected virtual void ManualDispose(){ }
     }
-    public void DisposeProjectile()
+    
+    public enum ProjectileDisposeType
     {
-        OnProjectileDispose();
-        Destroy(gameObject);
-        IsProjectileDisposed = true;
+        OnTargetCollision,
+        OnAnyCollision,
+        Manual,
+        OnNotTargetCollision
     }
-
-    protected virtual void OnProjectileDispose() { }
-    protected virtual void OnAnyCollision(Collider2D collision) { }
-    protected virtual void OnOtherCollision(Collider2D collision) { }
-    protected virtual void OnTargetCollision(Collider2D collision, UnitDamageable damageable) { }
-    protected virtual void ManualDispose(){ }
 }
+

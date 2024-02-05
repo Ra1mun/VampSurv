@@ -1,24 +1,27 @@
-﻿using System;
+﻿using Assets.Scripts.Unit;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : UnitMoveable
+namespace Assets.Scripts.Player.Movement
 {
-    [SerializeField] private PlayerStats _playerStats;
-
-    private Rigidbody2D _rigidbody;
-
-    private float _speed => _playerStats.GetStats().MoveSpeed;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    public class PlayerMovement : UnitMoveable
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField] private PlayerStats _playerStats;
 
-    public override void Move(Vector2 direction)
-    {
+        private Rigidbody2D _rigidbody;
 
-        _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.deltaTime);
-    }
+        private float _speed => _playerStats.GetStats().MoveSpeed;
+
+        private void Awake()
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        public override void Move(Vector2 direction)
+        {
+
+            _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.deltaTime);
+        }
     
+    }
 }

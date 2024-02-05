@@ -1,23 +1,27 @@
 using System;
+using Assets.Scripts.Damageable;
 using UnityEngine;
 
-public abstract class UnitDamageable : MonoBehaviour, IDamageable
+namespace Assets.Scripts.Unit
 {
-    [SerializeField] private UnitHealth _unitHealth;
-
-    public void ApplyDamage(int damage)
+    public abstract class UnitDamageable : MonoBehaviour, IDamageable
     {
-        if (damage < 0)
-            throw new ArgumentException(nameof(damage));
+        [SerializeField] private UnitHealth _unitHealth;
 
-        var totalDamage = ProcessDamage(damage);
+        public void ApplyDamage(int damage)
+        {
+            if (damage < 0)
+                throw new ArgumentException(nameof(damage));
+
+            var totalDamage = ProcessDamage(damage);
         
-        _unitHealth.CurrentHealth -= damage;
-        Debug.Log(gameObject.name + " Takes damage: " + damage);
-    }
+            _unitHealth.CurrentHealth -= damage;
+            Debug.Log(gameObject.name + " Takes damage: " + damage);
+        }
 
-    protected virtual int ProcessDamage(int damage)
-    {
-        return damage;
+        protected virtual int ProcessDamage(int damage)
+        {
+            return damage;
+        }
     }
 }

@@ -1,84 +1,46 @@
 using System;
+using Assets.Scripts.Player.Attribute;
+using Assets.Scripts.Unit;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(menuName = "Config/ItemConfig", fileName = "ItemConfig", order = 0)]
-public class ItemConfig : UnitConfig
+namespace Assets.Scripts.Item
 {
-    
-    [Header("Change Internal Stats by step:")]
-    [SerializeField] private float _stepAttackDistance;
-    [SerializeField] private float _stepMoveSpeed;
-    [SerializeField] private float _stepAttackSpeed;
-    [SerializeField] private int _stepDamage;
-    [SerializeField] private int _stepMaxHealth;
-    [SerializeField] private int _stepArmor;
-    [SerializeField] private int _stepExpPerKill;
-    
-    
-    [Header("Given Stats")]
-    [SerializeField] private float _addAttackDistance;
-    [SerializeField] private float _addMoveSpeed;
-    [SerializeField] private float _addAttackSpeed;
-    [SerializeField] private int _addDamage;
-    [SerializeField] private int _addMaxHealth;
-    [SerializeField] private int _addExpPerKill;
-    [SerializeField] private int _addArmor;
-
-    [Header("Change Given Stats by step:")]
-    [SerializeField] private float _stepAddAttackDistance;
-    [SerializeField] private float _stepAddMoveSpeed;
-    [SerializeField] private float _stepAddAttackSpeed;
-    [SerializeField] private int _stepAddDamage;
-    [SerializeField] private int _stepAddMaxHealth;
-    [SerializeField] private int _stepAddExpPerKill;
-    [SerializeField] private int _stepAddArmor;
-    [Header("Prefab")] 
-    [SerializeField] private Item _prefab;
-
-    [Header("Attribute")] 
-    [SerializeField] private AttributeType _attribute;
-    
-    public Item Prefab => _prefab;
-    public AttributeType Attribute => _attribute;
-
-    public Stats AddStats()
+    [CreateAssetMenu(menuName = "Config/ItemConfig", fileName = "ItemConfig", order = 0)]
+    public class ItemConfig : UnitConfig
     {
-        return new Stats
-        {
-            MaxHealth = _addMaxHealth,
-            MoveSpeed = _addMoveSpeed,
-            AttackDistance = _addAttackDistance,
-            AttackSpeed = _addAttackSpeed,
-            Damage = _addDamage,
-            ExpPerKill = _addExpPerKill,
-            Armor = _addArmor,
-        };
+        public AttributeStats AttributeStats => _attributeStats;
+        public GivenStats GivenStats => _givenStats;
+        public InternalStats InternalStats => _internalStats;
+        public Item Prefab => _prefab;
+        public AttributeType Attribute => _attribute;
+    
+        [SerializeField] private AttributeStats _attributeStats;
+        [SerializeField] private GivenStats _givenStats;
+        [SerializeField] private InternalStats _internalStats;
+    
+        [Header("Prefab")] 
+        [SerializeField] private Item _prefab;
+
+        [Header("Attribute")] 
+        [SerializeField] private AttributeType _attribute;
     }
-    public Stats ChangeInternalStatsByStep()
+
+    [Serializable]
+    public class AttributeStats : CommonStats
     {
-        return new Stats
-        {
-            MaxHealth = _stepMaxHealth,
-            MoveSpeed = _stepMoveSpeed,
-            AttackDistance = _stepAttackDistance,
-            AttackSpeed = _stepAttackSpeed,
-            Damage = _stepDamage,
-            ExpPerKill = _stepExpPerKill,
-            Armor = _stepArmor,
-        };
+    
     }
-    public Stats ChangeGivenStatsByStep()
+
+    [Serializable]
+    public class GivenStats : CommonStats
     {
-        return new Stats
-        {
-            MaxHealth = _stepAddMaxHealth,
-            MoveSpeed = _stepAddMoveSpeed,
-            AttackDistance = _stepAddAttackDistance,
-            AttackSpeed = _stepAddAttackSpeed,
-            Damage = _stepAddDamage,
-            ExpPerKill = _stepAddExpPerKill,
-            Armor = _stepAddArmor,
-        };
+    
+    }
+
+    [Serializable]
+    public class InternalStats : CommonStats
+    {
+    
     }
 }

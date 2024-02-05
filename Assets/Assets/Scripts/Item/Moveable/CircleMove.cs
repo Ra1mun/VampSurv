@@ -1,31 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleMove: MonoBehaviour
+namespace Assets.Scripts.Item.Moveable
 {
-
-    public float radius = 2f;
-    public float speed = 2f;
-    private float angle = 0f;
-
-
-    void Start()
+    public class CircleMove: MonoBehaviour
     {
 
-    }
+        public float radius = 2f;
+        public float speed = 2f;
+        private float angle = 0f;
 
 
-    private void Update()
-    {
+        void Start()
+        {
 
-        angle += speed * Time.deltaTime;
-
-
-        float x = Mathf.Sin(angle) * radius;
-        float y = Mathf.Cos(angle) * radius;
+        }
 
 
-        transform.position = new Vector3(x, y, 0f);
+        private void Update()
+        {
+
+            angle += speed * Time.deltaTime;
+
+
+            float x = Mathf.Sin(angle) * radius;
+            float y = Mathf.Cos(angle) * radius;
+
+
+            transform.position = new Vector3(x, y, 0f);
+        }
     }
 }

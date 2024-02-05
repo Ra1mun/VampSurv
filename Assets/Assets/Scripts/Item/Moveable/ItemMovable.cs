@@ -1,7 +1,10 @@
 using UnityEngine;
 
-public abstract class ItemMovable : MonoBehaviour
+namespace Assets.Scripts.Item.Moveable
 {
-    protected Transform _center => transform.parent;
-    public abstract void Move();
+    public abstract class ItemMovable : MonoBehaviour
+    {
+        protected Transform _center => transform.parent;
+        public abstract void Move();
+    }
 }

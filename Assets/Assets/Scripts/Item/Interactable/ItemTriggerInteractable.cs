@@ -1,19 +1,23 @@
-using System;
+using Assets.Scripts.Extension;
 using Assets.Scripts.Inventory;
+using Assets.Scripts.Item.ItemSelection;
 using UnityEngine;
 
-public class ItemTriggerInteractable : MonoBehaviour
+namespace Assets.Scripts.Item.Interactable
 {
-    [SerializeField] private AssetItem _item;
+    public class ItemTriggerInteractable : MonoBehaviour
+    {
+        [SerializeField] private AssetItem.AssetItem _item;
     
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        col.gameObject.Route<ItemSelectionObserver>(Interact);
-    }
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            col.gameObject.Route<ItemSelectionObserver>(Interact);
+        }
 
-    private void Interact(ItemSelectionObserver player)
-    {
-        player.AddItem(_item);
-        Destroy(gameObject);
+        private void Interact(ItemSelectionObserver player)
+        {
+            player.AddItem(_item);
+            Destroy(gameObject);
+        }
     }
 }

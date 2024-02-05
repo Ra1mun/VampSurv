@@ -1,28 +1,31 @@
-using UnityEngine;
+using Assets.Scripts.Unit;
 
-public class EnemyFindTarget : ITargetFinder
+namespace Assets.Scripts.Enemy
 {
-    public Unit FindTarget(Unit selfUnit)
+    public class EnemyFindTarget : ITargetFinder
     {
-        Unit result = null;
-
-        var distance = float.MaxValue;
-
-        foreach (var unit in UnitsPool.Units)
+        public global::Assets.Scripts.Unit.Unit FindTarget(global::Assets.Scripts.Unit.Unit selfUnit)
         {
-            if (unit.Type == UnitType.Player)
+            global::Assets.Scripts.Unit.Unit result = null;
+
+            var distance = float.MaxValue;
+
+            foreach (var unit in UnitsPool.Units)
             {
-                var tempDistance = (selfUnit.transform.position - unit.transform.position).magnitude;
-                if ((tempDistance < distance))
+                if (unit.Type == UnitType.Player)
                 {
-                    distance = tempDistance;
-                    result = unit;
+                    var tempDistance = (selfUnit.transform.position - unit.transform.position).magnitude;
+                    if ((tempDistance < distance))
+                    {
+                        distance = tempDistance;
+                        result = unit;
+                    }
                 }
-            }
 
             
-        }
+            }
 
-        return result;
+            return result;
+        }
     }
 }

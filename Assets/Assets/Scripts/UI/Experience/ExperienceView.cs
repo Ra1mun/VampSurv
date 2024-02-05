@@ -1,17 +1,19 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExperienceView : MonoBehaviour
+namespace Assets.Scripts.UI.Experience
 {
-    [SerializeField] private Slider _experienceBar;
-    [SerializeField] private TMP_Text _text;
-
-    public void UpdateExperience(int currentExperience, int maxExperience)
+    public class ExperienceView : MonoBehaviour
     {
-        _experienceBar.value = currentExperience / 100;
-        _text.text = $"{currentExperience} / {maxExperience}";
-    }
+        [SerializeField] private Slider _experienceBar;
+        [SerializeField] private TMP_Text _text;
+
+        public void UpdateExperience(int currentExperience, int maxExperience)
+        {
+            _experienceBar.value = currentExperience / 100;
+            _text.text = $"{currentExperience} / {maxExperience}";
+        }
     
+    }
 }

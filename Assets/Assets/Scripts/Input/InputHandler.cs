@@ -1,4 +1,6 @@
 using System;
+using Assets.Scripts.Player;
+using Assets.Scripts.Player.Movement;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour

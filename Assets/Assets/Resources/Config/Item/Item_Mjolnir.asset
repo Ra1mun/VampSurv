@@ -12,33 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5f59971378468381ea537e423fc4ad, type: 3}
   m_Name: Item_Mjolnir
   m_EditorClassIdentifier: 
-  _attackDistance: 10
-  _moveSpeed: 2
-  _attackSpeed: 1
-  _damage: 10
-  _maxHealth: 0
-  _armor: 0
-  _expPerKill: 0
-  _stepAttackDistance: 0
-  _stepMoveSpeed: 0
-  _stepAttackSpeed: 0
-  _stepDamage: 0
-  _stepMaxHealth: 0
-  _stepArmor: 0
-  _stepExpPerKill: 0
-  _addAttackDistance: 0
-  _addMoveSpeed: 2
-  _addAttackSpeed: 0
-  _addDamage: 0
-  _addMaxHealth: 0
-  _addExpPerKill: 0
-  _addArmor: 0
-  _stepAddAttackDistance: 0
-  _stepAddMoveSpeed: 2
-  _stepAddAttackSpeed: 0
-  _stepAddDamage: 0
-  _stepAddMaxHealth: 0
-  _stepAddExpPerKill: 0
-  _stepAddArmor: 0
+  _commonStats:
+    _attackDistance: 5
+    _moveSpeed: 2
+    _attackSpeed: 1
+    _damage: 25
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 0
+  _attributeStats:
+    _attackDistance: 0
+    _moveSpeed: 1
+    _attackSpeed: 0
+    _damage: 15
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 0
+  _givenStats:
+    _attackDistance: 0
+    _moveSpeed: 0
+    _attackSpeed: 0
+    _damage: 0
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 0
+  _internalStats:
+    _attackDistance: 1
+    _moveSpeed: 1
+    _attackSpeed: 1
+    _damage: 15
+    _maxHealth: 1
+    _expPerKill: 1
+    _armor: 1
   _prefab: {fileID: 6196582501810120677, guid: 8234809eeb50fe149b8e0c4b7a012bd9, type: 3}
   _attribute: 2

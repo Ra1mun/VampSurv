@@ -1,20 +1,27 @@
 using System;
-using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Defualt Enemy Factory", menuName = "Source/Factories/Default Enemies", order = 0)]
-public class DefualtEnemyFactory : EnemyFactory
+namespace Assets.Scripts.Enemy.Factory
 {
-    [SerializeField] private EnemyConfig _testEnemy;
-
-    protected override EnemyConfig GetConfig(EnemyType type)
+    [CreateAssetMenu(fileName = "Defualt Enemy Factory", menuName = "Source/Factories/Default Enemies", order = 0)]
+    public class DefualtEnemyFactory : EnemyFactory
     {
-        switch (type)
+        [SerializeField] private EnemyConfig _testEnemy;
+
+        protected override EnemyConfig GetConfig(EnemyType type)
         {
-            case EnemyType.TestEnemy:
-                return _testEnemy;
-            default:
-                throw new ArgumentOutOfRangeException($"Enemy type: {type} wasn't set!");
+            switch (type)
+            {
+                case EnemyType.TestEnemy:
+                    return _testEnemy;
+                default:
+                    throw new ArgumentOutOfRangeException($"Enemy type: {type} wasn't set!");
+            }
         }
+    }
+    
+    public enum EnemyType
+    {
+        TestEnemy
     }
 }

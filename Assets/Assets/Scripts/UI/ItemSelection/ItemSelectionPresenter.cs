@@ -1,5 +1,8 @@
 using System;
 using Assets.Scripts.Inventory;
+using Assets.Scripts.Item.AssetItem;
+using Assets.Scripts.Item.ItemSelection;
+using Assets.Scripts.Player;
 using Assets.Scripts.UI;
 using UnityEngine;
 

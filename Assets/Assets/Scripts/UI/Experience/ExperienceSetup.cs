@@ -1,24 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ExperienceSetup : MonoBehaviour
+namespace Assets.Scripts.UI.Experience
 {
-    [SerializeField] Experience experience;
-    [SerializeField] ExperienceView experienceView;
-    private ExperiencePresenter experiencePresenter;
-    private void Awake()
+    public class ExperienceSetup : MonoBehaviour
     {
+        [SerializeField] Player.Experience.Experience experience;
+        [SerializeField] ExperienceView experienceView;
+        private ExperiencePresenter experiencePresenter;
+        private void Awake()
+        {
 
-    }
-    private void OnEnable()
-    {
-        experiencePresenter = new ExperiencePresenter(experience, experienceView);
-        experiencePresenter.Enable();
+        }
+        private void OnEnable()
+        {
+            experiencePresenter = new ExperiencePresenter(experience, experienceView);
+            experiencePresenter.Enable();
 
-    }
-    private void OnDisable()
-    {
-        experiencePresenter.Disable();
+        }
+        private void OnDisable()
+        {
+            experiencePresenter.Disable();
+        }
     }
 }

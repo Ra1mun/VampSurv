@@ -1,4 +1,7 @@
-public interface ITargetFinder
+namespace Assets.Scripts.Unit
 {
-    Unit FindTarget(Unit selfUnit);
+    public interface ITargetFinder
+    {
+        Unit FindTarget(Unit selfUnit);
+    }
 }

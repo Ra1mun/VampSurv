@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Unit;
 using UnityEngine;
 
-public class ProjectileLinear : Projectile
+namespace Assets.Scripts.Item.Projectiles
 {
-    protected override void ManualDispose()
+    public class ProjectileLinear : Projectile
     {
-        float tempDistance = Vector2.Distance(_originPosition, gameObject.transform.position);
-        if ( tempDistance > _radius)
-            DisposeProjectile();
-        //Need optimization. Sqrt func every frame is very rich. Might be worth adding coroutine.
-    }
-    protected override void OnTargetCollision(Collider2D collision, UnitDamageable damageable)
-    {
-        damageable.ApplyDamage(_damage);
+        protected override void ManualDispose()
+        {
+            float tempDistance = Vector2.Distance(_originPosition, gameObject.transform.position);
+            if ( tempDistance > _radius)
+                DisposeProjectile();
+            //Need optimization. Sqrt func every frame is very rich. Might be worth adding coroutine.
+        }
+        protected override void OnTargetCollision(Collider2D collision, UnitDamageable damageable)
+        {
+            damageable.ApplyDamage(_damage);
+        }
     }
 }

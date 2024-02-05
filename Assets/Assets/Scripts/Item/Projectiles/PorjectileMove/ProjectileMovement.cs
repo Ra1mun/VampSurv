@@ -1,14 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(Projectile))]
-public abstract class ProjectileMovement : MonoBehaviour
+
+namespace Assets.Scripts.Item.Projectiles.PorjectileMove
 {
-    [SerializeField] protected Projectile _projectile;
-    [SerializeField] protected Rigidbody2D projectileRigidbody;
-    private void FixedUpdate()
+    [RequireComponent(typeof(Projectile))]
+    public abstract class ProjectileMovement : MonoBehaviour
     {
-        Move();
+        [SerializeField] protected Projectile _projectile;
+        [SerializeField] protected Rigidbody2D projectileRigidbody;
+        private void FixedUpdate()
+        {
+            Move();
+        }
+        protected virtual void Move() { }
     }
-    protected virtual void Move() { }
 }

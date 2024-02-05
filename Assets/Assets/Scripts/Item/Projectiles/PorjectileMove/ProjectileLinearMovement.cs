@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class ProjectileLinearMovement : ProjectileMovement
+namespace Assets.Scripts.Item.Projectiles.PorjectileMove
 {
-
-    protected override void Move()
+    public class ProjectileLinearMovement : ProjectileMovement
     {
-        projectileRigidbody.velocity = ((_projectile.TargetPosition - _projectile.OriginPosition).normalized
-            * _projectile.Speed);
+
+        protected override void Move()
+        {
+            projectileRigidbody.velocity = ((_projectile.TargetPosition - _projectile.OriginPosition).normalized
+                                            * _projectile.Speed);
+        }
     }
 }

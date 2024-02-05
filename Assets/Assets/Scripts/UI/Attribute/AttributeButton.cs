@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Player.Attribute;
 using UnityEngine;
 using UnityEngine.UI;
 

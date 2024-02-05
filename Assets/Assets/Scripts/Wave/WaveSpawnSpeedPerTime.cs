@@ -1,7 +1,10 @@
-public class WaveSpawnSpeedPerTime : WaveSpawnSpeed
+namespace Assets.Scripts.Wave
 {
-    protected override void IncreaseSpawns()
+    public class WaveSpawnSpeedPerTime : WaveSpawnSpeed
     {
-        throw new System.NotImplementedException();
+        protected override void IncreaseSpawns()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -1,15 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Unit;
 using UnityEngine;
 
-public class ProjectileHammer : Projectile
+namespace Assets.Scripts.Item.Projectiles
 {
-    protected override void ManualDispose()
+    public class ProjectileHammer : Projectile
     {
+        protected override void ManualDispose()
+        {
         
-    }
-    protected override void OnTargetCollision(Collider2D collision, UnitDamageable damageable)
-    {
-        damageable.ApplyDamage(_damage);
+        }
+        protected override void OnTargetCollision(Collider2D collision, UnitDamageable damageable)
+        {
+            damageable.ApplyDamage(_damage);
+        }
     }
 }

@@ -1,30 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
-using Assets.Scripts.UI;
+using Assets.Scripts.Player;
+using Assets.Scripts.Player.Attribute;
 using UnityEngine;
 
-public class AttributesSetup : MonoBehaviour
+namespace Assets.Scripts.UI.Attribute
 {
-    [SerializeField] private Attributes _attributes;
-    [SerializeField] private AttributeView _attributeView;
-    [SerializeField] private PlayerLevelObserver _observer;
-    [SerializeField] private UIPanelController _uiPanelController;
-    
-    private AttributePresenter attributePresenter;
-    
-    private void OnEnable()
+    public class AttributesSetup : MonoBehaviour
     {
-        attributePresenter = new AttributePresenter(
-            _attributes, 
-            _attributeView,
-            _observer,
-            _uiPanelController);
+        [SerializeField] private Attributes _attributes;
+        [SerializeField] private AttributeView _attributeView;
+        [SerializeField] private PlayerLevelObserver _observer;
+        [SerializeField] private UIPanelController _uiPanelController;
+    
+        private AttributePresenter attributePresenter;
+    
+        private void OnEnable()
+        {
+            attributePresenter = new AttributePresenter(
+                _attributes, 
+                _attributeView,
+                _observer,
+                _uiPanelController);
         
-        attributePresenter.Enable();
-    }
+            attributePresenter.Enable();
+        }
     
-    private void OnDisable()
-    {
-        attributePresenter.Disable();
+        private void OnDisable()
+        {
+            attributePresenter.Disable();
+        }
     }
 }

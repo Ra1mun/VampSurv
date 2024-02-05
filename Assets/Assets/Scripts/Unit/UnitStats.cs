@@ -1,17 +1,20 @@
+using Assets.Scripts.Unit.Stats;
 using UnityEngine;
 
-public abstract class UnitStats : MonoBehaviour
+namespace Assets.Scripts.Unit
 {
-    protected IStatsProvider _provider;
-
-    public Stats GetStats()
+    public abstract class UnitStats : MonoBehaviour
     {
-        return _provider.GetStats();
-    }
+        protected IStatsProvider _provider;
     
-
-    public void Initialize(UnitConfig config)
-    {
-        _provider = new InitializeStats(config);
+        public void Initialize(CommonStats commonStats)
+        {
+            _provider = new InitializeStats(commonStats);
+        }
+    
+        public Stats.Stats GetStats()
+        {
+            return _provider.GetStats();
+        }
     }
 }

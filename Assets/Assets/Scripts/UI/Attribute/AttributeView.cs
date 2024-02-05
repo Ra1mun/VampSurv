@@ -1,35 +1,36 @@
 using System;
-using Assets.Scripts.UI.Attribute;
-using Unity.VisualScripting;
+using Assets.Scripts.Player.Attribute;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class AttributeView : UIPanel
+namespace Assets.Scripts.UI.Attribute
 {
-    [SerializeField] private AttributeButton[] _attributeButtons;
-
-    public event Action<AttributeType> OnAttributeButtonClickEvent;
-
-    private void OnAttributeButtonClick(AttributeType attributeType)
+    public class AttributeView : UIPanel
     {
-        OnAttributeButtonClickEvent?.Invoke(attributeType);
-    }
-    
-    public override void Open()
-    {
-        for (int i = 0; i < _attributeButtons.Length; i++)
+        [SerializeField] private AttributeButton[] _attributeButtons;
+
+        public event Action<AttributeType> OnAttributeButtonClickEvent;
+
+        private void OnAttributeButtonClick(AttributeType attributeType)
         {
-            _attributeButtons[i].OnAttributeButtonClickEvent += OnAttributeButtonClick;
+            OnAttributeButtonClickEvent?.Invoke(attributeType);
         }
-    }
-
-    public override void Close()
-    {
-        for (int i = 0; i < _attributeButtons.Length; i++)
+    
+        public override void Open()
         {
-            _attributeButtons[i].OnAttributeButtonClickEvent -= OnAttributeButtonClick;
+            for (int i = 0; i < _attributeButtons.Length; i++)
+            {
+                _attributeButtons[i].OnAttributeButtonClickEvent += OnAttributeButtonClick;
+            }
         }
-    }
+
+        public override void Close()
+        {
+            for (int i = 0; i < _attributeButtons.Length; i++)
+            {
+                _attributeButtons[i].OnAttributeButtonClickEvent -= OnAttributeButtonClick;
+            }
+        }
 
     
+    }
 }

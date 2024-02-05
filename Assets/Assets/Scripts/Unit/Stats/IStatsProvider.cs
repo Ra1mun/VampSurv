@@ -1,4 +1,7 @@
-﻿public interface IStatsProvider
+﻿namespace Assets.Scripts.Unit.Stats
 {
-    Stats GetStats();
+    public interface IStatsProvider
+    {
+        Stats GetStats();
+    }
 }

@@ -1,19 +1,22 @@
-using System;
+using Assets.Scripts.Unit;
 using UnityEngine;
 
-public class Enemy : Unit
+namespace Assets.Scripts.Enemy
 {
-    [SerializeField] private EnemyStats _stats;
-    
-    private EnemyConfig _enemyConfig;
-    
-    public EnemyConfig Config => _enemyConfig;
-    
-    
-    public void Initialize(EnemyConfig config, UnitType type)
+    public class Enemy : global::Assets.Scripts.Unit.Unit
     {
-        _enemyConfig = config;
-        _type = type;
-        _stats.Initialize(config);
+        [SerializeField] private EnemyStats _stats;
+    
+        private EnemyConfig _enemyConfig;
+    
+        public EnemyConfig Config => _enemyConfig;
+    
+    
+        public void Initialize(EnemyConfig config, UnitType type)
+        {
+            _enemyConfig = config;
+            _type = type;
+            _stats.Initialize(config.CommonStats);
+        }
     }
 }

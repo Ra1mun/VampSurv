@@ -1,4 +1,6 @@
-﻿public abstract class StatsDecorator : IStatsProvider
+﻿using Assets.Scripts.Unit.Stats;
+
+public abstract class StatsDecorator : IStatsProvider
 {
     protected readonly IStatsProvider _wrappedEntity;
 

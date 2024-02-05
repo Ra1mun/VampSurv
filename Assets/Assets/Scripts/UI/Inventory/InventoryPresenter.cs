@@ -1,37 +1,43 @@
 using Assets.Scripts.Inventory;
+using Assets.Scripts.Item;
+using Assets.Scripts.Item.AssetItem;
+using Assets.Scripts.Item.ItemSelection;
 
-public class InventoryPresenter
+namespace Assets.Scripts.UI.Inventory
 {
-    private readonly Inventory _model;
-    private readonly InventoryView _view;
-    private readonly ItemDataBase _data;
-    private readonly ItemSelectionObserver _observer;
-
-    public InventoryPresenter(
-        Inventory model, 
-        InventoryView view, 
-        ItemDataBase data, 
-        ItemSelectionObserver observer)
+    public class InventoryPresenter
     {
-        _model = model;
-        _view = view;
-        _data = data;
-        _observer = observer;
-    }
+        private readonly Scripts.Inventory.Inventory _model;
+        private readonly InventoryView _view;
+        private readonly ItemDataBase _data;
+        private readonly ItemSelectionObserver _observer;
 
-    public void Enable()
-    {
-        _observer.OnItemAdded += OnItemAdded;
-    }
+        public InventoryPresenter(
+            Scripts.Inventory.Inventory model, 
+            InventoryView view, 
+            ItemDataBase data, 
+            ItemSelectionObserver observer)
+        {
+            _model = model;
+            _view = view;
+            _data = data;
+            _observer = observer;
+        }
 
-    private void OnItemAdded(AssetItem item)
-    {
-        _view.RenderItem(item);
-        _model.AddItem(_data.GetItem(item.ID), item.ID);
-    }
+        public void Enable()
+        {
+            _observer.OnItemAdded += OnItemAdded;
+        }
 
-    public void Disable()
-    {
-        _observer.OnItemAdded += OnItemAdded;
+        private void OnItemAdded(AssetItem item)
+        {
+            _view.RenderItem(item);
+            _model.AddItem(_data.GetItem(item.ID), item.ID);
+        }
+
+        public void Disable()
+        {
+            _observer.OnItemAdded += OnItemAdded;
+        }
     }
 }

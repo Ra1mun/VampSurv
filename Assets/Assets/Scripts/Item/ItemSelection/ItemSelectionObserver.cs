@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Inventory
+namespace Assets.Scripts.Item.ItemSelection
 {
     public class ItemSelectionObserver : MonoBehaviour
     {
-        public event Action<AssetItem> OnItemAdded; 
+        public event Action<AssetItem.AssetItem> OnItemAdded; 
         
-        public void AddItem(AssetItem item)
+        public void AddItem(AssetItem.AssetItem item)
         {
             OnItemAdded?.Invoke(item);
         }

@@ -1,51 +1,51 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Area : MonoBehaviour
+namespace Assets.Scripts.Item.Projectiles.ProjectilePlash
 {
-    [SerializeField] private LayerMask _targetLayerMask;
-
-    [SerializeField] protected PeriodicalDamageDealer _damageDealer;
-
-    protected float _radius;
-    protected int _damage;
-    public int Damage => _damage;
-
-    public bool IsAreaDisposed;
-    public virtual void Initialize(float radius, int damage)
+    public abstract class Area : MonoBehaviour
     {
-        _radius = radius;
-        _damage = damage;
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (IsAreaDisposed)
-            return;
-        if (collision.gameObject.TryGetComponent(out Unit unit))
+        [SerializeField] private LayerMask _targetLayerMask;
+
+        [SerializeField] protected PeriodicalDamageDealer _damageDealer;
+
+        protected float _radius;
+        protected int _damage;
+        public int Damage => _damage;
+
+        public bool IsAreaDisposed;
+        public virtual void Initialize(float radius, int damage)
         {
-            if (1 << collision.gameObject.layer == _targetLayerMask.value)
+            _radius = radius;
+            _damage = damage;
+        }
+        private void OnTriggerStay2D(Collider2D collision)
+        {
+            if (IsAreaDisposed)
+                return;
+            if (collision.gameObject.TryGetComponent(out global::Assets.Scripts.Unit.Unit unit))
             {
-                OnTargetCollision(collision, unit);
+                if (1 << collision.gameObject.layer == _targetLayerMask.value)
+                {
+                    OnTargetCollision(collision, unit);
+                }
             }
+            else
+            {
+                OnOtherCollision(collision);
+            }
+            OnAnyCollision(collision);
         }
-        else
+        public void DisposeArea()
         {
-            OnOtherCollision(collision);
+            OnProjectileDispose();
+            Destroy(gameObject);
+            IsAreaDisposed = true;
+            Debug.Log("Plash Disposed");
         }
-        OnAnyCollision(collision);
+        protected virtual void OnProjectileDispose() { }
+        protected virtual void OnAnyCollision(Collider2D collision) { }
+        protected virtual void OnOtherCollision(Collider2D collision) { }
+        protected virtual void OnTargetCollision(Collider2D collision, global::Assets.Scripts.Unit.Unit unit) { }
+        protected virtual void ManualDispose() { }
     }
-    public void DisposeArea()
-    {
-        OnProjectileDispose();
-        Destroy(gameObject);
-        IsAreaDisposed = true;
-        Debug.Log("Plash Disposed");
-    }
-    protected virtual void OnProjectileDispose() { }
-    protected virtual void OnAnyCollision(Collider2D collision) { }
-    protected virtual void OnOtherCollision(Collider2D collision) { }
-    protected virtual void OnTargetCollision(Collider2D collision, Unit unit) { }
-    protected virtual void ManualDispose() { }
 }

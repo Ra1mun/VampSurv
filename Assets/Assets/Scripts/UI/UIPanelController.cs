@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Assets.Scripts.Player.Experience;
+using Assets.Scripts.UI.Attribute;
 using UnityEngine;
 
 namespace Assets.Scripts.UI
 {
     public class UIPanelController : MonoBehaviour
     {
-        [SerializeField] private Experience _experience;
+        [SerializeField] private Player.Experience.Experience _experience;
         [SerializeField] private ItemSelectionView _itemView;
         [SerializeField] private AttributeView _attributeView;
         [SerializeField] private UIRoot _uiRoot;

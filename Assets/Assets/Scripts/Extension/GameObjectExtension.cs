@@ -1,12 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-public static class GameObjectExtension
+namespace Assets.Scripts.Extension
 {
-    public static void Route<T>(this GameObject container, Action<T> handler)
+    public static class GameObjectExtension
     {
-        if (container.GetComponent<T>() != null)
-            handler?.Invoke(container.GetComponent<T>());
-    }
+        public static void Route<T>(this GameObject container, Action<T> handler)
+        {
+            if (container.GetComponent<T>() != null)
+                handler?.Invoke(container.GetComponent<T>());
+        }
     
+    }
 }

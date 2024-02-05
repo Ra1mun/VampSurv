@@ -1,4 +1,9 @@
-public class EnemyHealth : UnitHealth
+using Assets.Scripts.Unit;
+
+namespace Assets.Scripts.Enemy
 {
+    public class EnemyHealth : UnitHealth
+    {
         
+    }
 }

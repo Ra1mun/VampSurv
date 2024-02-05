@@ -1,3 +1,5 @@
+using Assets.Scripts.Damageable;
+using Assets.Scripts.Unit;
 using UnityEngine;
 
 public class RangeDamageDealer : MonoBehaviour, IDamageDealer

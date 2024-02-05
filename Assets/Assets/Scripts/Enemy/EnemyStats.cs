@@ -1,6 +1,9 @@
-using UnityEngine;
+using Assets.Scripts.Unit;
 
-public class EnemyStats : UnitStats
+namespace Assets.Scripts.Enemy
 {
+    public class EnemyStats : UnitStats
+    {
     
+    }
 }

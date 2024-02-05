@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b464e37ab14af2a47e9e0b5ae1fb02, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  _attackDistance: 0
-  _moveSpeed: 1
-  _attackSpeed: 0
-  _damage: 0
-  _maxHealth: 200
-  _armor: 0
-  _expPerKill: 0
+  _commonStats:
+    _attackDistance: 0
+    _moveSpeed: 2
+    _attackSpeed: 0
+    _damage: 0
+    _maxHealth: 100
+    _expPerKill: 0
+    _armor: 3

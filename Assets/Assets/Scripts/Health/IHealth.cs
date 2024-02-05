@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.Unit;
 
 public interface IHealth
 {
