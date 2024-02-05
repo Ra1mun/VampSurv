@@ -1,6 +1,6 @@
-using Assets.Scripts.Extension;
 using Assets.Scripts.Inventory;
 using Assets.Scripts.Item.ItemSelection;
+using Extension;
 using UnityEngine;
 
 namespace Assets.Scripts.Item.Interactable

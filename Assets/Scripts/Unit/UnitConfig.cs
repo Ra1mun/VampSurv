@@ -1,8 +1,7 @@
 ﻿using System;
-using Assets.Scripts.Unit.Stats;
 using UnityEngine;
 
-namespace Assets.Scripts.Unit
+namespace Unit
 {
     public class UnitConfig : ScriptableObject
     {
@@ -22,9 +21,9 @@ namespace Assets.Scripts.Unit
         [SerializeField] private int _expPerKill;
         [SerializeField] private int _armor;
 
-        public Stats.Stats GetStats()
+        public Assets.Scripts.Unit.Stats.Stats GetStats()
         {
-            return new Stats.Stats()
+            return new Assets.Scripts.Unit.Stats.Stats()
             {
                 AttackDistance = _attackDistance,
                 MoveSpeed = _moveSpeed,

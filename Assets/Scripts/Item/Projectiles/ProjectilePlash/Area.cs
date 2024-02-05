@@ -22,7 +22,7 @@ namespace Assets.Scripts.Item.Projectiles.ProjectilePlash
         {
             if (IsAreaDisposed)
                 return;
-            if (collision.gameObject.TryGetComponent(out global::Assets.Scripts.Unit.Unit unit))
+            if (collision.gameObject.TryGetComponent(out global::Unit.Unit unit))
             {
                 if (1 << collision.gameObject.layer == _targetLayerMask.value)
                 {
@@ -45,7 +45,7 @@ namespace Assets.Scripts.Item.Projectiles.ProjectilePlash
         protected virtual void OnProjectileDispose() { }
         protected virtual void OnAnyCollision(Collider2D collision) { }
         protected virtual void OnOtherCollision(Collider2D collision) { }
-        protected virtual void OnTargetCollision(Collider2D collision, global::Assets.Scripts.Unit.Unit unit) { }
+        protected virtual void OnTargetCollision(Collider2D collision, global::Unit.Unit unit) { }
         protected virtual void ManualDispose() { }
     }
 }

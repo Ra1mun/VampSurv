@@ -1,12 +1,13 @@
 using Assets.Scripts.Unit;
+using Unit;
 
-namespace Assets.Scripts.Enemy
+namespace Enemy
 {
     public class EnemyFindTarget : ITargetFinder
     {
-        public global::Assets.Scripts.Unit.Unit FindTarget(global::Assets.Scripts.Unit.Unit selfUnit)
+        public Unit.Unit FindTarget(Unit.Unit selfUnit)
         {
-            global::Assets.Scripts.Unit.Unit result = null;
+            Unit.Unit result = null;
 
             var distance = float.MaxValue;
 

@@ -1,8 +1,9 @@
 using Assets.Scripts.Player.Attribute;
 using Assets.Scripts.Unit;
+using Unit;
 using UnityEngine;
 
-namespace Assets.Scripts.Item
+namespace Item
 {
     public class Item : Unit.Unit
     {

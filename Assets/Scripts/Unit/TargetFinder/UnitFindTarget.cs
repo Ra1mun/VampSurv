@@ -4,6 +4,6 @@ namespace Assets.Scripts.Unit
 {
     public abstract class UnitFindTarget : MonoBehaviour, ITargetFinder
     {
-        public abstract Unit FindTarget(Unit selfUnit);
+        public abstract global::Unit.Unit FindTarget(global::Unit.Unit selfUnit);
     }
 }

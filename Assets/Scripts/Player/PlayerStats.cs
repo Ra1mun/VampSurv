@@ -1,9 +1,9 @@
 using Assets.Scripts.Item;
 using Assets.Scripts.Unit;
 using Assets.Scripts.Unit.Stats;
-using UnityEngine;
+using Item;
 
-namespace Assets.Scripts.Player
+namespace Player
 {
     public class PlayerStats : UnitStats
     {

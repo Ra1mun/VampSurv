@@ -1,5 +1,6 @@
 using Assets.Scripts.Player;
 using Assets.Scripts.Player.Attribute;
+using Player;
 
 namespace Assets.Scripts.UI.Attribute
 {

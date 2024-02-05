@@ -1,7 +1,8 @@
+using Assets.Scripts.Enemy;
 using Assets.Scripts.Unit;
 using UnityEngine;
 
-namespace Assets.Scripts.Enemy
+namespace Enemy
 {
     public class EnemyMoveTowards : UnitMoveable
     {

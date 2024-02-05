@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Item;
 using Assets.Scripts.Unit.Stats;
 using UnityEngine;
 
-namespace Assets.Scripts.Item
+namespace Item
 {
     [CreateAssetMenu(fileName = "ItemDataBase", menuName = "Source/Data Base/ItemDataBase", order = 0)]
     public class ItemDataBase : ScriptableObject

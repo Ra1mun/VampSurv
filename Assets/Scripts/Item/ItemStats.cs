@@ -1,8 +1,8 @@
+using Assets.Scripts.Item;
 using Assets.Scripts.Unit;
 using Assets.Scripts.Unit.Stats;
-using UnityEngine;
 
-namespace Assets.Scripts.Item
+namespace Item
 {
     public class ItemStats : UnitStats
     {

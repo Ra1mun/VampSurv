@@ -1,9 +1,11 @@
+using Assets.Scripts.Enemy;
 using Assets.Scripts.Unit;
+using Unit;
 using UnityEngine;
 
-namespace Assets.Scripts.Enemy
+namespace Enemy
 {
-    public class Enemy : global::Assets.Scripts.Unit.Unit
+    public class Enemy : Unit.Unit
     {
         [SerializeField] private EnemyStats _stats;
     

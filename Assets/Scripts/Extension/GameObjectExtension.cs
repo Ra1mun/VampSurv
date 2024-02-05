@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Assets.Scripts.Extension
+namespace Extension
 {
     public static class GameObjectExtension
     {

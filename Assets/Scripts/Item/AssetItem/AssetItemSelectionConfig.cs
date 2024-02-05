@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Extension;
+using Extension;
 using UnityEngine;
 
 namespace Assets.Scripts.Item.AssetItem

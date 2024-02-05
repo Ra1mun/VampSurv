@@ -1,4 +1,5 @@
 using Assets.Scripts.Unit.Stats;
+using Unit;
 using UnityEngine;
 
 namespace Assets.Scripts.Unit

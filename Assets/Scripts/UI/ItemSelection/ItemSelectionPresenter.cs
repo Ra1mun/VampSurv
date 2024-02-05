@@ -4,6 +4,7 @@ using Assets.Scripts.Item.AssetItem;
 using Assets.Scripts.Item.ItemSelection;
 using Assets.Scripts.Player;
 using Assets.Scripts.UI;
+using Player;
 using UnityEngine;
 
 public class ItemSelectionPresenter

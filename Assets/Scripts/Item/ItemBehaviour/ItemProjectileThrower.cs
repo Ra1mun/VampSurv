@@ -1,5 +1,5 @@
 using Assets.Scripts.Item.Projectiles;
-using Assets.Scripts.Item.TargetFinder;
+using Item.TargetFinder;
 using UnityEngine;
 
 namespace Assets.Scripts.Item.ItemBehaviour
@@ -14,7 +14,7 @@ namespace Assets.Scripts.Item.ItemBehaviour
 
         private float _attackTime;
 
-        private Enemy.Enemy _target;
+        private global::Enemy.Enemy _target;
         private Vector2 _direction;
     
         protected override void LookForTarget()

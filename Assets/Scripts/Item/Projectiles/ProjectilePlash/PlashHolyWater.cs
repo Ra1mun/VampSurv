@@ -9,7 +9,7 @@ namespace Assets.Scripts.Item.Projectiles.ProjectilePlash
         {
             Debug.Log("Plash Added");
         }
-        protected override void OnTargetCollision(Collider2D collision, global::Assets.Scripts.Unit.Unit unit)
+        protected override void OnTargetCollision(Collider2D collision, global::Unit.Unit unit)
         {
             _damageDealer.TryDamage(unit, _damage);
         }

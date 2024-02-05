@@ -1,18 +1,19 @@
 using System.Collections.Generic;
-using Assets.Scripts.Item;
 using Assets.Scripts.Player;
 using Assets.Scripts.Player.Attribute;
 using Assets.Scripts.Unit;
+using Player;
+using Unit;
 using UnityEngine;
 
-namespace Assets.Scripts.Inventory
+namespace Item.Inventory
 {
     public class Inventory : MonoBehaviour
     {
         [SerializeField] private PlayerStats stats;
         [SerializeField] private Transform container;
 
-        private readonly List<Item.Item> _instItems = new List<Item.Item>();
+        private readonly List<Item> _instItems = new List<Item>();
         
         public void ActivateAndAddItem(ItemConfig itemConfig)
         {

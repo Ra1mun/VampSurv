@@ -2,18 +2,18 @@ using Assets.Scripts.Unit;
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Assets.Scripts.Enemy
+namespace Enemy
 {
     public class EnemyStrategy : MonoBehaviour
     {
-        [SerializeField] private Enemy _enemy;
+        [SerializeField] private global::Enemy.Enemy _enemy;
         [SerializeField] private EnemyStats _stats;
         [SerializeField] private UnitMoveable _moveable;
         private ITargetFinder _findTarget;
         private float _attackDistance => _stats.GetStats().AttackDistance;
         private IDamageDealer _damageDealer;
         private EnemyState _state;
-        private global::Assets.Scripts.Unit.Unit _target;
+        private Unit.Unit _target;
 
         private void Awake()
         {

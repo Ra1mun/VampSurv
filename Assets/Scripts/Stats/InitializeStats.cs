@@ -1,3 +1,5 @@
+using Unit;
+
 namespace Assets.Scripts.Unit.Stats
 {
     public class InitializeStats : IStatsProvider

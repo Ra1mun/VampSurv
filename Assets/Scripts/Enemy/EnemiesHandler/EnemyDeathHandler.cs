@@ -14,7 +14,7 @@ namespace Assets.Scripts.EnemiesHandler
             _unitsPool.OnEnemyKilled += OnEnemyKilled;
         }
 
-        private void OnEnemyKilled(Enemy.Enemy enemy)
+        private void OnEnemyKilled(global::Enemy.Enemy enemy)
         {
             _experience.AddExperience(enemy.Config.ExperienceOnDie);
         }

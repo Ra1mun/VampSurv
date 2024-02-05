@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.Enemy.Factory;
-using Assets.Scripts.Extension;
+using Extension;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Enemy.Spawner
         [SerializeField] private float _delayBeforeSpawn;
         private float _elapsedTime;
     
-        public event Action<global::Assets.Scripts.Enemy.Enemy> OnEnemySpawned;
+        public event Action<global::Enemy.Enemy> OnEnemySpawned;
     
         private void Awake()
         {
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Enemy.Spawner
 
         private void SingleSpawn()
         {
-            if (FindObjectOfType<global::Assets.Scripts.Enemy.Enemy>() == false)
+            if (FindObjectOfType<global::Enemy.Enemy>() == false)
                 Spawn();
         }
 

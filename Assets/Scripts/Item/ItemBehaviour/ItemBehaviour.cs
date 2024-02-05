@@ -1,4 +1,4 @@
-using Assets.Scripts.Item.TargetFinder;
+using Item;
 using UnityEngine;
 
 namespace Assets.Scripts.Item.ItemBehaviour

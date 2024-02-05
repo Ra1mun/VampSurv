@@ -12,7 +12,7 @@ namespace Assets.Scripts.Item.Projectiles.ProjectilePlash
             _attackTime = 0f;
         }
 
-        public void TryDamage(global::Assets.Scripts.Unit.Unit target, int damage)
+        public void TryDamage(global::Unit.Unit target, int damage)
         {
             if (_attackTime <= 0)
             {

@@ -1,9 +1,10 @@
 using Assets.Scripts.Unit;
+using Unit;
 using UnityEngine;
 
-namespace Assets.Scripts.Player
+namespace Player
 {
-    public class Player : global::Assets.Scripts.Unit.Unit
+    public class Player : Unit.Unit
     {
         [SerializeField] private PlayerConfig _playerConfig;
         [SerializeField] private PlayerStats _stats;

@@ -1,10 +1,10 @@
 using System;
 using Assets.Scripts.Player.Attribute;
 using Assets.Scripts.Unit;
+using Unit;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Assets.Scripts.Item
+namespace Item
 {
     [CreateAssetMenu(menuName = "Config/ItemConfig", fileName = "ItemConfig", order = 0)]
     public class ItemConfig : UnitConfig

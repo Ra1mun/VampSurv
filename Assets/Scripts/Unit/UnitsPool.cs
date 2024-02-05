@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.Enemy.Spawner;
-using Assets.Scripts.Extension;
+using Extension;
 using UnityEngine;
 
 namespace Assets.Scripts.Unit
@@ -12,14 +12,14 @@ namespace Assets.Scripts.Unit
         [SerializeField] private EnemySpawner _enemySpawner;
 
         [Header("Player")]
-        [SerializeField] private Player.Player _player;
+        [SerializeField] private global::Player.Player _player;
 
         [Header("All Entities")]
-        public static List<Unit> Units = new List<Unit>();
+        public static List<global::Unit.Unit> Units = new List<global::Unit.Unit>();
 
 
-        public event Action<Enemy.Enemy> OnEnemyKilled;
-        public event Action<Player.Player> OnPlayerKilled;
+        public event Action<global::Enemy.Enemy> OnEnemyKilled;
+        public event Action<global::Player.Player> OnPlayerKilled;
     
         private void OnEnable()
         { 
@@ -29,20 +29,20 @@ namespace Assets.Scripts.Unit
             _enemySpawner.OnEnemySpawned += OnEnemySpawned;
         }
     
-        private void OnEnemySpawned(Enemy.Enemy enemy)
+        private void OnEnemySpawned(global::Enemy.Enemy enemy)
         {
             Units.Add(enemy);
             if (enemy.TryGetComponent(out IHealth health))
                 health.OnDie += DestroyUnit;
         }
 
-        private void DestroyUnit(Unit unit)
+        private void DestroyUnit(global::Unit.Unit unit)
         {
             if (unit.TryGetComponent(out IHealth health))
                 health.OnDie -= DestroyUnit;
         
-            unit.gameObject.Route<Player.Player>(player => OnPlayerKilled?.Invoke(player));
-            unit.gameObject.Route<Enemy.Enemy>(enemy => OnEnemyKilled?.Invoke(enemy));
+            unit.gameObject.Route<global::Player.Player>(player => OnPlayerKilled?.Invoke(player));
+            unit.gameObject.Route<global::Enemy.Enemy>(enemy => OnEnemyKilled?.Invoke(enemy));
         
             Units.Remove(unit);
             Destroy(unit.gameObject);

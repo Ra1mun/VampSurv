@@ -1,4 +1,5 @@
 using System;
+using Enemy;
 using UnityEngine;
 
 namespace Assets.Scripts.Enemy.Factory

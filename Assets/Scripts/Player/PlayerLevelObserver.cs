@@ -2,7 +2,7 @@
 using Assets.Scripts.Player.Experience;
 using UnityEngine;
 
-namespace Assets.Scripts.Player
+namespace Player
 {
     public class PlayerLevelObserver : MonoBehaviour
     {

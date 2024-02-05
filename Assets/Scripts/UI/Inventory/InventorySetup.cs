@@ -1,6 +1,7 @@
 using Assets.Scripts.Inventory;
 using Assets.Scripts.Item;
 using Assets.Scripts.Item.ItemSelection;
+using Item;
 using UnityEngine;
 
 namespace Assets.Scripts.UI.Inventory
@@ -10,7 +11,7 @@ namespace Assets.Scripts.UI.Inventory
         [SerializeField] private ItemSelectionObserver _observer;
         [SerializeField] private InventoryView _view;
         [SerializeField] private ItemDataBase _data;
-        [SerializeField] private Scripts.Inventory.Inventory _model;
+        [SerializeField] private global::Item.Inventory.Inventory _model;
         private InventoryPresenter _presenter;
 
         private void OnEnable()

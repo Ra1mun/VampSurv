@@ -5,7 +5,7 @@ namespace Assets.Scripts.Unit
 {
     public abstract class UnitHealth: MonoBehaviour, IHealth
     {
-        [SerializeField] private Unit unit;
+        [SerializeField] private global::Unit.Unit unit;
         [SerializeField] private UnitStats unitStats;
     
         private int MaxHealth => unitStats.GetStats().MaxHealth;
@@ -13,7 +13,7 @@ namespace Assets.Scripts.Unit
     
         public event Action<int, int> OnHealthChanged;
 
-        public event Action<Unit> OnDie;
+        public event Action<global::Unit.Unit> OnDie;
 
         public int CurrentHealth
         {

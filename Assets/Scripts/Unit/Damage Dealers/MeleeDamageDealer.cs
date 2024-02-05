@@ -7,7 +7,7 @@ public class MeleeDamageDealer : MonoBehaviour, IDamageDealer
     [SerializeField] private UnitStats _stats;
     private float _attackTime;
     
-    public void TryDamage(Unit target, int damage)
+    public void TryDamage(Unit.Unit target, int damage)
     {
         if (_attackTime <= 0)
         {

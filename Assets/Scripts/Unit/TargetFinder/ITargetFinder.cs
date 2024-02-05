@@ -2,6 +2,6 @@ namespace Assets.Scripts.Unit
 {
     public interface ITargetFinder
     {
-        Unit FindTarget(Unit selfUnit);
+        global::Unit.Unit FindTarget(global::Unit.Unit selfUnit);
     }
 }

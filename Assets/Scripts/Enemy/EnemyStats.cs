@@ -1,6 +1,6 @@
 using Assets.Scripts.Unit;
 
-namespace Assets.Scripts.Enemy
+namespace Enemy
 {
     public class EnemyStats : UnitStats
     {

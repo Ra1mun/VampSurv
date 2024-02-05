@@ -3,5 +3,5 @@ using Assets.Scripts.Unit;
 public interface IDamageDealer
 {
     void Rest();
-    void TryDamage(Unit target, int damage);
+    void TryDamage(Unit.Unit target, int damage);
 }

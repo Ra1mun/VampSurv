@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Unit
+namespace Unit
 {
     public abstract class Unit : MonoBehaviour
     {
