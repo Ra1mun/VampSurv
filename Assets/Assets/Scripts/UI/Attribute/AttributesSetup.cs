@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 public class AttributesSetup : MonoBehaviour
 {
-    [SerializeField] Attributes attributes;
-    [SerializeField] AttributeView attributeView;
+    [SerializeField] private Attributes _attributes;
+    [SerializeField] private AttributeView _attributeView;
+    [SerializeField] private PlayerLevelObserver _observer;
+    [SerializeField] private UIPanelController _uiPanelController;
+    
     private AttributePresenter attributePresenter;
+    
     private void OnEnable()
     {
-        attributePresenter = new AttributePresenter(attributes, attributeView);
-        attributePresenter.Enable();
+        attributePresenter = new AttributePresenter(
+            _attributes, 
+            _attributeView,
+            _observer,
+            _uiPanelController);
         
+        attributePresenter.Enable();
     }
+    
     private void OnDisable()
     {
         attributePresenter.Disable();

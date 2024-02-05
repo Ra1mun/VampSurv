@@ -3,30 +3,39 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerLevel : MonoBehaviour
 {
-    [SerializeField] private Experience _Exp;
-    [SerializeField] private int _Level;
-    [SerializeField] private int _ItemSelectionOnLevel;
-
-    public Action SelectAttribute;
-    public Action SelectItem;
-
-    public int Level { get => _Level;}
+    [SerializeField] private Experience _experience;
+    
+    private int _level;
+    
+    public event Action<int> OnLevelChangedEvent;
+    
 
     private void OnEnable()
     {
-        _Exp.OnLevelChanged += LevelUp;
-    }
-    public void LevelUp()
-    {
-        _Level++;
-        if (_Level % _ItemSelectionOnLevel == 0)
-            SelectItem?.Invoke();
-        else
-            SelectAttribute?.Invoke();
+        _experience.OnExperienceChangedEvent += ExperienceChanged;
     }
 
-    
+    private void ExperienceChanged(int currentExperience, int maxExperience)
+    {
+        if (currentExperience >= maxExperience)
+        {
+            LevelUp();
+            _experience.Reset();
+        }
+    }
+
+    private void LevelUp()
+    {
+        _level++;
+        OnLevelChangedEvent?.Invoke(_level);
+    }
+
+    private void OnDisable()
+    {
+        _experience.OnExperienceChangedEvent -= ExperienceChanged;
+    }
 }

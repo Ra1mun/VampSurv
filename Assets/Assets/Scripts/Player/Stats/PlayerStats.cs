@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStats : UnitStats
 {
     public event Action<Stats> OnStatsChanged;
-
+    
     public void AddItemStats(ItemID itemID)
     {
         _provider = new ItemStatsDecorator(_provider, itemID);

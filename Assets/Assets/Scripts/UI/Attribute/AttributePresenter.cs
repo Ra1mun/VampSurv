@@ -1,35 +1,44 @@
 
+using Assets.Scripts.UI;
 
 public class AttributePresenter
 {
     private readonly Attributes _model;
     private readonly AttributeView _view;
-    
-    public AttributePresenter(Attributes model, AttributeView view)
+    private readonly PlayerLevelObserver _observer;
+    private readonly UIPanelController _uiPanelController;
+
+    public AttributePresenter(
+        Attributes model,
+        AttributeView view,
+        PlayerLevelObserver observer,
+        UIPanelController uiPanelController)
     {
         _model = model;
         _view = view;
+        _observer = observer;
+        _uiPanelController = uiPanelController;
     }
     public void Enable()
     {
-        _view.OnAttributeLevelClickEvent += OnAttributeLevelClickEvent;
-        _model.OnLevelUp += OnLevelUp;
+        _observer.OnAttributeSelectionEvent += AttributeLevelChangedEvent;
     }
 
-    private void OnLevelUp()
+    private void AttributeLevelChangedEvent()
     {
-        _view.Open();
+        _view.OnAttributeButtonClickEvent += AttributeButtonClickEvent;
+        _uiPanelController.Show(_view);
     }
     
-    private void OnAttributeLevelClickEvent(AttributeType type)
+    private void AttributeButtonClickEvent(AttributeType type)
     {
+        _view.OnAttributeButtonClickEvent -= AttributeButtonClickEvent;
+        _uiPanelController.Close(_view);
         _model.AttributeLevelUp(type);
-        _view.Close();
     }
     
     public void Disable()
     {
-        _view.OnAttributeLevelClickEvent -= OnAttributeLevelClickEvent;
-        _model.OnLevelUp -= OnLevelUp;
+        _observer.OnAttributeSelectionEvent -= AttributeLevelChangedEvent;
     }
 }

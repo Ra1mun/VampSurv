@@ -1,37 +1,37 @@
+using Assets.Scripts.Inventory;
+
 public class InventoryPresenter
 {
-    private readonly Inventory _inventory;
-    private readonly InventoryModel _model;
+    private readonly Inventory _model;
     private readonly InventoryView _view;
     private readonly ItemDataBase _data;
+    private readonly ItemSelectionObserver _observer;
 
-    public InventoryPresenter(Inventory inventory,InventoryModel model, InventoryView view, ItemDataBase data)
+    public InventoryPresenter(
+        Inventory model, 
+        InventoryView view, 
+        ItemDataBase data, 
+        ItemSelectionObserver observer)
     {
-        _inventory = inventory;
         _model = model;
         _view = view;
         _data = data;
+        _observer = observer;
     }
 
     public void Enable()
     {
-        _model.OnItemAdded += OnItemAdded;
-        _model.OnItemRemoved += OnItemRemoved;
+        _observer.OnItemAdded += OnItemAdded;
     }
 
     private void OnItemAdded(AssetItem item)
     {
-        //_view.RenderItem(item);
-        _inventory.ActivateItem(_data.GetItem(item.ID));
-    }
-
-    private void OnItemRemoved(AssetItem item)
-    {
-        
+        _view.RenderItem(item);
+        _model.AddItem(_data.GetItem(item.ID), item.ID);
     }
 
     public void Disable()
     {
-        _model.OnItemAdded -= OnItemAdded;
+        _observer.OnItemAdded += OnItemAdded;
     }
 }

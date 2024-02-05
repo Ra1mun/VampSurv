@@ -1,34 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Inventory;
+using Assets.Scripts.UI;
+using Assets.Scripts.UI.ItemSelection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ItemSelectionSetup : MonoBehaviour
 {
-    [SerializeField] private Interaction interaction;
-    [SerializeField] private ItemSelectionView view;
-    [SerializeField] public List<AssetItem> itemsPool;
+    [SerializeField] private ItemSelectionView _view;
+    [SerializeField] private PlayerLevelObserver _playerLevelObserver;
+    [SerializeField] private AssetItemSelectionConfig _config;
+    [SerializeField] private ItemSelectionObserver _observer;
+    [SerializeField] private UIPanelController _uiPanelController;
 
-    private ItemSelectionPresenter presenter;
-    void OnEnable()
+    private ItemSelectionPresenter _presenter;
+
+    private void OnEnable()
     {
-        presenter = new ItemSelectionPresenter(interaction,view);
-        presenter.OnItemSelected += RemoveSelectedItem;
-        presenter.Enable();
+        _presenter = new ItemSelectionPresenter(
+            _view,
+            _playerLevelObserver,
+            new AssetItemGenerator(_config), 
+            _observer,
+            _uiPanelController);
+        
+        _presenter.Enable();
     }
-    public List<AssetItem> GenerateButtons(int buttonsCount)
+
+    private void OnDisable()
     {
-        var buttons = new List<AssetItem>();
-        for(int n = 0; n<buttonsCount;n++)
-        {
-            //int ind = Random.Range(0,itemsPool.Count);
-            buttons.Add(itemsPool[n]);
-        }
-        return buttons;
+        _presenter.Disable();
     }
-    public void RemoveSelectedItem(AssetItem item)
-    {
-        itemsPool.Remove(item);
-    }
-    
 }
