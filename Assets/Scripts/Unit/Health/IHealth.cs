@@ -3,6 +3,6 @@ using Assets.Scripts.Unit;
 
 public interface IHealth
 {
-    event Action<int> OnHealthChanged;
+    event Action<int, int> OnHealthChanged;
     event Action<Unit> OnDie;
 }
