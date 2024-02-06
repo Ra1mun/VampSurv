@@ -13,6 +13,15 @@ namespace Core.Enemy.Factory
 
             return instance;
         }
+        
+        public Enemy Spawn(EnemyType type, Vector3 transform, Transform parent)
+        {
+            var config = GetConfig(type);
+            var instance = Instantiate(config.Prefab, transform, Quaternion.identity, parent);
+            instance.Initialize(config, UnitType.Enemy);
+
+            return instance;
+        }
 
         protected abstract EnemyConfig GetConfig(EnemyType type);
     }

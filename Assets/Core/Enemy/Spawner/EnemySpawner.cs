@@ -63,7 +63,7 @@ namespace Core.Enemy.Spawner
         private void Spawn()
         {
             var spawnPoint = _spawnPositions.RandomItem();
-            var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPoint.position);
+            var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPoint.position, _container);
 
             OnEnemySpawned?.Invoke(enemy);
         }

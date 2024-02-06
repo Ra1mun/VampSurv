@@ -18,5 +18,6 @@ namespace Core.Enemy.Factory
                     throw new ArgumentOutOfRangeException($"Enemy type: {type} wasn't set!");
             }
         }
+        
     }
 }
