@@ -13,6 +13,7 @@ namespace Core.Enemy.Spawner
         [SerializeField] private EnemySpawnerState _state;
         [SerializeField] private EnemyFactory _enemyFactory;
         [SerializeField] private float _delayBeforeSpawn;
+        [SerializeField] private Transform _container;
         private float _elapsedTime;
 
         private void Awake()

@@ -4,5 +4,6 @@ namespace Core.Enemy
 {
     public class EnemyStats : UnitStats
     {
+        
     }
 }
