@@ -1,4 +1,6 @@
-﻿using Core.Unit;
+﻿using Core.Pause.Interface;
+using Core.Pause.Scripts;
+using Core.Unit;
 using UnityEngine;
 
 namespace Core.Player.Movement
@@ -19,7 +21,13 @@ namespace Core.Player.Movement
 
         public override void Move(Vector2 direction)
         {
+            if (IsPaused)
+            {
+                return;
+            }
+            
             _rigidbody.MovePosition(_rigidbody.position + direction * _speed * Time.deltaTime);
         }
+        
     }
 }

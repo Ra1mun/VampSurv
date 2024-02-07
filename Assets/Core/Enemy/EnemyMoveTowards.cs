@@ -11,6 +11,11 @@ namespace Core.Enemy
 
         public override void Move(Vector2 direction)
         {
+            if (IsPaused)
+            {
+                return;
+            }
+            
             transform.position = Vector2.MoveTowards(transform.position, direction, _speed * Time.deltaTime);
         }
     }

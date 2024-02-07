@@ -1,5 +1,7 @@
+using Core.Pause.Scripts;
 using Core.Player;
 using Core.Player.Attribute;
+using UnityEngine;
 
 namespace Core.UI.Attribute
 {
@@ -9,30 +11,29 @@ namespace Core.UI.Attribute
         private readonly PlayerLevelObserver _observer;
         private readonly UIPanelController _uiPanelController;
         private readonly AttributeView _view;
-        private readonly TimeState _timeState;
+
+        private PauseManager PauseManager => ProjectContext.Instance.PauseManager; 
 
         public AttributePresenter(
             Attributes model,
             AttributeView view,
             PlayerLevelObserver observer,
-            UIPanelController uiPanelController,
-            TimeState timeState)
+            UIPanelController uiPanelController)
         {
             _model = model;
             _view = view;
             _observer = observer;
             _uiPanelController = uiPanelController;
-            _timeState = timeState;
         }
 
         public void Enable()
         {
             _observer.OnAttributeSelectionEvent += AttributeLevelChangedEvent;
-            _observer.OnAttributeSelectionEvent += _timeState.Pause;
         }
 
         private void AttributeLevelChangedEvent()
         {
+            PauseManager.SetPaused(true);
             _view.OnAttributeButtonClickEvent += AttributeButtonClickEvent;
             _uiPanelController.Show(_view);
         }
@@ -42,13 +43,12 @@ namespace Core.UI.Attribute
             _view.OnAttributeButtonClickEvent -= AttributeButtonClickEvent;
             _uiPanelController.Close(_view);
             _model.AttributeLevelUp(type);
-            _timeState.Resume();
+            PauseManager.SetPaused(false);
         }
 
         public void Disable()
         {
             _observer.OnAttributeSelectionEvent -= AttributeLevelChangedEvent;
-            _observer.OnAttributeSelectionEvent -= _timeState.Pause;
         }
     }
 }

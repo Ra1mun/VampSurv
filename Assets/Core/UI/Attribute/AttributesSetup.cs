@@ -19,8 +19,7 @@ namespace Core.UI.Attribute
                 _attributes,
                 _attributeView,
                 _observer,
-                _uiPanelController,
-                new TimeState());
+                _uiPanelController);
 
             attributePresenter.Enable();
         }
