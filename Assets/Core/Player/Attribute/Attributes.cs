@@ -5,9 +5,9 @@ namespace Core.Player.Attribute
 {
     public class Attributes : MonoBehaviour
     {
-        [SerializeField] private Inventory.Inventory _inventory;
+        [SerializeField] private Inventory.Inventory inventory;
 
-        private readonly Dictionary<AttributeType, int> _attributeLevels = new()
+        public readonly Dictionary<AttributeType, int> AttributeLevels = new()
         {
             [AttributeType.Atheism] = 0,
             [AttributeType.Christianity] = 0,
@@ -16,8 +16,8 @@ namespace Core.Player.Attribute
 
         public void AttributeLevelUp(AttributeType type)
         {
-            _inventory.BuffItems(type);
-            _attributeLevels[type]++;
+            inventory.BuffItems(type);
+            AttributeLevels[type]++;
         }
     }
 
