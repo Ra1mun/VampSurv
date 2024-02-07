@@ -1,4 +1,6 @@
+using Core.Item;
 using Core.Stats;
+using Core.Stats.ConfigStats;
 using UnityEngine;
 
 namespace Core.Unit
@@ -16,5 +18,10 @@ namespace Core.Unit
         {
             return _provider.GetStats();
         }
+
+        public virtual void AddItemStats(ItemID id) { }
+        public virtual void AddAttributeStats(AttributeStats attributeStats) { }
+        public virtual void AddInternalStats(InternalStats stats) { }
+        public virtual void DebuffStats(DebuffStats debuffStats) { }
     }
 }

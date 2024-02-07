@@ -1,6 +1,6 @@
-using Core.Item;
+using Core.Stats.ConfigStats;
 
-namespace Core.Stats
+namespace Core.Stats.Decorators
 {
     public class AttributeStatsDecorator : StatsDecorator
     {

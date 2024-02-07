@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Assets.Scripts.Item;
 using Core.Item;
 using Core.Player;
 using Core.Player.Attribute;
@@ -13,7 +12,7 @@ namespace Core.Inventory
         [SerializeField] private PlayerStats stats;
         [SerializeField] private Transform container;
 
-        private readonly List<Item.Item> _instItems = new();
+        private readonly List<Item.Item> _instItems = new List<Item.Item>();
 
         public void ActivateAndAddItem(ItemConfig itemConfig)
         {
@@ -30,11 +29,14 @@ namespace Core.Inventory
         public void BuffItems(AttributeType type)
         {
             foreach (var item in _instItems)
+            {
                 if (item.Attribute == type)
                 {
                     item.Stats.AddInternalStats(item.Config.InternalStats);
                     stats.AddAttributeStats(item.Config.AttributeStats);
                 }
+            }
+                
         }
     }
 }

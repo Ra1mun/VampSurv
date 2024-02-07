@@ -26,6 +26,20 @@ namespace Core.Stats
             };
         }
 
+        public static Stats operator -(Stats a, Stats b)
+        {
+            return new Stats
+            {
+                MaxHealth = a.MaxHealth - b.MaxHealth,
+                MoveSpeed = a.MoveSpeed - b.MoveSpeed,
+                Damage = a.Damage - b.Damage,
+                AttackDistance = a.AttackDistance - b.AttackDistance,
+                AttackSpeed = a.AttackSpeed - b.AttackSpeed,
+                Armor = a.Armor - b.Armor,
+                ExpPerKill = a.ExpPerKill - b.ExpPerKill
+            };
+        }
+
         public static Stats operator *(Stats a, float m)
         {
             return new Stats

@@ -5,11 +5,20 @@ namespace Core.Item.Projectiles
 {
     public class ProjectileBomb : Projectile
     {
-        [SerializeField] private Area _plash;
+        [SerializeField] private Area _prefabPlash;
 
         protected override void OnProjectileDispose()
         {
-            var instance = Instantiate(_plash, gameObject.transform.position, Quaternion.identity);
+            Area instance;
+            if(_projectileContainer != null)
+            {
+                instance = Instantiate(_prefabPlash, gameObject.transform.position, Quaternion.identity, _projectileContainer);
+            }
+            else
+            {
+                instance = Instantiate(_prefabPlash, gameObject.transform.position, Quaternion.identity);
+            }
+
             instance.Initialize(_radius, _damage);
         }
     }

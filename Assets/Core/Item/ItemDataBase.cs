@@ -4,7 +4,7 @@ using Core.Item;
 using Core.Stats;
 using UnityEngine;
 
-namespace Assets.Scripts.Item
+namespace Core.Item
 {
     [CreateAssetMenu(fileName = "ItemDataBase", menuName = "Source/Data Base/ItemDataBase", order = 0)]
     public class ItemDataBase : ScriptableObject
@@ -22,13 +22,13 @@ namespace Assets.Scripts.Item
             _isInit = true;
         }
 
-        public Stats GetGivenStats(ItemID itemID)
+        public Stats.Stats GetGivenStats(ItemID itemID)
         {
             if (!_isInit) Init();
 
             if (_itemStorage.ContainsKey(itemID)) return _itemStorage[itemID].GivenStats.GetStats();
 
-            return Stats.Null();
+            return Stats.Stats.Null();
         }
 
 

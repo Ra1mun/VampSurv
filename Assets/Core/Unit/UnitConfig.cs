@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Core.Stats.ConfigStats;
+using UnityEngine;
 
 namespace Core.Unit
 {
