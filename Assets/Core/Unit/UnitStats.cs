@@ -20,8 +20,8 @@ namespace Core.Unit
         }
 
         public virtual void AddItemStats(ItemID id) { }
-        public virtual void AddAttributeStats(AttributeStats attributeStats) { }
-        public virtual void AddInternalStats(InternalStats stats) { }
+        public virtual void AddAttributeStats(GivenStatsByAttribute attributeStats) { }
+        public virtual void AddInternalStats(InternalStatsByAttribute stats) { }
         public virtual void DebuffStats(DebuffStats debuffStats) { }
     }
 }

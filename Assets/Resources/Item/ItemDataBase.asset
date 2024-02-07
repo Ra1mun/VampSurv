@@ -15,8 +15,6 @@ MonoBehaviour:
   _items:
   - _itemID: 0
     _itemConfig: {fileID: 11400000, guid: ad789a63b2d099046ba2984db07f99c2, type: 2}
-  - _itemID: 1
-    _itemConfig: {fileID: 11400000, guid: f68cbdb51ff531248bc2885342e71401, type: 2}
   - _itemID: 2
     _itemConfig: {fileID: 11400000, guid: 310da5287e7b84f4b9fb1a85d5c2ec8a, type: 2}
   - _itemID: 3

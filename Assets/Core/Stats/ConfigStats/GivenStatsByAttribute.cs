@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Core.Stats.ConfigStats
 {
     [Serializable]
-    public class AttributeStats : CommonStats
+    public class GivenStatsByAttribute : CommonStats
     {
     }
 }

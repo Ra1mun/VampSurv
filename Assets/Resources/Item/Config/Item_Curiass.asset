@@ -12,15 +12,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5f59971378468381ea537e423fc4ad, type: 3}
   m_Name: Item_Curiass
   m_EditorClassIdentifier: 
-  _attackDistance: 0
-  _moveSpeed: 0
-  _attackSpeed: 0
-  _damage: 0
-  _maxHealth: 0
-  _addAttackDistance: 0
-  _addMoveSpeed: -3
-  _addAttackSpeed: 0
-  _addDamage: 0
-  _addMaxHealth: 20
-  _name: Curiass
-  _prefab: {fileID: 4328082658299375304, guid: 90982743625f7dc4da0ba8b23f48cbf6, type: 3}
+  _commonStats:
+    _attackDistance: 0
+    _moveSpeed: 0
+    _attackSpeed: 0
+    _damage: 0
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 0
+  _internalStatsByAttribute:
+    _attackDistance: 0
+    _moveSpeed: 0
+    _attackSpeed: 0
+    _damage: 0
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 0
+  _givenStats:
+    _attackDistance: 0
+    _moveSpeed: 0
+    _attackSpeed: 0
+    _damage: 0
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 20
+  _givenStatsByAttribute:
+    _attackDistance: 0
+    _moveSpeed: 0
+    _attackSpeed: 0
+    _damage: 0
+    _maxHealth: 0
+    _expPerKill: 0
+    _armor: 10
+  _attribute: 1
+  _prefab: {fileID: 3331195021899061093, guid: 0056a512aa0dbd447b448f7a2b1c72a0, type: 3}

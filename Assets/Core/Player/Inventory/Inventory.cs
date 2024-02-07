@@ -9,6 +9,7 @@ namespace Core.Inventory
 {
     public class Inventory : MonoBehaviour
     {
+        [SerializeField] private Attributes attributes;
         [SerializeField] private PlayerStats stats;
         [SerializeField] private Transform container;
 
@@ -18,6 +19,12 @@ namespace Core.Inventory
         {
             var instance = Instantiate(itemConfig.Prefab, transform.position, Quaternion.identity, container);
             instance.Initialize(itemConfig, UnitType.Item);
+
+            for (int i = 0; i < attributes.AttributeLevels[instance.Attribute]; i++)
+            {
+                instance.Stats.AddInternalStats(instance.Config.InternalStats);
+            }
+            
             _instItems.Add(instance);
         }
 

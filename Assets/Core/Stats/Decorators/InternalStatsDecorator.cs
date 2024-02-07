@@ -4,9 +4,9 @@ namespace Core.Stats.Decorators
 {
     public class InternalStatsDecorator : StatsDecorator
     {
-        private readonly InternalStats _internalStats;
+        private readonly InternalStatsByAttribute _internalStats;
 
-        public InternalStatsDecorator(IStatsProvider wrappedEntity, InternalStats internalStats) : base(wrappedEntity)
+        public InternalStatsDecorator(IStatsProvider wrappedEntity, InternalStatsByAttribute internalStats) : base(wrappedEntity)
         {
             _internalStats = internalStats;
         }

@@ -3,7 +3,7 @@
 namespace Core.Stats.ConfigStats
 {
     [Serializable]
-    public class InternalStats : CommonStats
+    public class InternalStatsByAttribute : CommonStats
     {
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Spear
   m_EditorClassIdentifier: 
   _id: 2
-  _icon: {fileID: 0}
+  _icon: {fileID: -1158321360, guid: 216da4b79e269bf4eaf5f1327f9cee92, type: 3}
   _name: Spear
