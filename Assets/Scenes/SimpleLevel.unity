@@ -3061,6 +3061,7 @@ MonoBehaviour:
   _state: 2
   _enemyFactory: {fileID: 11400000, guid: dffe007addbac0a4492bf6253e03ff64, type: 2}
   _delayBeforeSpawn: 3
+  _container: {fileID: 0}
 --- !u!4 &1804531735
 Transform:
   m_ObjectHideFlags: 0

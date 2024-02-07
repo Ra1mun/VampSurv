@@ -4,9 +4,9 @@ namespace Core.Stats
 {
     public class AttributeStatsDecorator : StatsDecorator
     {
-        private readonly AttributeStats _attributeStats;
+        private readonly GivenStatsByAttribute _attributeStats;
 
-        public AttributeStatsDecorator(IStatsProvider wrappedEntity, AttributeStats attributeStats) : base(
+        public AttributeStatsDecorator(IStatsProvider wrappedEntity, GivenStatsByAttribute attributeStats) : base(
             wrappedEntity)
         {
             _attributeStats = attributeStats;

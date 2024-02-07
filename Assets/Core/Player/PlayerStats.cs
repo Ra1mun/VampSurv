@@ -12,7 +12,7 @@ namespace Core.Player
             _provider = new ItemStatsDecorator(_provider, itemID);
         }
 
-        public void AddAttributeStats(AttributeStats attributeStats)
+        public void AddAttributeStats(GivenStatsByAttribute attributeStats)
         {
             _provider = new AttributeStatsDecorator(_provider, attributeStats);
         }

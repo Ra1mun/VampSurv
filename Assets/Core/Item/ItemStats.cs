@@ -5,7 +5,7 @@ namespace Core.Item
 {
     public class ItemStats : UnitStats
     {
-        public void AddInternalStats(InternalStats internalStats)
+        public void AddInternalStats(InternalStatsByAttribute internalStats)
         {
             _provider = new InternalStatsDecorator(_provider, internalStats);
         }
