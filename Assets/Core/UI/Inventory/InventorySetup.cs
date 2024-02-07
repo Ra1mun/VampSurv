@@ -1,4 +1,4 @@
-using Assets.Scripts.Item;
+using Core.Item;
 using Core.Item.ItemSelection;
 using UnityEngine;
 

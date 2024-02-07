@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Core.Unit
+namespace Core.Stats.ConfigStats
 {
     [Serializable]
     public class CommonStats
@@ -14,9 +14,9 @@ namespace Core.Unit
         [SerializeField] private int _expPerKill;
         [SerializeField] private int _armor;
 
-        public Stats.Stats GetStats()
+        public Stats GetStats()
         {
-            return new Stats.Stats
+            return new Stats
             {
                 AttackDistance = _attackDistance,
                 MoveSpeed = _moveSpeed,

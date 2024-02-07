@@ -1,3 +1,4 @@
+using Core.Stats.ConfigStats;
 using Core.Unit;
 
 namespace Core.Stats

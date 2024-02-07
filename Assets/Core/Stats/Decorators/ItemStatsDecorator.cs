@@ -1,7 +1,7 @@
-using Assets.Scripts.Item;
+using Core.Item;
 using UnityEngine;
 
-namespace Core.Stats
+namespace Core.Stats.Decorators
 {
     public class ItemStatsDecorator : StatsDecorator
     {

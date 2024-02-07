@@ -1,5 +1,5 @@
-using System;
 using Core.Player.Attribute;
+using Core.Stats.ConfigStats;
 using Core.Unit;
 using UnityEngine;
 
@@ -22,18 +22,6 @@ namespace Core.Item
         public AttributeType Attribute => _attribute;
     }
 
-    [Serializable]
-    public class GivenStats : CommonStats
-    {
-    }
+    
 
-    [Serializable]
-    public class InternalStats : CommonStats
-    {
-    }
-
-    [Serializable]
-    public class AttributeStats : CommonStats
-    {
-    }
 }

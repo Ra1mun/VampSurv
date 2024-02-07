@@ -1,19 +1,23 @@
-using Assets.Scripts.Item;
 using Core.Item;
-using Core.Stats;
+using Core.Stats.ConfigStats;
+using Core.Stats.Decorators;
 using Core.Unit;
 
 namespace Core.Player
 {
     public class PlayerStats : UnitStats
     {
-        public void AddItemStats(ItemID itemID)
+        public override void AddItemStats(ItemID id)
         {
-            _provider = new ItemStatsDecorator(_provider, itemID);
+            base.AddItemStats(id);
+
+            _provider = new ItemStatsDecorator(_provider, id);
         }
 
-        public void AddAttributeStats(AttributeStats attributeStats)
+        public override void AddAttributeStats(AttributeStats attributeStats)
         {
+            base.AddAttributeStats(attributeStats);
+
             _provider = new AttributeStatsDecorator(_provider, attributeStats);
         }
     }

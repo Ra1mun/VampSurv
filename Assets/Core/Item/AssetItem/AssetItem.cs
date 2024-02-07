@@ -1,4 +1,3 @@
-using Assets.Scripts.Item;
 using UnityEngine;
 
 namespace Core.Item.AssetItem

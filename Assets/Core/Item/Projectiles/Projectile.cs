@@ -7,16 +7,17 @@ namespace Core.Item.Projectiles
     public abstract class Projectile : MonoBehaviour
     {
         [SerializeField] private ProjectileDisposeType _disposeType = ProjectileDisposeType.OnAnyCollision;
-
         [SerializeField] private LayerMask _targetLayerMask;
+
+        [SerializeField] protected Transform _projectileContainer;
         [SerializeField] protected Vector2 _targetPosition;
 
-        public bool IsProjectileDisposed;
         protected int _damage;
         protected Vector2 _originPosition;
-
         protected float _radius;
         protected float _speed;
+
+        public bool IsProjectileDisposed;
 
         public Vector2 TargetPosition => _targetPosition;
         public Vector2 OriginPosition => _originPosition;
