@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _commonStats:
     _attackDistance: 5
-    _moveSpeed: 3
+    _moveSpeed: 5
     _attackSpeed: 1
     _damage: 2
     _maxHealth: 0

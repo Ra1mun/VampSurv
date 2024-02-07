@@ -119,9 +119,10 @@ MonoBehaviour:
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 0
+  _projectileContainer: {fileID: 0}
   _targetPosition: {x: 0, y: 0}
   IsProjectileDisposed: 0
-  _plash: {fileID: 7970960537591638727, guid: a87f979dddad9ab43b2576e0120477a6, type: 3}
+  _prefabPlash: {fileID: 7970960537591638727, guid: a87f979dddad9ab43b2576e0120477a6, type: 3}
 --- !u!114 &1486842640443950754
 MonoBehaviour:
   m_ObjectHideFlags: 0

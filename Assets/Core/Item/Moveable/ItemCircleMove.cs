@@ -7,10 +7,6 @@ namespace Core.Item.Moveable
         [SerializeField] private float _radius = 0.5f;
 
         private float _angle;
-
-        private Transform _center => transform.parent;
-
-
         public override void Move()
         {
             _angle += Time.deltaTime;
