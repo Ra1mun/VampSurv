@@ -8,8 +8,15 @@ namespace Core.Unit.Damage_Dealers
         [SerializeField] private UnitStats _stats;
         private float _attackTime;
 
+        private bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
+
         public void TryDamage(Unit target, int damage)
         {
+            if (IsPaused)
+            {
+                return;
+            }
+            
             if (_attackTime <= 0)
             {
                 _attackTime = Constants.ATTTACK_INTERVAL;

@@ -1,5 +1,6 @@
 using Core.Item.AssetItem;
 using Core.Item.ItemSelection;
+using Core.Pause.Scripts;
 using Core.Player;
 
 namespace Core.UI.ItemSelection
@@ -11,6 +12,7 @@ namespace Core.UI.ItemSelection
         private readonly UIPanelController _uiPanelController;
         private readonly ItemSelectionView _view;
         private readonly PlayerLevelObserver _visitor;
+        private PauseManager PauseManager => ProjectContext.Instance.PauseManager; 
 
 
         public ItemSelectionPresenter(
@@ -34,6 +36,7 @@ namespace Core.UI.ItemSelection
 
         private void OpenItemSelection()
         {
+            PauseManager.SetPaused(true);
             _view.Init(_generator.GenerateAssetItem(3));
             _uiPanelController.Show(_view);
             _view.OnItemSelectedEvent += OnItemSelected;
@@ -44,6 +47,7 @@ namespace Core.UI.ItemSelection
             _view.OnItemSelectedEvent -= OnItemSelected;
             _uiPanelController.Close(_view);
             _observer.AddItem(item);
+            PauseManager.SetPaused(false);
         }
 
         public void Disable()

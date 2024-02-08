@@ -1,10 +1,4 @@
-﻿using Core.Stats;
-using Core.Stats.ConfigStats;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Core.Stats.ConfigStats;
 
 namespace Core.Stats.Decorators
 {

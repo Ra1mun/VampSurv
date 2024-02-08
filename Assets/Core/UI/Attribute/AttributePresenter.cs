@@ -1,5 +1,7 @@
+using Core.Pause.Scripts;
 using Core.Player;
 using Core.Player.Attribute;
+using UnityEngine;
 
 namespace Core.UI.Attribute
 {
@@ -9,6 +11,8 @@ namespace Core.UI.Attribute
         private readonly PlayerLevelObserver _observer;
         private readonly UIPanelController _uiPanelController;
         private readonly AttributeView _view;
+
+        private PauseManager PauseManager => ProjectContext.Instance.PauseManager; 
 
         public AttributePresenter(
             Attributes model,
@@ -29,6 +33,7 @@ namespace Core.UI.Attribute
 
         private void AttributeLevelChangedEvent()
         {
+            PauseManager.SetPaused(true);
             _view.OnAttributeButtonClickEvent += AttributeButtonClickEvent;
             _uiPanelController.Show(_view);
         }
@@ -38,6 +43,7 @@ namespace Core.UI.Attribute
             _view.OnAttributeButtonClickEvent -= AttributeButtonClickEvent;
             _uiPanelController.Close(_view);
             _model.AttributeLevelUp(type);
+            PauseManager.SetPaused(false);
         }
 
         public void Disable()
