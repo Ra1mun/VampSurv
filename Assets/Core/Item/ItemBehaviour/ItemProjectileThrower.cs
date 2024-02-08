@@ -15,7 +15,7 @@ namespace Core.Item.ItemBehaviour
 
         private Enemy.Enemy _target;
 
-        private float _attackSpeed => _itemStats.GetStats().AttackSpeed;
+        //private float _attackSpeed => _itemStats.GetStats().AttackSpeed;
 
         private void OnDrawGizmos()
         {
@@ -38,14 +38,12 @@ namespace Core.Item.ItemBehaviour
         {
             _direction = _target.gameObject.transform.position;
             var instance = Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
-            instance.Initialize(_itemStats.GetStats().MoveSpeed,
-                _itemStats.GetStats().AttackDistance,
-                _itemStats.GetStats().Damage,
+            instance.Initialize(
                 _direction,
-                gameObject.transform.position);
+                gameObject.transform.position, _itemStats);
 
 
-            _attackTime = _attackSpeed; //maybe replace from this
+            _attackTime = _itemStats.GetStats().AttackSpeed; //maybe replace from this
             _currentState = ItemState.OnCooldown;
         }
 
@@ -53,7 +51,7 @@ namespace Core.Item.ItemBehaviour
         {
             if (_attackTime <= 0)
             {
-                _attackTime = _attackSpeed;
+                _attackTime = _itemStats.GetStats().AttackSpeed;
                 _currentState = ItemState.LookForTarget;
             }
 

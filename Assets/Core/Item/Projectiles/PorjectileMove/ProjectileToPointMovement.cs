@@ -7,7 +7,7 @@ namespace Core.Item.Projectiles.PorjectileMove
         protected override void Move()
         {
             transform.position = Vector3.MoveTowards(transform.position, _projectile.TargetPosition,
-                _projectile.Speed * Time.deltaTime);
+                _projectile._stats.GetStats().MoveSpeed * Time.deltaTime);
 
             if ((Vector2) transform.position == _projectile.TargetPosition)
                 _projectile.DisposeProjectile();

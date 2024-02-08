@@ -1,4 +1,6 @@
 using UnityEngine;
+using Core.Item.Projectiles.DamageDealers;
+using Core.Unit.Damage_Dealers;
 
 namespace Core.Item.Projectiles.ProjectilePlash
 {
@@ -6,18 +8,24 @@ namespace Core.Item.Projectiles.ProjectilePlash
     {
         [SerializeField] private LayerMask _targetLayerMask;
 
-        [SerializeField] protected PeriodicalDamageDealer _damageDealer;
+        [SerializeField] protected IDamageDealer _damageDealer;
 
         public bool IsAreaDisposed;
-        protected int _damage;
+        [SerializeField]protected bool IsPeriodicalDamage;
 
-        protected float _radius;
-        public int Damage => _damage;
+        //protected int _damage;
+        protected ItemStats _stats;
+        //protected float _radius;
+        
 
         private void OnTriggerStay2D(Collider2D collision)
         {
+            
             if (IsAreaDisposed)
                 return;
+            if (!IsPeriodicalDamage)
+                return;
+            Debug.Log("collision Stay");
             if (collision.gameObject.TryGetComponent(out Unit.Unit unit))
             {
                 if (1 << collision.gameObject.layer == _targetLayerMask.value) OnTargetCollision(collision, unit);
@@ -29,11 +37,42 @@ namespace Core.Item.Projectiles.ProjectilePlash
 
             OnAnyCollision(collision);
         }
-
-        public virtual void Initialize(float radius, int damage)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            _radius = radius;
-            _damage = damage;
+            
+            if (IsAreaDisposed)
+                return;
+            if (IsPeriodicalDamage)
+                return;
+            Debug.Log("Collision Enter");
+            if (collision.gameObject.TryGetComponent(out Unit.Unit unit))
+            {
+                if (1 << collision.gameObject.layer == _targetLayerMask.value) OnTargetCollision(collision, unit);
+            }
+            else
+            {
+                OnOtherCollision(collision);
+            }
+
+            OnAnyCollision(collision);
+        }
+        public virtual void Initialize(ItemStats stats)
+        {
+            _stats = stats;
+            
+            if (TryGetComponent<PeriodicalDamageDealer>(out PeriodicalDamageDealer perDamageDealer))
+            {
+                _damageDealer = perDamageDealer;
+                IsPeriodicalDamage = true;
+            }
+            else if(TryGetComponent<BasicDamageDealer>(out BasicDamageDealer damageDealer))
+            {
+                _damageDealer = damageDealer;
+                IsPeriodicalDamage = false;
+            }
+            
+
+            // TODO: Add changable radius of plash by attribute
         }
 
         public void DisposeArea()

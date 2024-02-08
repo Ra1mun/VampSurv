@@ -11,7 +11,7 @@ namespace Core.Item.Projectiles
 
         protected override void OnTargetCollision(Collider2D collision, UnitDamageable damageable)
         {
-            damageable.ApplyDamage(_damage);
+            damageable.ApplyDamage(_stats.GetStats().Damage);
         }
     }
 }

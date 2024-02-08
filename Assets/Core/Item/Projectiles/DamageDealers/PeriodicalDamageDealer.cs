@@ -2,7 +2,7 @@ using Core.Damageable;
 using Core.Unit.Damage_Dealers;
 using UnityEngine;
 
-namespace Core.Item.Projectiles.ProjectilePlash
+namespace Core.Item.Projectiles.DamageDealers
 {
     public class PeriodicalDamageDealer : MonoBehaviour, IDamageDealer
     {

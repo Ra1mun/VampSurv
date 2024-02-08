@@ -10,8 +10,7 @@ namespace Core.Item.ItemBehaviour
         protected override void SpawnSingleProjectile()
         {
             var instance = Instantiate(area, gameObject.transform);
-            instance.Initialize(_itemStats.GetStats().AttackDistance,
-                _itemStats.GetStats().Damage);
+            instance.Initialize(_itemStats);
         }
     }
 }

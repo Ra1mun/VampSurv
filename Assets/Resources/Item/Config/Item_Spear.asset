@@ -15,7 +15,7 @@ MonoBehaviour:
   _commonStats:
     _attackDistance: 5
     _moveSpeed: 3
-    _attackSpeed: 1
+    _attackSpeed: 2
     _damage: 40
     _maxHealth: 0
     _expPerKill: 0
