@@ -8,14 +8,23 @@ namespace Core.Item.Projectiles.ProjectilePlash
 
         [SerializeField] protected PeriodicalDamageDealer _damageDealer;
 
+
         public bool IsAreaDisposed;
+
         protected int _damage;
 
         protected float _radius;
+
         public int Damage => _damage;
+        public bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
 
         private void OnTriggerStay2D(Collider2D collision)
         {
+            if (IsPaused)
+            {
+                return;
+            }
+
             if (IsAreaDisposed)
                 return;
             if (collision.gameObject.TryGetComponent(out Unit.Unit unit))
