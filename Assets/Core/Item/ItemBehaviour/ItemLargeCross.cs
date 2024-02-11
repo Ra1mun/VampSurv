@@ -17,9 +17,13 @@ namespace Core.Item.ItemBehaviour
         {
             _target = _targetFinder.LookForTarget(_itemStats.GetStats().AttackDistance);
             if (_target != null)
+            {
                 _currentState = ItemState.AttackTarget;
+            }
             else
+            {
                 return;
+            }
         }
         protected override void SpawnProjectile()
         {

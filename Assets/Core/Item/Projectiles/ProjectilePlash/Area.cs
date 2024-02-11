@@ -13,9 +13,7 @@ namespace Core.Item.Projectiles.ProjectilePlash
         public bool IsAreaDisposed;
         [SerializeField]protected bool IsPeriodicalDamage;
 
-        //protected int _damage;
         protected ItemStats _stats;
-        //protected float _radius;
         public bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
 
 
@@ -23,11 +21,17 @@ namespace Core.Item.Projectiles.ProjectilePlash
         private void OnTriggerStay2D(Collider2D collision)
         {
             if (IsPaused)
+            {
                 return;
+            }
             if (IsAreaDisposed)
+            {
                 return;
+            }
             if (!IsPeriodicalDamage)
+            {
                 return;
+            }
             Debug.Log("collision Stay");
             if (collision.gameObject.TryGetComponent(out Unit.Unit unit))
             {
@@ -43,11 +47,17 @@ namespace Core.Item.Projectiles.ProjectilePlash
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (IsPaused)
+            {
                 return;
+            }
             if (IsAreaDisposed)
+            {
                 return;
+            }
             if (IsPeriodicalDamage)
-                return;
+            {
+
+            }
             Debug.Log("Collision Enter");
             if (collision.gameObject.TryGetComponent(out Unit.Unit unit))
             {

@@ -15,8 +15,6 @@ namespace Core.Item.ItemBehaviour
 
         private Enemy.Enemy _target;
 
-        //private float _attackSpeed => _itemStats.GetStats().AttackSpeed;
-
         private void OnDrawGizmos()
         {
             var parent = gameObject.transform.position;
@@ -29,9 +27,14 @@ namespace Core.Item.ItemBehaviour
         {
             _target = _targetFinder.LookForTarget(_itemStats.GetStats().AttackDistance);
             if (_target != null)
+            {
                 _currentState = ItemState.AttackTarget;
+            }    
             else
+            {
                 return;
+            }
+                
         }
 
         protected override void SpawnProjectile()
