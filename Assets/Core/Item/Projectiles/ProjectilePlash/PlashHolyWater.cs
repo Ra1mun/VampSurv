@@ -11,6 +11,10 @@ namespace Core.Item.Projectiles.ProjectilePlash
 
         protected override void OnTargetCollision(Collider2D collision, Unit.Unit unit)
         {
+            if (IsPaused)
+            {
+                return;
+            }
             _damageDealer.TryDamage(unit, _stats.GetStats().Damage);
         }
     }

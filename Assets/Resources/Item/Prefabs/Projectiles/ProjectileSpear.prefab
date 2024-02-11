@@ -120,7 +120,9 @@ MonoBehaviour:
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _projectileContainer: {fileID: 0}
   _targetPosition: {x: 0, y: 0}
+  _stats: {fileID: 0}
   IsProjectileDisposed: 0
 --- !u!50 &-3302030954000138419
 Rigidbody2D:

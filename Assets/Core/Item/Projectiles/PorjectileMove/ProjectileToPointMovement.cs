@@ -6,8 +6,6 @@ namespace Core.Item.Projectiles.PorjectileMove
     {
         protected override void Move()
         {
-
-            
             transform.position = Vector3.MoveTowards(transform.position, _projectile.TargetPosition,
                 _projectile._stats.GetStats().MoveSpeed * Time.deltaTime);
 

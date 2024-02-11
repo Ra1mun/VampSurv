@@ -16,11 +16,14 @@ namespace Core.Item.Projectiles.ProjectilePlash
         //protected int _damage;
         protected ItemStats _stats;
         //protected float _radius;
-        
+        public bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
+
+
 
         private void OnTriggerStay2D(Collider2D collision)
         {
-            
+            if (IsPaused)
+                return;
             if (IsAreaDisposed)
                 return;
             if (!IsPeriodicalDamage)
@@ -39,7 +42,8 @@ namespace Core.Item.Projectiles.ProjectilePlash
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            
+            if (IsPaused)
+                return;
             if (IsAreaDisposed)
                 return;
             if (IsPeriodicalDamage)
