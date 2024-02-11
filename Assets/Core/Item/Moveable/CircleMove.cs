@@ -7,11 +7,7 @@ namespace Core.Item.Moveable
         public float radius = 2f;
         public float speed = 2f;
         private float angle;
-
-
-        private void Start()
-        {
-        }
+        
 
 
         private void Update()

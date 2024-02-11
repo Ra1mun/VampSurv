@@ -8,13 +8,18 @@ namespace Core.Item.Projectiles.PorjectileMove
         [SerializeField] protected Projectile _projectile;
         [SerializeField] protected Rigidbody2D projectileRigidbody;
 
+        protected bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
+
         private void FixedUpdate()
         {
+            if (IsPaused)
+            {
+                return;
+            }
+            
             Move();
         }
 
-        protected virtual void Move()
-        {
-        }
+        protected abstract void Move();
     }
 }

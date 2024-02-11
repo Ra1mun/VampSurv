@@ -8,6 +8,8 @@ namespace Core.Item.Projectiles.ProjectilePlash
         [SerializeField] private Area _area;
         private float _elapsedTime;
 
+        public bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
+
         private void Update()
         {
             if (_area.IsAreaDisposed)
@@ -18,6 +20,11 @@ namespace Core.Item.Projectiles.ProjectilePlash
 
         private void Dispose()
         {
+            if (IsPaused)
+            {
+                return;
+            }
+
             _area.DisposeArea();
         }
     }

@@ -14,6 +14,8 @@ namespace Core.Item.ItemBehaviour
 
         protected ItemState _currentState;
 
+        private bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
+
         private void Start()
         {
             _currentState = _StartState;
@@ -23,6 +25,11 @@ namespace Core.Item.ItemBehaviour
 
         private void Update()
         {
+            if (IsPaused)
+            {
+                return;
+            }
+            
             StateMachine();
         }
 

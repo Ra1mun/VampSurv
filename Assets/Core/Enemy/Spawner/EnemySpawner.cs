@@ -15,6 +15,7 @@ namespace Core.Enemy.Spawner
         [SerializeField] private float _delayBeforeSpawn;
         [SerializeField] private Transform _container;
         private float _elapsedTime;
+        private bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
 
         private void Awake()
         {
@@ -26,6 +27,11 @@ namespace Core.Enemy.Spawner
 
         private void Update()
         {
+            if (IsPaused)
+            {
+                return;
+            }
+            
             switch (_state)
             {
                 case EnemySpawnerState.Start:
