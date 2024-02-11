@@ -12,19 +12,26 @@ namespace Core.Item.Projectiles.ProjectilePlash
 
         private void Update()
         {
-            if (_area.IsAreaDisposed)
+            if (IsPaused)
+            {
                 return;
+            }
+            if (_area.IsAreaDisposed)
+            {
+                return;
+            }
             _elapsedTime += Time.deltaTime;
-            if (_elapsedTime >= _countdown) Dispose();
+            if (_elapsedTime >= _countdown)
+            {
+                Dispose();
+            }
         }
-
         private void Dispose()
         {
             if (IsPaused)
             {
                 return;
             }
-
             _area.DisposeArea();
         }
     }
