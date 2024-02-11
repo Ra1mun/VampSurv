@@ -1,5 +1,6 @@
 using System;
 using Core.Item.AssetItem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ namespace Core.UI.ItemSelection
     {
         [SerializeField] private Button _button;
         [SerializeField] private Image _image;
+        [SerializeField] private TMP_Text _text;
 
         private AssetItem _item;
 
@@ -28,6 +30,7 @@ namespace Core.UI.ItemSelection
         {
             _item = item;
             _image.sprite = item.Icon;
+            _text.text = item.Name;
         }
 
         private void OnItemSelectButtonClick()
