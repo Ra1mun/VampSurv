@@ -1307,6 +1307,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1391633482}
     m_Modifications:
+    - target: {fileID: 4572873020001447810, guid: fcdbee392e751cc4396ffb1f2b403fe1, type: 3}
+      propertyPath: m_Spacing
+      value: -700
+      objectReference: {fileID: 0}
     - target: {fileID: 4572873021309640577, guid: fcdbee392e751cc4396ffb1f2b403fe1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1590,6 +1594,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestItem (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6135986230281780593, guid: 38449b74b71a5c44a826ed105d72a588, type: 3}
+      propertyPath: _item
+      value: 
+      objectReference: {fileID: 11400000, guid: 80fc7fd4b63ea9a40bdbc4f8c4299eae, type: 2}
     - target: {fileID: 6135986230281780604, guid: 38449b74b71a5c44a826ed105d72a588, type: 3}
       propertyPath: m_RootOrder
       value: 2

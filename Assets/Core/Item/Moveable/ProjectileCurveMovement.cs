@@ -11,7 +11,7 @@ namespace Core.Item.Moveable
         [SerializeField] private float _deflectionCoefficientHorizontal;
         private float movement;
 
-        private float _speed => _projectile.Speed;
+        private float _speed => _projectile._stats.GetStats().MoveSpeed;
 
         private void Start()
         {

@@ -8,20 +8,19 @@ namespace Core.Item.Projectiles
     {
         [SerializeField] private ProjectileDisposeType _disposeType = ProjectileDisposeType.OnAnyCollision;
         [SerializeField] private LayerMask _targetLayerMask;
-
+        
         [SerializeField] protected Transform _projectileContainer;
         [SerializeField] protected Vector2 _targetPosition;
 
-        protected int _damage;
+        [HideInInspector] public ItemStats _stats;
+
         protected Vector2 _originPosition;
-        protected float _radius;
-        protected float _speed;
+        
 
         public bool IsProjectileDisposed;
 
         public Vector2 TargetPosition => _targetPosition;
         public Vector2 OriginPosition => _originPosition;
-        public float Speed => _speed;
 
         public ProjectileDisposeType DisposeType => _disposeType;
 
@@ -56,13 +55,11 @@ namespace Core.Item.Projectiles
             if (_disposeType == ProjectileDisposeType.OnAnyCollision) DisposeProjectile();
         }
 
-        public void Initialize(float speed, float radius, int damage, Vector2 target, Vector2 originPosition)
+        public void Initialize(Vector2 target, Vector2 originPosition, ItemStats stats)
         {
-            _radius = radius;
-            _damage = damage;
-            _speed = speed;
             _targetPosition = target;
             _originPosition = originPosition;
+            _stats = stats;
         }
 
         public void DisposeProjectile()

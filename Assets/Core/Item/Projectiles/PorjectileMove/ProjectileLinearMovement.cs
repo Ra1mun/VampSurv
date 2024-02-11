@@ -4,8 +4,12 @@ namespace Core.Item.Projectiles.PorjectileMove
     {
         protected override void Move()
         {
+            if(IsPaused)
+            {
+                return;
+            }
             projectileRigidbody.velocity = (_projectile.TargetPosition - _projectile.OriginPosition).normalized
-                                           * _projectile.Speed;
+                                           * _projectile._stats.GetStats().MoveSpeed;
         }
     }
 }

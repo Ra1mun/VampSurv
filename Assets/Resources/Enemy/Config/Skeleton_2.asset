@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8fa2be4f31e1744a7e79b3a371504d, type: 3}
-  m_Name: Enemy_TestEnemy
+  m_Name: Skeleton_2
   m_EditorClassIdentifier: 
   _commonStats:
     _attackDistance: 0.1
     _moveSpeed: 1
     _attackSpeed: 1
-    _damage: 5
-    _maxHealth: 100
+    _damage: 10
+    _maxHealth: 130
     _expPerKill: 0
     _armor: 0
-  _experienceOnDie: 50
-  _prefab: {fileID: 4332132741509551897, guid: 289a711573ad0c44d937f986e0f77b76, type: 3}
+  _experienceOnDie: 60
+  _prefab: {fileID: 4332132741509551897, guid: 4f0a4eab799095340aac4279a86d6336, type: 3}

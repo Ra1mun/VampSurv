@@ -1,21 +1,15 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 namespace Core.Item.Projectiles.ProjectilePlash
 {
-    public class PlashHolyWater : Area
+    public class LargeCrossPlash : Area
     {
-        private void Awake()
-        {
-            Debug.Log("Plash Added");
-        }
-
         protected override void OnTargetCollision(Collider2D collision, Unit.Unit unit)
         {
-            if (IsPaused)
-            {
-                return;
-            }
+            Debug.Log("Make damage");
             _damageDealer.TryDamage(unit, _stats.GetStats().Damage);
         }
     }
 }
+

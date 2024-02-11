@@ -6,7 +6,10 @@ namespace Core.Item.Projectiles
     public class ProjectileBomb : Projectile
     {
         [SerializeField] private Area _prefabPlash;
-
+        public void Initilize()
+        {
+            
+        }
         protected override void OnProjectileDispose()
         {
             Area instance;
@@ -19,7 +22,7 @@ namespace Core.Item.Projectiles
                 instance = Instantiate(_prefabPlash, gameObject.transform.position, Quaternion.identity);
             }
 
-            instance.Initialize(_radius, _damage);
+            instance.Initialize(_stats);
         }
     }
 }
