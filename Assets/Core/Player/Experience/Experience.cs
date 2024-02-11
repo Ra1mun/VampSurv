@@ -5,21 +5,25 @@ namespace Core.Player.Experience
 {
     public class Experience : MonoBehaviour
     {
-        [SerializeField] private int _maxExperience = 100;
+        public event Action<int, int> OnExperienceChangedEvent;
 
-        private int _currentExperience;
-
-        public Action<int, int> OnExperienceChangedEvent;
-
-        public void Reset()
+        [SerializeField] private int maxExperience;
+        private int _currentExperience = 0;
+        
+        public int MaxExperience
         {
-            _currentExperience = 0;
+            get => maxExperience;
+            private set { maxExperience = value; }
         }
 
-        public void AddExperience(int exp)
+        public int CurrentExperience
         {
-            _currentExperience += exp;
-            OnExperienceChangedEvent?.Invoke(_currentExperience, _maxExperience);
+            get => _currentExperience;
+            set
+            {
+                _currentExperience = Mathf.Clamp(value, 0, maxExperience);
+                OnExperienceChangedEvent?.Invoke(_currentExperience, MaxExperience);
+            }
         }
     }
 }

@@ -2,17 +2,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Core.UI.Experience
+namespace Core.UI
 {
     public class ExperienceView : MonoBehaviour
     {
-        [SerializeField] private Slider _experienceBar;
-        [SerializeField] private TMP_Text _text;
-
+        [SerializeField] private Image experienceBar;
+        [SerializeField] private TMP_Text experienceText;
         public void UpdateExperience(int currentExperience, int maxExperience)
         {
-            _experienceBar.value = currentExperience / 100;
-            _text.text = $"{currentExperience} / {maxExperience}";
+            experienceBar.fillAmount = (float)currentExperience / maxExperience;
+            experienceText.text = $"{currentExperience} / {maxExperience}";
         }
     }
 }

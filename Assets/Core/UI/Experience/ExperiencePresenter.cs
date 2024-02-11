@@ -1,4 +1,4 @@
-namespace Core.UI.Experience
+namespace Core.UI
 {
     public class ExperiencePresenter
     {
@@ -14,6 +14,7 @@ namespace Core.UI.Experience
         public void Enable()
         {
             _model.OnExperienceChangedEvent += OnExperienceChanged;
+            _view.UpdateExperience(0, _model.MaxExperience);
         }
 
         private void OnExperienceChanged(int currentExperience, int maxExperience)
