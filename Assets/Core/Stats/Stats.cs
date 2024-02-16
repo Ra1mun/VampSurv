@@ -20,7 +20,7 @@ namespace Core.Stats
                 MoveSpeed = a.MoveSpeed + b.MoveSpeed,
                 Damage = a.Damage + b.Damage,
                 AttackDistance = a.AttackDistance + b.AttackDistance,
-                AttackSpeed = a.AttackSpeed - b.AttackSpeed,
+                AttackSpeed = a.AttackSpeed + b.AttackSpeed,
                 Armor = a.Armor + b.Armor,
                 ExpPerKill = a.ExpPerKill + b.ExpPerKill
             };
@@ -34,7 +34,7 @@ namespace Core.Stats
                 MoveSpeed = a.MoveSpeed - b.MoveSpeed,
                 Damage = a.Damage - b.Damage,
                 AttackDistance = a.AttackDistance - b.AttackDistance,
-                AttackSpeed = a.AttackSpeed + b.AttackSpeed,
+                AttackSpeed = a.AttackSpeed - b.AttackSpeed,
                 Armor = a.Armor - b.Armor,
                 ExpPerKill = a.ExpPerKill - b.ExpPerKill
             };
@@ -48,7 +48,7 @@ namespace Core.Stats
                 MoveSpeed = a.MoveSpeed * m,
                 Damage = Mathf.RoundToInt(a.Damage * m),
                 AttackDistance = a.AttackDistance * m,
-                AttackSpeed = a.AttackSpeed * 1 / m,
+                AttackSpeed = a.AttackSpeed * m,
                 Armor = Mathf.RoundToInt(a.Armor * m),
                 ExpPerKill = Mathf.RoundToInt(a.ExpPerKill * m)
             };
