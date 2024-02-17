@@ -21,7 +21,7 @@ namespace Core.EnemiesHandler
 
         private void OnEnemyKilled(Enemy.Enemy enemy)
         {
-            _experience.AddExperience(enemy.Config.ExperienceOnDie);
+            _experience.CurrentExperience += enemy.Config.ExperienceOnDie;
         }
     }
 }

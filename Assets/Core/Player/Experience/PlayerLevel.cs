@@ -27,7 +27,7 @@ namespace Core.Player.Experience
             if (currentExperience >= maxExperience)
             {
                 LevelUp();
-                _experience.Reset();
+                _experience.CurrentExperience = 0;
             }
         }
 
