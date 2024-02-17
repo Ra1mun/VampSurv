@@ -62,8 +62,8 @@ MonoBehaviour:
   _targetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _damageDealer: {fileID: 7263205808645091406}
   IsAreaDisposed: 0
+  IsPeriodicalDamage: 0
 --- !u!212 &3054404651577402267
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -258845920, guid: 71fd01c6f22176a4eac63e1caf07539c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

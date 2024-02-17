@@ -11,13 +11,14 @@ namespace Core.Item.ItemBehaviour
 
         [Header("Dependency")] [SerializeField]
         protected ItemStats _itemStats;
-
+        protected IAttackSpeed _attackInterval;
         protected ItemState _currentState;
 
         private bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
 
         private void Start()
         {
+            _attackInterval = new ItemsAttackSpeed();
             _currentState = _StartState;
             if (_isSingleProjectile)
                 SpawnSingleProjectile();
