@@ -46,7 +46,7 @@ namespace Core.Item.ItemBehaviour
                 gameObject.transform.position, _itemStats);
 
 
-            _attackTime = _itemStats.GetStats().AttackSpeed; //maybe replace from this
+            _attackTime = _attackInterval.GetAttackInterval(_itemStats.GetStats().AttackSpeed);//maybe replace from this
             _currentState = ItemState.OnCooldown;
         }
 

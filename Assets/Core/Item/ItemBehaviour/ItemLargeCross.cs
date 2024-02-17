@@ -30,7 +30,7 @@ namespace Core.Item.ItemBehaviour
             var instance = Instantiate(_area, _target.gameObject.transform.position, Quaternion.identity);
             instance.Initialize(_itemStats);
 
-            _attackTime = _itemStats.GetStats().AttackSpeed; 
+            _attackTime = _attackInterval.GetAttackInterval(_itemStats.GetStats().AttackSpeed);
             _currentState = ItemState.OnCooldown;
         }
         protected override void OnCooldown()
