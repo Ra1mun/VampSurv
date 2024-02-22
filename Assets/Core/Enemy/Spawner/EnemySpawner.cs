@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Wave;
 using Core.Enemy.Factory;
 using Core.Extension;
 using Unity.VisualScripting;
@@ -9,63 +10,26 @@ namespace Core.Enemy.Spawner
 {
     public class EnemySpawner : MonoBehaviour
     {
+        public event Action<Enemy> OnEnemySpawned;
+        
         [SerializeField] private List<Transform> _spawnPositions;
-        [SerializeField] private EnemySpawnerState _state;
         [SerializeField] private EnemyFactory _enemyFactory;
-        [SerializeField] private float _delayBeforeSpawn;
         [SerializeField] private Transform _container;
-        private float _elapsedTime;
-        private bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
+        
+        private WaveSpawnSpeed _waveSpawnSpeed;
 
         private void Awake()
         {
-            if (_spawnPositions.Count != 0) return;
-
-            _state = EnemySpawnerState.None;
-            throw new InvalidImplementationException("Not set spawn positions!");
-        }
-
-        private void Update()
-        {
-            if (IsPaused)
+            if (_spawnPositions.Count != 0)
             {
+                _waveSpawnSpeed = gameObject.AddComponent<WaveSpawnSpeedPerTime>();
+                _waveSpawnSpeed.OnTimeElapsed += Spawn;
                 return;
             }
             
-            switch (_state)
-            {
-                case EnemySpawnerState.Start:
-                    SingleSpawn();
-                    break;
-                case EnemySpawnerState.Update:
-                    UpdateSpawn();
-                    break;
-                case EnemySpawnerState.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            throw new InvalidImplementationException("Not set spawn positions!");
         }
-
-        public event Action<Enemy> OnEnemySpawned;
-
-        private void UpdateSpawn()
-        {
-            if (_elapsedTime > _delayBeforeSpawn)
-            {
-                Spawn();
-                _elapsedTime = 0f;
-            }
-
-            _elapsedTime += Time.deltaTime;
-        }
-
-        private void SingleSpawn()
-        {
-            if (FindObjectOfType<Enemy>() == false)
-                Spawn();
-        }
-
+        
         private void Spawn()
         {
             var spawnPoint = _spawnPositions.RandomItem();
@@ -73,12 +37,5 @@ namespace Core.Enemy.Spawner
 
             OnEnemySpawned?.Invoke(enemy);
         }
-    }
-    
-    public enum EnemySpawnerState
-    {
-        None,
-        Start,
-        Update
     }
 }

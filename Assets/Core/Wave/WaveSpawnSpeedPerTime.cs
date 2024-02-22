@@ -6,7 +6,7 @@ namespace Assets.Scripts.Wave
     {
         protected override void IncreaseSpawns()
         {
-            throw new NotImplementedException();
+            TimeBetweenWaves *= 0.9f;
         }
     }
 }
