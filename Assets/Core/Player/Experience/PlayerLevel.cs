@@ -24,17 +24,12 @@ namespace Core.Player.Experience
 
         private void ExperienceChanged(int currentExperience, int maxExperience)
         {
-            if (currentExperience >= maxExperience)
+            if (currentExperience == maxExperience)
             {
-                LevelUp();
-                _experience.CurrentExperience = 0;
+                _level++;
+                OnLevelChangedEvent?.Invoke(_level);
+                _experience.ResetExp();
             }
-        }
-
-        private void LevelUp()
-        {
-            _level++;
-            OnLevelChangedEvent?.Invoke(_level);
         }
     }
 }
