@@ -21,4 +21,5 @@ MonoBehaviour:
     _expPerKill: 0
     _armor: 0
   _experienceOnDie: 65
+  _threat: 10
   _prefab: {fileID: 4332132741509551897, guid: 4f0a4eab799095340aac4279a86d6336, type: 3}

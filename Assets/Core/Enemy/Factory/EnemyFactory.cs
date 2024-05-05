@@ -22,6 +22,21 @@ namespace Core.Enemy.Factory
 
             return instance;
         }
+        public Enemy Spawn(EnemyConfig config, Vector3 transform)
+        {
+            var instance = Instantiate(config.Prefab, transform, Quaternion.identity);
+            instance.Initialize(config, UnitType.Enemy);
+
+            return instance;
+        }
+
+        public Enemy Spawn(EnemyConfig config, Vector3 transform, Transform parent)
+        {
+            var instance = Instantiate(config.Prefab, transform, Quaternion.identity, parent);
+            instance.Initialize(config, UnitType.Enemy);
+
+            return instance;
+        }
 
         protected abstract EnemyConfig GetConfig(EnemyType type);
     }

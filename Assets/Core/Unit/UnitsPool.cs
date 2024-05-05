@@ -10,7 +10,7 @@ namespace Core.Unit
     public class UnitsPool : MonoBehaviour
     {
         [Header("All Entities")] public static List<Unit> Units = new();
-        [Header("Spawners")] [SerializeField] private EnemySpawner _enemySpawner;
+        [Header("Spawners")] [SerializeField] private PhaseEnemySpawner _enemySpawner;
 
         [Header("Player")] [SerializeField] private Player.Player _player;
 
