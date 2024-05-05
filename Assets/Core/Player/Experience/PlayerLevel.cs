@@ -6,6 +6,7 @@ namespace Core.Player.Experience
     public class PlayerLevel : MonoBehaviour
     {
         [SerializeField] private Experience _experience;
+        [SerializeField] private AnimationCurve _maxExpCurve;
 
         private int _level;
 
@@ -27,6 +28,7 @@ namespace Core.Player.Experience
             if (currentExperience >= maxExperience)
             {
                 LevelUp();
+                _experience.MaxExperience = (int)_maxExpCurve.Evaluate(_level);
                 _experience.CurrentExperience = 0;
             }
         }

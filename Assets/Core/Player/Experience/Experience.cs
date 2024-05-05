@@ -13,7 +13,7 @@ namespace Core.Player.Experience
         public int MaxExperience
         {
             get => maxExperience;
-            private set { maxExperience = value; }
+            set { maxExperience = value; }
         }
 
         public int CurrentExperience
