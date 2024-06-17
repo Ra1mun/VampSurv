@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Core.Enemy.Spawner
 {
-    [RequireComponent(typeof(Timer))]
+    [RequireComponent(typeof(Assets.Scripts.Timer))]
 
     public class PhaseEnemySpawner : MonoBehaviour, ISpawner
     {
