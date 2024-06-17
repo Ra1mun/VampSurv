@@ -15,7 +15,7 @@ namespace Core.Enemy.Spawner
     {
         public event Action<Enemy> OnEnemySpawned;
 
-        [SerializeField] private List<Transform> _spawnPositions;
+        [SerializeField] private List<SpawnPoint> _spawnPositions;
         [SerializeField] private EnemyFactory _enemyFactory;
         [SerializeField] private Transform _container;
         [SerializeField] private List<EnemyConfig> _enemyToSpawn;
@@ -62,13 +62,18 @@ namespace Core.Enemy.Spawner
                 _wave.PhaseEnd();
                 Debug.Log("Phase End");
             }
-            
-                
+
+
         }
         private void Spawn()
         {
-            var spawnPoint = _spawnPositions.RandomItem();
-            var enemy = _enemyFactory.Spawn(_enemyToSpawn[0], spawnPoint.position, _container);
+            SpawnPoint spawnPoint;
+            do
+            {
+                 spawnPoint = _spawnPositions.RandomItem();
+            }
+            while (spawnPoint.IsInsideCam);
+            var enemy = _enemyFactory.Spawn(_enemyToSpawn[0], spawnPoint.transform.position, _container);
             _enemyToSpawn.RemoveAt(0);
             
             OnEnemySpawned?.Invoke(enemy);
