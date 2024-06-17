@@ -38,7 +38,11 @@ namespace Assets.Scripts.Wave
             OnPhaseEnded?.Invoke();
             _currentPhase++;
             if (_currentPhase >= _waveConfig.wavePhases)
+            {
+                Debug.Log("Wave ended");
+                WaveEnded?.Invoke();
                 return;
+            }
             MakePhase();
         }
         void PhaseStart()
