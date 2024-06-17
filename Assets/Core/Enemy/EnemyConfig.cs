@@ -7,10 +7,11 @@ namespace Core.Enemy
     public class EnemyConfig : UnitConfig
     {
         [SerializeField] private int _experienceOnDie;
-
+        [SerializeField] private int _threat;
         [Header("Prefab")] [SerializeField] private Enemy _prefab;
 
         public int ExperienceOnDie => _experienceOnDie;
         public Enemy Prefab => _prefab;
+        public int Threat => _threat;
     }
 }

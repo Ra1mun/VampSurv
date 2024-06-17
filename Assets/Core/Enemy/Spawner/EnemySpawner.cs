@@ -1,84 +1,42 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Wave;
 using Core.Enemy.Factory;
 using Core.Extension;
-using Unity.VisualScripting;
 using UnityEngine;
+using Assets.Scripts;
+using Unity.VisualScripting;
 
 namespace Core.Enemy.Spawner
 {
-    public class EnemySpawner : MonoBehaviour
+    public abstract class EnemySpawner : MonoBehaviour, ISpawner
     {
+        
         [SerializeField] private List<Transform> _spawnPositions;
-        [SerializeField] private EnemySpawnerState _state;
         [SerializeField] private EnemyFactory _enemyFactory;
-        [SerializeField] private float _delayBeforeSpawn;
         [SerializeField] private Transform _container;
-        private float _elapsedTime;
-        private bool IsPaused => ProjectContext.Instance.PauseManager.IsPaused;
 
-        private void Awake()
-        {
-            if (_spawnPositions.Count != 0) return;
-
-            _state = EnemySpawnerState.None;
-            throw new InvalidImplementationException("Not set spawn positions!");
-        }
-
-        private void Update()
-        {
-            if (IsPaused)
-            {
-                return;
-            }
-            
-            switch (_state)
-            {
-                case EnemySpawnerState.Start:
-                    SingleSpawn();
-                    break;
-                case EnemySpawnerState.Update:
-                    UpdateSpawn();
-                    break;
-                case EnemySpawnerState.None:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
+        private Assets.Scripts.Timer _spawnTimer;
 
         public event Action<Enemy> OnEnemySpawned;
 
-        private void UpdateSpawn()
+        private void Awake()
         {
-            if (_elapsedTime > _delayBeforeSpawn)
+            if (_spawnPositions.Count != 0)
             {
-                Spawn();
-                _elapsedTime = 0f;
+                _spawnTimer = gameObject.AddComponent<Assets.Scripts.Timer>();
+                _spawnTimer.TimerEnd += Spawn;
+                return;
             }
-
-            _elapsedTime += Time.deltaTime;
+            
+            throw new InvalidImplementationException("Not set spawn positions!");
         }
-
-        private void SingleSpawn()
-        {
-            if (FindObjectOfType<Enemy>() == false)
-                Spawn();
-        }
-
-        private void Spawn()
+        
+        public virtual void Spawn()
         {
             var spawnPoint = _spawnPositions.RandomItem();
             var enemy = _enemyFactory.Spawn(EnemyType.TestEnemy, spawnPoint.position, _container);
-
             OnEnemySpawned?.Invoke(enemy);
         }
-    }
-    
-    public enum EnemySpawnerState
-    {
-        None,
-        Start,
-        Update
     }
 }
