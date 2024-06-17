@@ -29,10 +29,14 @@ namespace Core.Pause.Scripts
         public void SetPaused(bool isPaused)
         {
             IsPaused = isPaused;
-            for (int i = 0; i < _pauseHandlers.Count; i++)
+            if(isPaused)
+                Time.timeScale = 0;
+            else
+                Time.timeScale = 1;
+            /*for (int i = 0; i < _pauseHandlers.Count; i++)
             {
                 _pauseHandlers[i].SetPaused(isPaused);
-            }
+            }*/
         }
     }
 }

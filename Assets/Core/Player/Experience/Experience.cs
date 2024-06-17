@@ -7,25 +7,23 @@ namespace Core.Player.Experience
     {
         public event Action<int, int> OnExperienceChangedEvent;
 
-        public int MaxExperience => maxExperience;
-        
         [SerializeField] private int maxExperience;
+        private int _currentExperience = 0;
         
-        private int _currentExperience;
-        
+        public int MaxExperience
+        {
+            get => maxExperience;
+            set { maxExperience = value; }
+        }
+
         public int CurrentExperience
         {
             get => _currentExperience;
             set
             {
                 _currentExperience = Mathf.Clamp(value, 0, maxExperience);
-                OnExperienceChangedEvent?.Invoke(_currentExperience, maxExperience);
+                OnExperienceChangedEvent?.Invoke(_currentExperience, MaxExperience);
             }
-        }
-
-        public void ResetExp()
-        {
-            _currentExperience = 0;
         }
     }
 }
