@@ -1,3 +1,5 @@
+//using System.Numerics;
+using UnityEngine;
 namespace Core.Item.Projectiles.PorjectileMove
 {
     public class ProjectileLinearMovement : ProjectileMovement
@@ -10,6 +12,8 @@ namespace Core.Item.Projectiles.PorjectileMove
             }
             projectileRigidbody.velocity = (_projectile.TargetPosition - _projectile.OriginPosition).normalized
                                            * _projectile._stats.GetStats().MoveSpeed;
+
+            //gameObject.transform.position = Vector2.MoveTowards(_projectile.TargetPosition, _projectile.OriginPosition, _projectile._stats.GetStats().MoveSpeed);
         }
     }
 }
