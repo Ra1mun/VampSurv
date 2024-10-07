@@ -28,7 +28,7 @@ namespace Core.Input
         private void OnInput(Vector2 direction)
         {
             _movement.Move(direction);
-            //_animation.InputDirection(direction);
+            _animation.InputDirection(direction);
         }
 
         public void OnDisableInput()

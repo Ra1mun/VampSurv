@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: -2273717056579801646}
   - component: {fileID: -4480660915366729787}
   - component: {fileID: 3935578281664015443}
+  - component: {fileID: 5775844758708405758}
+  - component: {fileID: 3274570010989423252}
   m_Layer: 6
   m_Name: Skeleton_1
   m_TagString: Untagged
@@ -223,3 +225,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stats: {fileID: 8407346669709307527}
+--- !u!95 &5775844758708405758
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336194699297699180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f63a3844e9c95b14ebee2e99dba93941, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3274570010989423252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336194699297699180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccce8955fef9ca148ac912f7912b0fbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 5775844758708405758}
+  _health: {fileID: 5574433038917019453}

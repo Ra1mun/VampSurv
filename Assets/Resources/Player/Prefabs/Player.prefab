@@ -55,6 +55,8 @@ GameObject:
   - component: {fileID: 3660571876642665287}
   - component: {fileID: 3660571876642665286}
   - component: {fileID: 3660571876642665285}
+  - component: {fileID: 8407655513309639610}
+  - component: {fileID: 1081695048262067868}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -119,7 +121,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -331172599, guid: b18a0d60e499caa43967a79545a83714, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -162,7 +164,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.009346485, y: -0.1559908}
@@ -271,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _input: {fileID: 0}
   _movement: {fileID: 3660571876642665264}
-  _animation: {fileID: 0}
+  _animation: {fileID: 1081695048262067868}
 --- !u!114 &3660571876642665290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7996b680bcf748ca9190c99c1b8305d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attributes: {fileID: 3660571876642665288}
   stats: {fileID: 3660571876642665265}
   container: {fileID: 3660571876056507143}
 --- !u!114 &3660571876642665288
@@ -298,7 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b692fd9b555f421f9f55a391464f4faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventory: {fileID: 3660571876642665290}
+  inventory: {fileID: 3660571876642665290}
 --- !u!114 &3660571876642665287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba221c7e6c04d2a8a096c46efc16534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxExperience: 100
+  maxExperience: 0
 --- !u!114 &3660571876642665286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +328,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _experience: {fileID: 3660571876642665287}
+  _maxExpCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 100
+      outSlope: 100
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 100
+      value: 10000
+      inSlope: 100
+      outSlope: 100
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &3660571876642665285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +362,38 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4bf1c72a9304519b867681a339750d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &8407655513309639610
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660571876642665277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d7460c744f1ea6a4eaed830a193ab401, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1081695048262067868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3660571876642665277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f654ce3d724130a489d9e55ac0343cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3660571877973537267

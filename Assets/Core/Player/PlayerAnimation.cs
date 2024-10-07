@@ -14,6 +14,10 @@ namespace Core.Player
 
         public void InputDirection(Vector2 direction)
         {
+            if(direction.x == 0 && direction.y == 0)
+                _animator.SetBool("isWalk", false);
+            else
+                _animator.SetBool("isWalk", true);
         }
     }
 }

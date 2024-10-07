@@ -15,7 +15,8 @@ namespace Core.Item.Projectiles
         [HideInInspector] public ItemStats _stats;
 
         protected Vector2 _originPosition;
-        
+
+        private ProjectileView _projectileView;
 
         public bool IsProjectileDisposed;
 
@@ -60,6 +61,8 @@ namespace Core.Item.Projectiles
             _targetPosition = target;
             _originPosition = originPosition;
             _stats = stats;
+            _projectileView = GetComponent<ProjectileView>();
+            _projectileView.target = target;
         }
 
         public void DisposeProjectile()
